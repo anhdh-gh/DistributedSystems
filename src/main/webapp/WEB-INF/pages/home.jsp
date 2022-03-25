@@ -3,16 +3,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <jsp:include page="./includes/html-head.jsp" />
         <title>Home</title>
+        <jsp:include page="./includes/html-head.jsp" />
     </head>
     <body>
         <!-- Loader begin -->
         <jsp:include page="./includes/loader.jsp"/>
         <!-- Loader end -->
 
-        <h1>Hello home!</h1>
-        
+        <div class="container-xl">
+            <!-- Header begin -->
+            <jsp:include page="./includes/header.jsp"/>
+            <!-- Header end -->  
+        </div>      
+
         <!-- Footer begin -->
         <jsp:include page="./includes/html-body.jsp" />
         <!-- Footer end -->
