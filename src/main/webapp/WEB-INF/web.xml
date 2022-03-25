@@ -3,6 +3,9 @@
     <listener>
         <listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
     </listener>
+    <welcome-file-list>  
+        <welcome-file>/WEB-INF/pages/home.jsp</welcome-file>  
+    </welcome-file-list>  
     <servlet>
         <servlet-name>ExamForBerkeley</servlet-name>
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
