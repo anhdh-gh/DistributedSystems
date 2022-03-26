@@ -63,7 +63,7 @@
         $("a").each(function (i) {
             const href = $(this).attr("href");
             if(href.includes("?wsdl"))
-                $(this).attr("href", window.location.origin + href);
+                $(this).attr("href", window.location.origin.replace("https://", "http://") + href);
         });
     });
 </script>
