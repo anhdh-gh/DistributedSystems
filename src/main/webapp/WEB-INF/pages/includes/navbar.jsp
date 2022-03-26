@@ -21,7 +21,7 @@
                     </span>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/berkeley'/>">Berkeley</a></li>
-                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/trung-bình'/>">Trung bình</a></li>
+                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/trung-binh'/>">Trung bình</a></li>
                     </ul>
                 </li>
             </ul>

@@ -11,6 +11,11 @@
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>ExamForTrungBinh</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ExamForBerkeley</servlet-name>
         <url-pattern>/ExamForBerkeley</url-pattern>
@@ -23,6 +28,10 @@
         <exception-type>java.lang.Throwable</exception-type>
         <location>/WEB-INF/pages/error.jsp</location>
     </error-page>
+    <servlet-mapping>
+        <servlet-name>ExamForTrungBinh</servlet-name>
+        <url-pattern>/ExamForTrungBinh</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
