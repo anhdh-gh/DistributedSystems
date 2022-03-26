@@ -41,13 +41,13 @@ public class ExamForBerkeley {
         double totalPoint = 0;
         if (!username.equals("") && !password.equals("") && examId != 0
                 && questionId != 0 && calibrateMs != null && !correctedDateTime.equals("")) {
-            double answerPoint = (double) 10 / 6;
 
             QuestionBerkeley questionBerkeley = QuestionBerkeley.getQuestionBerkeleyByQuestionId(questionId);
             if (questionBerkeley == null) {
                 return "uestionId không tồn tại";
             }
             int[] calibratedRes = questionBerkeley.getCalibratedRes();
+            double answerPoint = (double) 10 / calibratedRes.length + 1;
 
             for (int i = 0; i < calibratedRes.length; i++) {
                 if (calibrateMs.get(i) != calibratedRes[i]) {
