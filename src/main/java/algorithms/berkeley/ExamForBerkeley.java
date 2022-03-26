@@ -1,4 +1,4 @@
-package berkeley;
+package algorithms.berkeley;
 
 import java.util.List;
 import javax.jws.WebService;

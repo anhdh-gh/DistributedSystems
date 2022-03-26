@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!--Footer-->
 <div id="footer-page" class="
      mt-4
@@ -28,8 +31,6 @@
 </div>
 
 <!-- Javascript -->
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <script src="<c:url value='${request.contextPath}/assets/js/bootstrap.bundle.min.js'/>"></script>
 
 <script src="<c:url value='${request.contextPath}/assets/js/jquery-3.6.0.min.js'/>"></script>
@@ -42,9 +43,14 @@
 <script src="<c:url value='${request.contextPath}/assets/js/loader.js'/>"></script>
 
 <script>
-    // Initialize tooltips
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl);
+    $(document).ready(() => {
+        // Initialize tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+        
+        // Set active link in navbar
+        $("nav a[href='" + window.location.pathname +"']").addClass('active text-danger');
     });
 </script>

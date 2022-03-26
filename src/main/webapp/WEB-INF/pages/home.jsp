@@ -11,9 +11,13 @@
         <jsp:include page="./includes/loader.jsp"/>
         <!-- Loader end -->
 
-        <div class="container-xl">
+        <div class="container-xl min-vh-100">
             <!-- Header begin -->
             <jsp:include page="./includes/header.jsp"/>
+            <!-- Header end -->  
+
+            <!-- Header begin -->
+            <jsp:include page="./includes/navbar.jsp"/>
             <!-- Header end -->  
         </div>      
 
