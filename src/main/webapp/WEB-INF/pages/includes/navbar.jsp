@@ -24,6 +24,18 @@
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/trung-binh'/>">Trung bình</a></li>
                     </ul>
                 </li>
+
+                <li class="nav-item dropdown">
+                    <span class="
+                          nav-link
+                          dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                          >
+                        Algorithms
+                    </span>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/vector_timestamp'/>">Nhãn thời gian vector</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
