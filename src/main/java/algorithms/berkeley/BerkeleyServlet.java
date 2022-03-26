@@ -19,6 +19,6 @@ public class BerkeleyServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("questionBerkeleys", QuestionBerkeley.getQuestionBerkeleys());
-        req.getRequestDispatcher("/WEB-INF/pages/berkeley/berkeley-list.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/pages/berkeley.jsp").forward(req, resp);
     }
 }

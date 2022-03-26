@@ -21,7 +21,7 @@ public class ExamForBerkeley {
 
             QuestionBerkeley questionBerkeley = QuestionBerkeley.getQuestionBerkeleyByQuestionId(questionId);
             if (questionBerkeley == null) {
-                return "questionId không tồn tại";
+                return "QuestionId không tồn tại";
             }
 
             memberTimes.value = questionBerkeley.getMemberTimes();
@@ -45,7 +45,7 @@ public class ExamForBerkeley {
 
             QuestionBerkeley questionBerkeley = QuestionBerkeley.getQuestionBerkeleyByQuestionId(questionId);
             if (questionBerkeley == null) {
-                return "questionId không tồn tại";
+                return "uestionId không tồn tại";
             }
             int[] calibratedRes = questionBerkeley.getCalibratedRes();
 
