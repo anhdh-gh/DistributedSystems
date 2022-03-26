@@ -51,6 +51,12 @@
         });
         
         // Set active link in navbar
-        $("nav a[href='" + window.location.pathname +"']").addClass('active text-danger');
+        $("nav a[href='" + window.location.pathname +"']").addClass('active');
+        $("nav .nav-item.dropdown").each(function(i) {
+            if($(this).find("a.active").length > 0) {
+                $(this).children("span").removeClass("active");
+                $(this).children("span").first().addClass("active");
+            }
+        });
     });
 </script>

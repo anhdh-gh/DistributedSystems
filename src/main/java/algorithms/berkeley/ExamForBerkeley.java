@@ -11,42 +11,54 @@ import javax.xml.ws.Holder;
 public class ExamForBerkeley {
 
     @WebMethod(operationName = "getInputData")
-    public String getInputData(@WebParam(name = "username") String username, 
-            @WebParam(name = "password") String password, 
-            @WebParam(name = "examId") int examId, 
-            @WebParam(name = "questionId") long questionId, 
+    public String getInputData(@WebParam(name = "username") String username,
+            @WebParam(name = "password") String password,
+            @WebParam(name = "examId") int examId,
+            @WebParam(name = "questionId") long questionId,
             @WebParam(name = "memberTimes", mode = WebParam.Mode.OUT) Holder<String[]> memberTimes) {
-        if(!username.equals("") && !password.equals("") && examId != 0
-                && questionId != 0 && memberTimes != null){
-            memberTimes.value = new String[5];
-            memberTimes.value[0] = "2021-10-28 07:55:02.239";
-            memberTimes.value[1] = "2021-10-28 07:54:02.114";
-            memberTimes.value[2] = "2021-10-28 07:56:02.414";
-            memberTimes.value[3] = "2021-10-28 07:54:02.014";
-            memberTimes.value[4] = "2021-10-28 07:56:02.514";
-            return "Thanh cong";
+        if (!username.equals("") && !password.equals("") && examId != 0
+                && questionId != 0 && memberTimes != null) {
+
+            QuestionBerkeley questionBerkeley = QuestionBerkeley.getQuestionBerkeleyByQuestionId(questionId);
+            if (questionBerkeley == null) {
+                return "questionId không tồn tại";
+            }
+
+            memberTimes.value = questionBerkeley.getMemberTimes();
+            return "Lay de bai thanh cong";
         }
         return "Chua du tham so";
     }
-    
-        @WebMethod(operationName = "submit")
-    public String submit(@WebParam(name = "username") String username, 
-            @WebParam(name = "password") String password, 
-            @WebParam(name = "examId") int examId, 
-            @WebParam(name = "questionId") long questionId, 
-            @WebParam(name = "calibrateMs") @XmlElement(required = true, nillable = false) List<Integer> calibrateMs, 
+
+    @WebMethod(operationName = "submit")
+    public String submit(@WebParam(name = "username") String username,
+            @WebParam(name = "password") String password,
+            @WebParam(name = "examId") int examId,
+            @WebParam(name = "questionId") long questionId,
+            @WebParam(name = "calibrateMs") @XmlElement(required = true, nillable = false) List<Integer> calibrateMs,
             @WebParam(name = "correctedDateTime") String correctedDateTime) {
-        if(!username.equals("") && !password.equals("") && examId != 0
-                && questionId != 0 && calibrateMs != null && !correctedDateTime.equals("")){
-            int[] calibratedRes = {20, 60145, -60155, 60245, -60255};
-            for(int i = 0; i < calibratedRes.length; i++){
-                if(calibrateMs.get(i) != calibratedRes[i])
-                    return "Sai";
+
+        double totalPoint = 0;
+        if (!username.equals("") && !password.equals("") && examId != 0
+                && questionId != 0 && calibrateMs != null && !correctedDateTime.equals("")) {
+            double answerPoint = (double) 10 / 6;
+
+            QuestionBerkeley questionBerkeley = QuestionBerkeley.getQuestionBerkeleyByQuestionId(questionId);
+            if (questionBerkeley == null) {
+                return "questionId không tồn tại";
             }
-            if(!correctedDateTime.equals("2021-10-28 07:55:02.259"))
-                return "Sai";
-            return "Dung";
+            int[] calibratedRes = questionBerkeley.getCalibratedRes();
+
+            for (int i = 0; i < calibratedRes.length; i++) {
+                if (calibrateMs.get(i) != calibratedRes[i]) {
+                    totalPoint += answerPoint;
+                }
+            }
+            if (correctedDateTime.equals(questionBerkeley.getCorrectedDateTime())) {
+                totalPoint += answerPoint;
+            }
         }
-        return "Thieu tham so";
+        String ketQua = "Diem so cua ban la: " + ((double) Math.round(totalPoint * 10) / 10) + " diem";
+        return ketQua;
     }
 }

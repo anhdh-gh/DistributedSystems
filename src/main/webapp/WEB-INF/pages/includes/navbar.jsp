@@ -10,7 +10,10 @@
                 </li>
                 
                 <li class="nav-item dropdown">
-                    <span class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="
+                        nav-link 
+                        dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                    >
                         Services
                     </span>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
