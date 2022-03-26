@@ -38,7 +38,7 @@
                         <tbody class="fw-bold align-middle">
                             <tr>
                                 <td class="text-center">1</td>
-                                <td><a target="_blank" href="<c:url value='${request.contextPath}/ExamForBerkeley?wsdl'/>"><script>document.write(window.location.origin);</script>${pageContext.request.contextPath}/ExamForBerkeley?wsdl</a></td>
+                                <td><a target="_blank" href="<c:url value='${request.contextPath}/ExamForBerkeley?wsdl'/>"><script>document.write(window.location.origin.replace("https://", "http://"));</script>${pageContext.request.contextPath}/ExamForBerkeley?wsdl</a></td>
                                 <td>Web Service cho giải thuật Berkeley</td>
                             </tr>
                         </tbody>
