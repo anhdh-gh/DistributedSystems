@@ -58,5 +58,12 @@
                 $(this).children("span").first().addClass("active");
             }
         });
+        
+        // Replace https://...?wsdl to http://...?wsdl
+        $("a").each(function (i) {
+            const href = $(this).attr("href");
+            if(href.includes("https://") && href.includes("?wsdl"))
+                $(this).attr("href", href.replace("https://", "http://"));
+        });
     });
 </script>
