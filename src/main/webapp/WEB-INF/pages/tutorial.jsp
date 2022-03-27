@@ -38,6 +38,9 @@ b) Hướng dẫn code
     - Trong VS, chỗ Solution Explorer, bấm nút Show All Files -> Nháy chuột phải vào thư mục code -> chọn Include in Project
     - Click chuộc phải vào chữ "References" -> "Add references" -> Search "System.Web.Services" trong Assembly -> Tích vào
     - Ra file program.cs và code theo yêu cầu đề bài, sử dụng các hàm của file sinh bởi wsdl
+    - Sử dụng các hàm trong file serive (ở thư mục code):
+        + Hàm getInputData() để lấy đề bài
+        + Hàm submit() để gửi kết quả lên server
             </pre>
             <!-- Tutorial service end -->
         </div>      

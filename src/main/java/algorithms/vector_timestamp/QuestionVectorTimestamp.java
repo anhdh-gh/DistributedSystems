@@ -7,24 +7,11 @@ import java.util.List;
 public class QuestionVectorTimestamp {
 
     private final int vector_id;
-    private final String[][] deBai;
     private final List<String> listMes;
     private final String[][] res;
 
-    private QuestionVectorTimestamp(int vector_id, String deBai00, String deBai10, String deBai20, List<String> listMes, String[][] res) {
+    private QuestionVectorTimestamp(int vector_id, List<String> listMes, String[][] res) {
         this.vector_id = vector_id;
-
-        deBai = new String[3][9];
-        for (int i = 0; i < 3; i++) {
-            for (int j = 1; j < 9; j++) {
-                deBai[i][j] = "e" + (i + 1) + "," + j;
-            }
-        }
-
-        deBai[0][0] = deBai00;
-        deBai[1][0] = deBai10;
-        deBai[2][0] = deBai20;
-
         this.res = res;
         this.listMes = listMes;
     }
@@ -32,9 +19,6 @@ public class QuestionVectorTimestamp {
     private static final List<QuestionVectorTimestamp> questionVectorTimestamps = new ArrayList<>(Arrays.asList(
             new QuestionVectorTimestamp(
                     1,
-                    "6,9,12",
-                    "6,9,12",
-                    "3,6,9",
                     Arrays.asList(
                             "e2,1 gửi và e3,2 nhận",
                             "e1,1 gửi và e2,2 nhận",
@@ -52,9 +36,6 @@ public class QuestionVectorTimestamp {
             ),
             new QuestionVectorTimestamp(
                     2,
-                    "8,11,14",
-                    "10,13,16",
-                    "10,13,16",
                     Arrays.asList(
                             "e2,1 gửi và e3,2 nhận",
                             "e1,1 gửi và e2,2 nhận",
@@ -72,9 +53,6 @@ public class QuestionVectorTimestamp {
             ),
             new QuestionVectorTimestamp(
                     3,
-                    "7,19,10",
-                    "7,12,9",
-                    "9,19,9",
                     Arrays.asList(
                             "e1,1 gửi và e3,4 nhận",
                             "e1,2 gửi và e3,3 nhận",
@@ -95,9 +73,6 @@ public class QuestionVectorTimestamp {
             ),
             new QuestionVectorTimestamp(
                     4,
-                    "9,12,15",
-                    "9,12,15",
-                    "3,6,9",
                     Arrays.asList(
                             "e1,1 gửi và e2,2 nhận",
                             "e3,1 gửi và e1,2 nhận",
@@ -117,10 +92,6 @@ public class QuestionVectorTimestamp {
 
     public int getVector_id() {
         return vector_id;
-    }
-
-    public String[][] getDeBai() {
-        return deBai;
     }
 
     public List<String> getListMes() {

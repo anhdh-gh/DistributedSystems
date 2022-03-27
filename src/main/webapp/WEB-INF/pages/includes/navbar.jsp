@@ -34,6 +34,7 @@
                     </span>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/vector_timestamp'/>">Nhãn thời gian vector</a></li>
+                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/schlosser'/>">Schlosser</a></li>
                     </ul>
                 </li>
             </ul>

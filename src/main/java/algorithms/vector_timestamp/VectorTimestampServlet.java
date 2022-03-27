@@ -21,9 +21,9 @@ public class VectorTimestampServlet extends HttpServlet {
             String[][] ans = new String[3][9];
             String[][] res = questionVectorTimestamp.getRes();
             for (int i = 0; i < ans.length; i++) {
-                for (int j = 0; j < ans[i].length; j++) {
+                for (int j = 1; j < ans[i].length; j++) { // 3 ô đầu tiên mỗi hàng ko tính điểm
                     ans[i][j] = req.getParameter(i + "-" + j);
-                    if (j != 0 && res[i][j].equals(ans[i][j])) { // 3 ô đầu tiên mỗi hàng ko tính điểm
+                    if (res[i][j].equals(ans[i][j])) { 
                         score += answerPoint;
                     }
                 }

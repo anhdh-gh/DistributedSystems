@@ -66,7 +66,7 @@
                 <c:forEach var="questionVectorTimestamp" items="${questionVectorTimestamps}" varStatus="status">
                     <form class="collapse" action="<c:url value='${request.contextPath}/vector_timestamp'/>" method="post" id="de-${questionVectorTimestamp.vector_id}">
                         <div class="d-flex justify-content-between mb-3">
-                            <h3 class="text-success">Đề số: <c:out value="${questionVectorTimestamp.vector_id}"></c:out></h3>
+                            <h3 class="text-success mb-0">Đề số: <c:out value="${questionVectorTimestamp.vector_id}"></c:out></h3>
                                 <input class="btn btn-success" type="submit" value="Nộp bài">
                             </div>
 
@@ -92,10 +92,16 @@
                                     <c:forEach var="icr" begin="0" end="2" step="1">
                                         <c:set var="i" value="${2-icr}"/>
                                         <tr>
-                                            <th class="text-danger">P${i+1}</th>
+                                            <th class="text-danger text-center">P${i+1}</th>
                                                 <c:forEach var="j" begin="0" end="8" step="+1">
                                                 <td>
-                                                    <input style="min-width: 100px" class="form-control" type="text" name="${i}-${j}" value="${questionVectorTimestamp.deBai[i][j]}" class="text-danger" size="10">
+                                                    <c:if test="${j == 0}">
+                                                        ${questionVectorTimestamp.res[i][j]}
+                                                    </c:if>
+                                                    
+                                                    <c:if test="${j != 0}">
+                                                        <input style="min-width: 100px" class="form-control" type="text" name="${i}-${j}" value="e${i + 1},${j}" class="text-danger" size="10">
+                                                    </c:if>
                                                 </td>
                                             </c:forEach>                                       
                                         </tr>
@@ -133,8 +139,16 @@
                                 <c:set var="i" value="${2-icr}"/>
                                 <tr>
                                     <th class="text-danger">P${i+1}</th>
-                                        <c:forEach var="j" begin="0" end="8" step="+1">
-                                        <td>${ans[i][j]}</td>
+                                    <c:forEach var="j" begin="0" end="8" step="+1">
+                                        <td>
+                                            <c:if test="${j == 0}">
+                                                ${questionVectorTimestamp.res[i][j]}
+                                            </c:if>
+                                                    
+                                            <c:if test="${j != 0}">
+                                                ${ans[i][j]}
+                                            </c:if>
+                                        </td>
                                     </c:forEach>                                       
                                 </tr>
                             </c:forEach>
