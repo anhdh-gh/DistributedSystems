@@ -8,8 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import util.ServletUtil;
 
-@WebServlet(name = "VectorTimestampServlet", urlPatterns = {"/vector_timestamp"})
+@WebServlet(name = "VectorTimestampServlet", urlPatterns = {"/vector-timestamp"})
 public class VectorTimestampServlet extends HttpServlet {
+    
+    @Override
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Xét có thể nhận dc tiếng việt
+        request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
+        
+        // Phải gọi cả hàm này của lớp cha
+        super.service(request, response);
+    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -35,7 +45,7 @@ public class VectorTimestampServlet extends HttpServlet {
             req.setAttribute("questionVectorTimestamp", questionVectorTimestamp);
             ServletUtil.forward("/WEB-INF/pages/vector_timestamp.jsp", req, resp);
         } catch (NumberFormatException | NullPointerException e) {
-            ServletUtil.sendRedirect("vector_timestamp", req, resp);
+            ServletUtil.sendRedirect("/vector-timestamp", req, resp);
         }
     }
 

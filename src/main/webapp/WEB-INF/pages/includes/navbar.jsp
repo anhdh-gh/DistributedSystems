@@ -20,10 +20,11 @@
                         Algorithms
                     </span>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/vector_timestamp'/>">Nhãn thời gian vector</a></li>
+                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/vector-timestamp'/>">Nhãn thời gian vector</a></li>
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/schlosser'/>">Schlosser</a></li>
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/berkeley'/>">Berkeley</a></li>
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/trung-binh'/>">Trung bình</a></li>
+                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/bau-chon'/>">Bầu chọn không dây</a></li>
                     </ul>
                 </li>
                 

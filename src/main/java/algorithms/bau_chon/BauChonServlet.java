@@ -1,4 +1,4 @@
-package algorithms.schlosser;
+package algorithms.bau_chon;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,9 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import util.ServletUtil;
 
-
-@WebServlet(name = "SchlosserServlet", urlPatterns = {"/schlosser"})
-public class SchlosserServlet extends HttpServlet {
+@WebServlet(name = "BauChonServlet", urlPatterns = {"/bau-chon"})
+public class BauChonServlet extends HttpServlet {
     
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,37 +24,41 @@ public class SchlosserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            QuestionSchlosser questionSchlosser = QuestionSchlosser.getQuestionSchlosserById(Integer.parseInt(req.getParameter("id")));
+            QuestionBauChon questionBauChon = QuestionBauChon.getQuestionBauChonById(Integer.parseInt(req.getParameter("id")));
+
             int countValue = 0;
             int countCorrectValue = 0;
             
-            String[][] ans = new String[questionSchlosser.getSoNut()][questionSchlosser.getSoNut()];
-            int[][] res = questionSchlosser.getResult();
-            for (int i = 0; i < ans.length; i++) {
-                for (int j = 0; j < ans[i].length; j++) {
-                    ans[i][j] = req.getParameter(i + "-" + j);
-                    if(res[i][j] != 0) {
+            String[][] danAnAns = new String[questionBauChon.getSo_tien_trinh()][questionBauChon.getSo_tien_trinh()];
+            String[][] dapAn = questionBauChon.getDapAn();
+            
+            for (int i = 0; i < dapAn.length; i++) {
+                for (int j = 0; j < dapAn[i].length; j++) { 
+                    danAnAns[i][j] = req.getParameter("dapAn-" + i + "-" + j);
+                    
+                    if(!dapAn[i][j].isEmpty()) {
                         countValue++;
-                        if(ans[i][j].equals(res[i][j] + ""))
+                        if (dapAn[i][j].replace(" (được chọn)", "").equals(danAnAns[i][j])) { 
                             countCorrectValue++;
+                        }                        
                     }
                 }
             }
 
             req.setAttribute("score", (double) ((double) Math.round(((double) 10/countValue)*countCorrectValue * 10) / 10));
-            req.setAttribute("ans", ans);
+            req.setAttribute("danAnAns", danAnAns);
             req.setAttribute("isSolved", true);
-            req.setAttribute("questionSchlosser", questionSchlosser);
-            ServletUtil.forward("/WEB-INF/pages/schlosser.jsp", req, resp);
+            req.setAttribute("questionBauChon", questionBauChon);
+            ServletUtil.forward("/WEB-INF/pages/bau_chon.jsp", req, resp);
         } catch (NumberFormatException | NullPointerException e) {
-            ServletUtil.sendRedirect("/schlosser", req, resp);
+            ServletUtil.sendRedirect("/bau-chon", req, resp);
         }
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("questionSchlossers", QuestionSchlosser.getQuestionSchlossers());
+        req.setAttribute("questionBauChons", QuestionBauChon.getQuestionBauChons());
         req.setAttribute("isSolved", false);
-        ServletUtil.forward("/WEB-INF/pages/schlosser.jsp", req, resp);
+        ServletUtil.forward("/WEB-INF/pages/bau_chon.jsp", req, resp);
     }
 }

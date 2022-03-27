@@ -64,7 +64,7 @@
             <!-- Nhãn thời gian vector bai lam begin -->
             <c:if test="${isSolved == false}">
                 <c:forEach var="questionVectorTimestamp" items="${questionVectorTimestamps}" varStatus="status">
-                    <form class="collapse" action="<c:url value='${request.contextPath}/vector_timestamp'/>" method="post" id="de-${questionVectorTimestamp.vector_id}">
+                    <form class="collapse" action="<c:url value='${request.contextPath}/vector-timestamp'/>" method="post" id="de-${questionVectorTimestamp.vector_id}">
                         <div class="d-flex justify-content-between mb-3">
                             <h3 class="text-success mb-0">Đề số: <c:out value="${questionVectorTimestamp.vector_id}"></c:out></h3>
                                 <input class="btn btn-success" type="submit" value="Nộp bài">
@@ -162,7 +162,7 @@
             <c:if test="${isSolved == true}">
                 <div class="d-flex justify-content-between mb-2">
                     <h3 class="text-success mb-0">Đáp án</h3>
-                    <a class="btn btn-success" href="<c:url value='${request.contextPath}/vector_timestamp'/>">Back</a>
+                    <a class="btn btn-success" href="<c:url value='${request.contextPath}/vector-timestamp'/>">Back</a>
                 </div>
 
                 <div class="table-responsive">
