@@ -17,24 +17,26 @@
                           nav-link
                           dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"
                           >
-                        Services
-                    </span>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/berkeley'/>">Berkeley</a></li>
-                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/trung-binh'/>">Trung bình</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <span class="
-                          nav-link
-                          dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-                          >
                         Algorithms
                     </span>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/vector_timestamp'/>">Nhãn thời gian vector</a></li>
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/schlosser'/>">Schlosser</a></li>
+                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/berkeley'/>">Berkeley</a></li>
+                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/trung-binh'/>">Trung bình</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <span class="
+                          nav-link
+                          dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                          >
+                        Services
+                    </span>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/berkeley'/>">Berkeley</a></li>
+                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/trung-binh'/>">Trung bình</a></li>
                     </ul>
                 </li>
             </ul>

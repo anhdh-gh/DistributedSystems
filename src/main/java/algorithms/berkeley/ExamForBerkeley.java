@@ -47,7 +47,7 @@ public class ExamForBerkeley {
                 return "QuestionId không tồn tại";
             }
             int[] calibratedRes = questionBerkeley.getCalibratedRes();
-            double answerPoint = (double) 10 / calibratedRes.length + 1;
+            double answerPoint = (double) 10 / (calibratedRes.length + 1);
 
             for (int i = 0; i < calibratedRes.length; i++) {
                 if (calibrateMs.get(i) == calibratedRes[i]) {
