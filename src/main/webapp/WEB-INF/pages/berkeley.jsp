@@ -22,7 +22,7 @@
 
             <!-- Berkeley url begin -->
             <h4 class="fw-bold mt-5 pb-3 border-4 border-bottom border-danger d-inline-block">1. Berkeley URL services</h4>
-            <div class="row mt-2">
+            <div class="mt-2">
                 <div class="table-responsive">
                     <table class="table table-hover border border-danger table-bordered align-middle w-100">
                         <thead
@@ -49,7 +49,7 @@
 
             <!-- Berkeley list question begin -->
             <h4 class="fw-bold mt-5 pb-3 border-4 border-bottom border-danger d-inline-block">2. Berkeley questions</h4>
-            <div class="row mt-2">
+            <div class="mt-2">
                 <div class="table-responsive">
                     <table class="table table-hover border border-danger table-bordered align-middle w-100">
                         <thead
