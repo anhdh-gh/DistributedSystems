@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import util.ServletUtil;
 
-@WebServlet(name = "BerkeleyService", urlPatterns = {"/berkeley"})
-public class BerkeleyService extends HttpServlet {
+@WebServlet(name = "BerkeleyServlet", urlPatterns = {"/berkeley"})
+public class BerkeleyServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
