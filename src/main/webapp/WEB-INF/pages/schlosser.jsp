@@ -47,8 +47,11 @@
                 <c:forEach var="questionSchlosser" items="${questionSchlossers}" varStatus="status">
                     <form class="collapse" action="<c:url value='${request.contextPath}/schlosser'/>" method="post" id="de-${questionSchlosser.id}">
                         <div class="d-flex justify-content-between mb-3">
-                            <h3 class="text-success mb-0">N = <c:out value="${questionSchlosser.soNut}"></c:out></h3>
-                            <h6 class="text-danger mb-0"><c:out value="Số lượng láng giềng cho mỗi nút: ${questionSchlosser.so_lang_gieng}"></c:out></h6>
+                            <div>
+                                <h6 class="text-success mb-0">N = <c:out value="${questionSchlosser.soNut}"></c:out></h6>
+                                <p class="text-danger mb-0"><c:out value="Số lượng láng giềng cho mỗi nút: ${questionSchlosser.so_lang_gieng}"></c:out></p>
+                            </div>
+                            
                             <input class="btn btn-success" type="submit" value="Nộp bài">
                         </div>
 
@@ -84,8 +87,10 @@
             
             <c:if test="${isSolved == true}">
                 <div class="d-flex justify-content-between mb-2">
-                    <h3 class="text-success mb-0">N = <c:out value="${questionSchlosser.soNut}"></c:out></h3>
-                    <h6 class="text-danger mb-0"><c:out value="Số lượng láng giềng cho mỗi nút: ${questionSchlosser.so_lang_gieng}"></c:out></h6>
+                    <div>
+                        <h6 class="text-success mb-0">N = <c:out value="${questionSchlosser.soNut}"></c:out></h6>
+                        <p class="text-danger mb-0"><c:out value="Số lượng láng giềng cho mỗi nút: ${questionSchlosser.so_lang_gieng}"></c:out></p>
+                    </div>
                     <h3 class="text-danger mb-0">Điểm: <c:out value="${score}"></c:out></h3>
                 </div>
 

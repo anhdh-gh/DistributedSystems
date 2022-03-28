@@ -4,10 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import lombok.Getter;
 import util.DateUtil;
 
-@Getter
 public class QuestionCristianNtp {
 
     private final long questionId;
@@ -59,5 +57,57 @@ public class QuestionCristianNtp {
         }
         
         return null;
+    }
+
+    public long getQuestionId() {
+        return questionId;
+    }
+
+    public short[] getNtpMesage() {
+        return ntpMesage;
+    }
+
+    public long getDifferentTicks() {
+        return differentTicks;
+    }
+
+    public String getOriginateSendTimestamp() {
+        return DateUtil.getDateTimeStringUTCFormat(originateSendTimestamp);
+    }
+
+    public String getReceiveTimestamp() {
+        return DateUtil.getDateTimeStringUTCFormat(receiveTimestamp);
+    }
+
+    public String getTransmitTimestamp() {
+        return DateUtil.getDateTimeStringUTCFormat(transmitTimestamp);
+    }
+
+    public String getOriginateReceiveTime() {
+        return DateUtil.getDateTimeStringUTCFormat(originateReceiveTime);
+    }
+
+    public String getDateTimeAfterSynchronize() {
+        return DateUtil.getDateTimeStringUTCFormat(dateTimeAfterSynchronize);
+    }
+
+    public Date getOriginateSendTimestampDate() {
+        return originateSendTimestamp;
+    }
+
+    public Date getReceiveTimestampDate() {
+        return receiveTimestamp;
+    }
+
+    public Date getTransmitTimestampDate() {
+        return transmitTimestamp;
+    }
+
+    public Date getOriginateReceiveTimeDate() {
+        return originateReceiveTime;
+    }
+
+    public Date getDateTimeAfterSynchronizeDate() {
+        return dateTimeAfterSynchronize;
     }
 }
