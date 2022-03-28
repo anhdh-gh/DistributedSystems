@@ -3,7 +3,9 @@ package algorithms.trungbinh;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import lombok.Getter;
 
+@Getter
 public class QuestionTrungBinh {
 
     private final long questionId;
@@ -14,18 +16,6 @@ public class QuestionTrungBinh {
         this.questionId = questionId;
         this.memberTimes = memberTimes;
         this.correctedMs = correctedMs;
-    }
-
-    public long getQuestionId() {
-        return questionId;
-    }
-
-    public String[] getMemberTimes() {
-        return memberTimes;
-    }
-
-    public List<String> getCorrectedMs() {
-        return correctedMs;
     }
 
     private static final List<QuestionTrungBinh> questionTrungBinhs = new ArrayList<>(Arrays.asList(

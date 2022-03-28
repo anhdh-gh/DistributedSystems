@@ -3,6 +3,14 @@
     <welcome-file-list>
         <welcome-file>/WEB-INF/pages/home.jsp</welcome-file>
     </welcome-file-list>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/pages/error.jsp</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/WEB-INF/pages/error.jsp</location>
+    </error-page>
     <listener>
         <listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
     </listener>
@@ -20,14 +28,6 @@
         <servlet-name>ExamForBerkeley</servlet-name>
         <url-pattern>/ExamForBerkeley</url-pattern>
     </servlet-mapping>
-    <error-page>
-        <error-code>404</error-code>
-        <location>/WEB-INF/pages/error.jsp</location>
-    </error-page>
-    <error-page>
-        <exception-type>java.lang.Throwable</exception-type>
-        <location>/WEB-INF/pages/error.jsp</location>
-    </error-page>
     <servlet-mapping>
         <servlet-name>ExamForTrungBinh</servlet-name>
         <url-pattern>/ExamForTrungBinh</url-pattern>

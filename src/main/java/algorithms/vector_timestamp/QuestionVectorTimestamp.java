@@ -3,7 +3,9 @@ package algorithms.vector_timestamp;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import lombok.Getter;
 
+@Getter
 public class QuestionVectorTimestamp {
 
     private final int vector_id;
@@ -89,18 +91,6 @@ public class QuestionVectorTimestamp {
                     }
             )
     ));
-
-    public int getVector_id() {
-        return vector_id;
-    }
-
-    public List<String> getListMes() {
-        return listMes;
-    }
-
-    public String[][] getRes() {
-        return res;
-    }
 
     public static List<QuestionVectorTimestamp> getQuestionVectorTimestamps() {
         return questionVectorTimestamps;

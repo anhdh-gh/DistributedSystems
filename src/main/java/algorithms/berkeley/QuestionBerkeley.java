@@ -3,29 +3,15 @@ package algorithms.berkeley;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import lombok.Getter;
 
+@Getter
 public class QuestionBerkeley {
 
     private final long questionId;
     private final String[] memberTimes;
     private final int[] calibratedRes;
     private final String correctedDateTime;
-
-    public long getQuestionId() {
-        return questionId;
-    }
-
-    public String[] getMemberTimes() {
-        return memberTimes;
-    }
-
-    public int[] getCalibratedRes() {
-        return calibratedRes;
-    }
-
-    public String getCorrectedDateTime() {
-        return correctedDateTime;
-    }
 
     private QuestionBerkeley(int questionId, String[] memberTimes, int[] calibratedRes, String correctedDateTime) {
         this.questionId = questionId;

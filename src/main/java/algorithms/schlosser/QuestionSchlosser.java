@@ -3,7 +3,9 @@ package algorithms.schlosser;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import lombok.Getter;
 
+@Getter
 public class QuestionSchlosser {
     
     private final int id;
@@ -16,22 +18,6 @@ public class QuestionSchlosser {
         this.soNut = soNut;
         this.so_lang_gieng = so_lang_gieng;
         this.result = result;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public int getSoNut() {
-        return soNut;
-    }
-
-    public int[][] getResult() {
-        return result;
-    }
-
-    public int getSo_lang_gieng() {
-        return so_lang_gieng;
     }
     
     private static int getLengthBinary(int n) {

@@ -3,7 +3,9 @@ package algorithms.bau_chon;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import lombok.Getter;
 
+@Getter
 public class QuestionBauChon {
 
     private final int id;
@@ -16,22 +18,6 @@ public class QuestionBauChon {
         this.so_tien_trinh = so_tien_trinh;
         this.deBai = deBai;
         this.dapAn = dapAn;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public int getSo_tien_trinh() {
-        return so_tien_trinh;
-    }
-
-    public String[][] getDeBai() {
-        return deBai;
-    }
-
-    public String[][] getDapAn() {
-        return dapAn;
     }
 
     public static List<QuestionBauChon> getQuestionBauChons() {
