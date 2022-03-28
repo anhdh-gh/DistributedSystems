@@ -54,11 +54,11 @@
 
                         <input type="hidden" name="id" value="${questionSchlosser.id}">
 
-                        <div class="table-responsive">
+                        <div class="table-responsive position-relative">
                             <table class="table table-hover border border-danger table-bordered align-middle w-100">
                                 <thead style="background-color: #d30000" class="text-white align-middle">
                                     <tr class="text-center align-middle text-nowrap">
-                                        <th scope="col">Nút</th>
+                                        <th style="background-color: #d30000" scope="col" class="position-sticky start-0">Nút</th>
                                         <c:forEach var="i" begin="0" end="${questionSchlosser.soNut-1}" step="1">
                                             <th scope="col">${i}</th>
                                         </c:forEach>
@@ -67,7 +67,7 @@
                                 <tbody class="fw-bold align-middle text-black">
                                     <c:forEach var="i" begin="0" end="${questionSchlosser.soNut-1}" step="1">
                                         <tr>
-                                            <th class="text-danger text-center">${i}</th>
+                                            <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">${i}</th>
                                             <c:forEach var="j" begin="0" end="${questionSchlosser.soNut-1}" step="1">
                                                 <td>
                                                     <input class="form-control" type="text" name="${i}-${j}" class="text-danger">
@@ -89,11 +89,11 @@
                     <h3 class="text-danger mb-0">Điểm: <c:out value="${score}"></c:out></h3>
                 </div>
 
-                <div class="table-responsive">
+                <div class="table-responsive position-relative">
                     <table class="table table-hover border border-danger table-bordered align-middle w-100">
                         <thead style="background-color: #d30000" class="text-white align-middle">
                             <tr class="text-center align-middle text-nowrap">
-                                <th scope="col">Nút</th>
+                                <th style="background-color: #d30000" scope="col" class="position-sticky start-0">Nút</th>
                                 <c:forEach var="i" begin="0" end="${questionSchlosser.soNut-1}" step="1">
                                     <th scope="col">${i}</th>
                                 </c:forEach>
@@ -102,7 +102,7 @@
                         <tbody class="fw-bold align-middle text-black text-center">
                             <c:forEach var="i" begin="0" end="${questionSchlosser.soNut-1}" step="1">
                                 <tr>
-                                    <th class="text-danger text-center">${i}</th>
+                                    <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">${i}</th>
                                     <c:forEach var="j" begin="0" end="${questionSchlosser.soNut-1}" step="1">
                                         <td>${ans[i][j]}</td>
                                     </c:forEach>                                       
@@ -116,16 +116,16 @@
 
             <!-- Nhãn thời gian vector ketqua begin -->
             <c:if test="${isSolved == true}">
-                <div class="d-flex justify-content-between mb-2">
+                <div class="d-flex justify-content-between mb-2 mt-4">
                     <h3 class="text-success mb-0">Đáp án</h3>
                     <a class="btn btn-success" href="<c:url value='${request.contextPath}/schlosser'/>">Back</a>
                 </div>
 
-                <div class="table-responsive">
+                <div class="table-responsive position-relative">
                     <table class="table table-hover border border-danger table-bordered align-middle w-100">
                         <thead style="background-color: #d30000" class="text-white align-middle">
                             <tr class="text-center align-middle text-nowrap">
-                                <th scope="col">Nút</th>
+                                <th style="background-color: #d30000" scope="col" class="position-sticky start-0">Nút</th>
                                 <c:forEach var="i" begin="0" end="${questionSchlosser.soNut-1}" step="1">
                                     <th scope="col">${i}</th>
                                 </c:forEach>
@@ -134,7 +134,7 @@
                         <tbody class="fw-bold align-middle text-black text-center">
                             <c:forEach var="i" begin="0" end="${questionSchlosser.soNut-1}" step="1">
                                 <tr>
-                                    <th class="text-danger text-center">${i}</th>
+                                    <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">${i}</th>
                                     <c:forEach var="j" begin="0" end="${questionSchlosser.soNut-1}" step="1">
                                         <td>
                                             <c:if test="${questionSchlosser.result[i][j] != 0}">

@@ -79,7 +79,7 @@
 
             <!-- Trung bình ketqua begin -->
             <c:if test="${isSolved == true}">
-                <div class="d-flex justify-content-between mb-2">
+                <div class="d-flex justify-content-between mb-2 mt-4">
                     <h3 class="text-success mb-0">Đáp án đề ${questionTrungBinh.questionId}:</h3>
                     <h3 class="text-danger mb-0">Điểm: <c:out value="${score}"></c:out></h3>
                 </div>

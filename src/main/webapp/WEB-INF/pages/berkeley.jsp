@@ -139,7 +139,7 @@
 
             <!-- Berkeley ketqua begin -->
             <c:if test="${isSolved == true}">
-                <div class="d-flex justify-content-between mb-2">
+                <div class="d-flex justify-content-between mb-2 mt-4">
                     <h3 class="text-success mb-0">Đáp án</h3>
                     <a class="btn btn-success" href="<c:url value='${request.contextPath}/berkeley'/>">Back</a>
                 </div>

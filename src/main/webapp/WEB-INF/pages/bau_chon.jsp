@@ -84,10 +84,10 @@
 
                             <input type="hidden" name="id" value="${questionBauChon.id}">
 
-                        <div class="table-responsive">
+                        <div class="table-responsive position-relative">
                             <table class="table table-hover border border-danger table-bordered align-middle w-100">
                                 <thead style="background-color: #d30000" class="text-white align-middle text-center">
-                                    <th scope="col">Tiến trình</th>
+                                    <th style="background-color: #d30000" scope="col" class="position-sticky start-0">Tiến trình</th>
                                     <c:forEach var="i" begin="0" end="${questionBauChon.so_tien_trinh-1}">
                                        <th scope="col">P${i+1}</th>
                                     </c:forEach>                                            
@@ -95,7 +95,7 @@
                                 <tbody class="fw-bold align-middle text-black">
                                     <c:forEach var="i" begin="0" end="${questionBauChon.so_tien_trinh-1}" step="1">
                                         <tr>
-                                            <th class="text-danger text-center">P${i+1}</th>
+                                            <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">P${i+1}</th>
                                             <c:forEach var="j" begin="0" end="${questionBauChon.so_tien_trinh-1}" step="1">
                                                 <td>
                                                     <input style="min-width: 100px" class="form-control" type="text" name="dapAn-${i}-${j}" class="text-danger" size="10">
@@ -116,10 +116,10 @@
                     <h3 class="text-danger mb-0">Điểm: <c:out value="${score}"></c:out></h3>
                     </div>
 
-                    <div class="table-responsive">
+                    <div class="table-responsive position-relative">
                         <table class="table table-hover border border-danger table-bordered align-middle w-100">
                             <thead style="background-color: #d30000" class="text-white align-middle text-center">
-                                <th scope="col">Tiến trình</th>
+                                <th style="background-color: #d30000" scope="col" class="position-sticky start-0">Tiến trình</th>
                                 <c:forEach var="i" begin="0" end="${questionBauChon.so_tien_trinh-1}">
                                    <th scope="col">P${i+1}</th>
                                 </c:forEach>                                            
@@ -128,7 +128,7 @@
                                 <tbody class="fw-bold align-middle text-black">
                                     <c:forEach var="i" begin="0" end="${questionBauChon.so_tien_trinh-1}" step="1">
                                         <tr class="text-center">
-                                            <th class="text-danger">P${i+1}</th>
+                                            <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">P${i+1}</th>
                                             <c:forEach var="j" begin="0" end="${questionBauChon.so_tien_trinh-1}" step="1">
                                                 <td>${danAnAns[i][j]}</td>
                                             </c:forEach>                                       
@@ -148,10 +148,10 @@
                     <a class="btn btn-success" href="<c:url value='${request.contextPath}/bau-chon'/>">Back</a>
                 </div>
 
-                <div class="table-responsive">
+                <div class="table-responsive position-relative">
                     <table class="table table-hover border border-danger table-bordered align-middle w-100">
                         <thead style="background-color: #d30000" class="text-white align-middle text-center">
-                            <th scope="col">
+                            <th style="background-color: #d30000" scope="col" class="position-sticky start-0">
                                 Nhận <br/>
                                 <i class="fa-solid fa-arrow-right-long"></i> <br/>
                                 Gửi <br/>
@@ -164,7 +164,7 @@
                         <tbody class="fw-bold align-middle text-black">
                             <c:forEach var="i" begin="0" end="${questionBauChon.so_tien_trinh-1}" step="1">
                                 <tr>
-                                    <th class="text-danger text-center">P${i+1}</th>
+                                    <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">P${i+1}</th>
                                     <c:forEach var="j" begin="0" end="${questionBauChon.so_tien_trinh-1}" step="1">
                                         <c:if test="${fn:contains(questionBauChon.dapAn[i][j], '(được chọn)')}">
                                             <c:set var = "dapAn" value = "${fn:replace(questionBauChon.dapAn[i][j], '(được chọn)', '<br/>(được chọn)')}" />

@@ -72,11 +72,11 @@
 
                             <input type="hidden" name="vector_id" value="${questionVectorTimestamp.vector_id}">
 
-                        <div class="table-responsive">
+                        <div class="table-responsive position-relative">
                             <table class="table table-hover border border-danger table-bordered align-middle w-100">
                                 <thead style="background-color: #d30000" class="text-white align-middle">
                                     <tr class="text-center align-middle text-nowrap">
-                                        <th scope="col">TT</th>
+                                        <th style="background-color: #d30000" scope="col" class="position-sticky start-0">TT</th>
                                         <th scope="col">eX,0</th>
                                         <th scope="col">eX,1</th>
                                         <th scope="col">eX,2</th>
@@ -92,7 +92,7 @@
                                     <c:forEach var="icr" begin="0" end="2" step="1">
                                         <c:set var="i" value="${2-icr}"/>
                                         <tr>
-                                            <th class="text-danger text-center">P${i+1}</th>
+                                            <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">P${i+1}</th>
                                                 <c:forEach var="j" begin="0" end="8" step="+1">
                                                 <td>
                                                     <c:if test="${j == 0}">
@@ -118,11 +118,11 @@
                     <h3 class="text-danger mb-0">Điểm: <c:out value="${score}"></c:out></h3>
                     </div>
 
-                    <div class="table-responsive">
+                    <div class="table-responsive position-relative">
                         <table class="table table-hover border border-danger table-bordered align-middle w-100">
                             <thead style="background-color: #d30000" class="text-white align-middle">
                                 <tr class="text-center align-middle text-nowrap">
-                                    <th scope="col">TT</th>
+                                    <th style="background-color: #d30000" scope="col" class="position-sticky start-0">TT</th>
                                     <th scope="col">eX,0</th>
                                     <th scope="col">eX,1</th>
                                     <th scope="col">eX,2</th>
@@ -138,7 +138,7 @@
                             <c:forEach var="icr" begin="0" end="2" step="1">
                                 <c:set var="i" value="${2-icr}"/>
                                 <tr>
-                                    <th class="text-danger">P${i+1}</th>
+                                    <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">P${i+1}</th>
                                     <c:forEach var="j" begin="0" end="8" step="+1">
                                         <td>
                                             <c:if test="${j == 0}">
@@ -160,16 +160,16 @@
 
             <!-- Nhãn thời gian vector ketqua begin -->
             <c:if test="${isSolved == true}">
-                <div class="d-flex justify-content-between mb-2">
+                <div class="d-flex justify-content-between mb-2 mt-4">
                     <h3 class="text-success mb-0">Đáp án</h3>
                     <a class="btn btn-success" href="<c:url value='${request.contextPath}/vector-timestamp'/>">Back</a>
                 </div>
 
-                <div class="table-responsive">
+                <div class="table-responsive position-relative">
                     <table class="table table-hover border border-danger table-bordered align-middle w-100">
                         <thead style="background-color: #d30000" class="text-white align-middle">
                             <tr class="text-center align-middle text-nowrap">
-                                <th scope="col">TT</th>
+                                <th style="background-color: #d30000" scope="col" class="position-sticky start-0">TT</th>
                                 <th scope="col">eX,0</th>
                                 <th scope="col">eX,1</th>
                                 <th scope="col">eX,2</th>
@@ -185,7 +185,7 @@
                             <c:forEach var="icr" begin="0" end="2" step="1">
                                 <c:set var="i" value="${2-icr}"/>
                                 <tr>
-                                    <th class="text-danger">P${i+1}</th>
+                                    <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">P${i+1}</th>
                                         <c:forEach var="j" begin="0" end="8" step="+1">
                                         <td>${questionVectorTimestamp.res[i][j]}</td>
                                     </c:forEach>                                       

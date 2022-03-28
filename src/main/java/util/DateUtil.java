@@ -1,16 +1,18 @@
 package util;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
-public class DateTimeUtil {
+public class DateUtil {
 
     private static final long TICKS_AT_EPOCH = 621355968000000000L;
     private static final long TICKS_PER_MILLISECOND = 10000;
+    private static final SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 
-    private DateTimeUtil() {
+    private DateUtil() {
     }
 
     public static long getUTCTicks(Date date) {
@@ -23,9 +25,16 @@ public class DateTimeUtil {
         return new Date((UTCTicks - TICKS_AT_EPOCH) / TICKS_PER_MILLISECOND);
     }
 
+    public static Date parse(String str) {
+        try {
+            return formater.parse(str);
+        } catch (ParseException ex) {
+            return null;
+        }
+    }
+
     public static String getDateTimeStringUTCFormat(Date date) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-        sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
-        return sdf.format(date);
+        formater.setTimeZone(TimeZone.getTimeZone("UTC"));
+        return formater.format(date);
     }
 }
