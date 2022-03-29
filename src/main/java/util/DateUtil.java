@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class DateUtil {
 
-    private static final long TICKS_AT_EPOCH = 621356220000000000L;
+    private static final long TICKS_AT_EPOCH = 621355968000000000L;
     private static final long TICKS_PER_MILLISECOND = 10000;
     private static final SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 
