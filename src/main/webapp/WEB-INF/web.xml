@@ -24,6 +24,11 @@
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>ExamForCristianNTP</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ExamForBerkeley</servlet-name>
         <url-pattern>/ExamForBerkeley</url-pattern>
@@ -31,6 +36,10 @@
     <servlet-mapping>
         <servlet-name>ExamForTrungBinh</servlet-name>
         <url-pattern>/ExamForTrungBinh</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExamForCristianNTP</servlet-name>
+        <url-pattern>/ExamForCristianNTP</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

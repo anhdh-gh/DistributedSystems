@@ -9,7 +9,7 @@ import util.DateUtil;
 public class QuestionCristianNtp {
 
     private final long questionId;
-    private final short[] ntpMesage; // Bản tin Ntp
+    private final byte[] ntpMesage; // Bản tin Ntp
     private final Date originateSendTimestamp; // T1
     private final Date receiveTimestamp; // T2
     private final Date transmitTimestamp; // T3
@@ -19,7 +19,11 @@ public class QuestionCristianNtp {
 
     private QuestionCristianNtp(long questionId, short[] ntpMesage, Date originateSendTimestamp, Date receiveTimestamp, Date transmitTimestamp, Date originateReceiveTime, long differentTicks, Date dateTimeAfterSynchronize) {
         this.questionId = questionId;
-        this.ntpMesage = ntpMesage;
+        this.ntpMesage = new byte[ntpMesage.length];
+        for(int i = 0 ; i < ntpMesage.length ; i++) {
+            Short s = ntpMesage[i];
+            this.ntpMesage[i] = s.byteValue();
+        }
         this.originateSendTimestamp = originateSendTimestamp;
         this.receiveTimestamp = receiveTimestamp;
         this.transmitTimestamp = transmitTimestamp;
@@ -64,6 +68,13 @@ public class QuestionCristianNtp {
     }
 
     public short[] getNtpMesage() {
+        short[] arr = new short[ntpMesage.length];
+        for(int i = 0 ; i < arr.length ; i++)
+            arr[i] = (short) Byte.toUnsignedInt(ntpMesage[i]);
+        return arr;
+    }
+    
+    public byte[] getNtpMesageByte() {
         return ntpMesage;
     }
 
@@ -72,23 +83,23 @@ public class QuestionCristianNtp {
     }
 
     public String getOriginateSendTimestamp() {
-        return DateUtil.getDateTimeStringUTCFormat(originateSendTimestamp);
+        return DateUtil.getDateTimeStringFormat(originateSendTimestamp);
     }
 
     public String getReceiveTimestamp() {
-        return DateUtil.getDateTimeStringUTCFormat(receiveTimestamp);
+        return DateUtil.getDateTimeStringFormat(receiveTimestamp);
     }
 
     public String getTransmitTimestamp() {
-        return DateUtil.getDateTimeStringUTCFormat(transmitTimestamp);
+        return DateUtil.getDateTimeStringFormat(transmitTimestamp);
     }
 
     public String getOriginateReceiveTime() {
-        return DateUtil.getDateTimeStringUTCFormat(originateReceiveTime);
+        return DateUtil.getDateTimeStringFormat(originateReceiveTime);
     }
 
     public String getDateTimeAfterSynchronize() {
-        return DateUtil.getDateTimeStringUTCFormat(dateTimeAfterSynchronize);
+        return DateUtil.getDateTimeStringFormat(dateTimeAfterSynchronize);
     }
 
     public Date getOriginateSendTimestampDate() {
@@ -109,5 +120,9 @@ public class QuestionCristianNtp {
 
     public Date getDateTimeAfterSynchronizeDate() {
         return dateTimeAfterSynchronize;
+    }
+    
+    public long getOriginateTimeUtcTick() {
+        return DateUtil.getUTCTicks(this.originateReceiveTime);
     }
 }

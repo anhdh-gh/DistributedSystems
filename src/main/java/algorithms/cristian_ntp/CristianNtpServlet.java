@@ -1,8 +1,6 @@
 package algorithms.cristian_ntp;
 
-import algorithms.trungbinh.QuestionTrungBinh;
 import java.io.IOException;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
