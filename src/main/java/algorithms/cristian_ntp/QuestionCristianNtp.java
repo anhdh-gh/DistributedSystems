@@ -16,8 +16,10 @@ public class QuestionCristianNtp {
     private final Date originateReceiveTime; // T4
     private final long differentTicks; // Theta
     private final Date dateTimeAfterSynchronize; // FinalDateTime
+    
+    private final long originateTimeUtcTick; // T4 Tick (C#)
 
-    private QuestionCristianNtp(long questionId, short[] ntpMesage, Date originateSendTimestamp, Date receiveTimestamp, Date transmitTimestamp, Date originateReceiveTime, long differentTicks, Date dateTimeAfterSynchronize) {
+    private QuestionCristianNtp(long questionId, short[] ntpMesage, Date originateSendTimestamp, Date receiveTimestamp, Date transmitTimestamp, Date originateReceiveTime, long differentTicks, Date dateTimeAfterSynchronize, long originateTimeUtcTick) {
         this.questionId = questionId;
         this.ntpMesage = new byte[ntpMesage.length];
         for(int i = 0 ; i < ntpMesage.length ; i++) {
@@ -30,6 +32,7 @@ public class QuestionCristianNtp {
         this.originateReceiveTime = originateReceiveTime;
         this.differentTicks = differentTicks;
         this.dateTimeAfterSynchronize = dateTimeAfterSynchronize;
+        this.originateTimeUtcTick = originateTimeUtcTick;
     }
 
     private static final List<QuestionCristianNtp> questionCristianNtps = new ArrayList<>(Arrays.asList(
@@ -46,7 +49,8 @@ public class QuestionCristianNtp {
                     DateUtil.parse("2019-10-09 16:37:20.163"),
                     DateUtil.parse("2019-10-09 16:37:29.229"),
                     18420000,
-                    DateUtil.parse("2019-10-09 16:37:31.071")
+                    DateUtil.parse("2019-10-09 16:37:31.071"),
+                    637062358492290000L
             )
     ));
 
@@ -121,8 +125,8 @@ public class QuestionCristianNtp {
     public Date getDateTimeAfterSynchronizeDate() {
         return dateTimeAfterSynchronize;
     }
-    
+
     public long getOriginateTimeUtcTick() {
-        return DateUtil.getUTCTicks(this.originateReceiveTime);
+        return originateTimeUtcTick;
     }
 }

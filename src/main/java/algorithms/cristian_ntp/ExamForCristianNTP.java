@@ -24,7 +24,7 @@ public class ExamForCristianNTP {
 
             QuestionCristianNtp questionCristianNtp = QuestionCristianNtp.getQuestionCristianNtpByQuestionId(questionId);
             if (questionCristianNtp == null) {
-                return "QuestionId không tồn tại";
+                return "QuestionId khong ton tai";
             }
 
             originateTimeUtcTick.value = questionCristianNtp.getOriginateTimeUtcTick();
@@ -52,7 +52,7 @@ public class ExamForCristianNTP {
 
             QuestionCristianNtp questionCristianNtp = QuestionCristianNtp.getQuestionCristianNtpByQuestionId(questionId);
             if(questionCristianNtp == null)
-                return "QuestionId không tồn tại";
+                return "QuestionId khong ton tai";
             
             double answerPoint = (double) 10/6;
             

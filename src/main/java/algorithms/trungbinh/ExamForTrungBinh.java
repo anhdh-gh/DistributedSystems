@@ -21,7 +21,7 @@ public class ExamForTrungBinh {
 
             QuestionTrungBinh questionTrungBinh = QuestionTrungBinh.getQuestionTrungBinhByQuestionId(questionId);
             if (questionTrungBinh == null) {
-                return "QuestionID không tồn tại";
+                return "QuestionId khong ton tai";
             }
 
             memberTimes.value = questionTrungBinh.getMemberTimes();
@@ -43,7 +43,7 @@ public class ExamForTrungBinh {
 
             QuestionTrungBinh questionTrungBinh = QuestionTrungBinh.getQuestionTrungBinhByQuestionId(questionId);
             if (questionTrungBinh == null) {
-                return "QuestionID không tồn tại";
+                return "QuestionId khong ton tai";
             }
 
             double answerPoint = (double) 10 / questionTrungBinh.getMemberTimes().length;

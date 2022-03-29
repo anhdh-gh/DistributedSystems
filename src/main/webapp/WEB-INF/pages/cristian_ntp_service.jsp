@@ -75,7 +75,7 @@
                                         <div class="collapse" id="debai-${questionCristianNtp.questionId}">
                                             <div class="card card-body text-start">
                                                 <ul>
-                                                    <li class="text-danger">OriginateTimeUtcTick: ${questionCristianNtp.getOriginateTimeUtcTick()}</li>
+                                                    <li class="text-danger">OriginateTimeUtcTick: ${questionCristianNtp.originateTimeUtcTick}</li>
                                                     <li>
                                                         <p class="text-danger">NtpMesage:</p>
                                                         <div class="table-responsive position-relative" style="max-width: 70vw;">
