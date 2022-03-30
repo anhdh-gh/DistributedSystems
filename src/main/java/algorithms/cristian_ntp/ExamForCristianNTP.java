@@ -47,8 +47,15 @@ public class ExamForCristianNTP {
             @WebParam(name = "dateTimeAfterSynchronize") @XmlElement(required = true, nillable = false, type = Serializable.class) Date dateTimeAfterSynchronize) {
 
         double totalPoint = 0;
-        if (!username.equals("") && !password.equals("") && examId != 0
-                && questionId != 0 && originateSendTimestamp != null && receiveTimestamp != null && transmitTimestamp != null && originateReceiveTime != null && differentTicks > 0 && dateTimeAfterSynchronize != null) {
+        if (!username.equals("") && 
+            !password.equals("") && 
+            examId != 0 && 
+            questionId != 0 && 
+            originateSendTimestamp != null && 
+            receiveTimestamp != null && 
+            transmitTimestamp != null && 
+            originateReceiveTime != null && 
+            dateTimeAfterSynchronize != null) {
 
             QuestionCristianNtp questionCristianNtp = QuestionCristianNtp.getQuestionCristianNtpByQuestionId(questionId);
             if(questionCristianNtp == null)
