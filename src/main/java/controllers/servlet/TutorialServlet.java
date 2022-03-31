@@ -1,5 +1,4 @@
-package controllers;
-
+package controllers.servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -9,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import util.ServletUtil;
 
-@WebServlet(name = "HomeServlet", urlPatterns = {""})
-public class HomeServlet extends HttpServlet {
+@WebServlet(name = "TutorialServlet", urlPatterns = {"/tutorial"})
+public class TutorialServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,7 +23,7 @@ public class HomeServlet extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ServletUtil.sendRedirect("/tutorial", req, resp);
+        ServletUtil.forward("/WEB-INF/pages/tutorial.jsp", req, resp);
     }
 
     @Override
