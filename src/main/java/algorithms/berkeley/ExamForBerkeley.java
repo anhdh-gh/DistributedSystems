@@ -6,6 +6,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.ws.Holder;
+import model.Account;
 
 @WebService(serviceName = "ExamForBerkeley")
 public class ExamForBerkeley {
@@ -18,6 +19,9 @@ public class ExamForBerkeley {
             @WebParam(name = "memberTimes", mode = WebParam.Mode.OUT) Holder<String[]> memberTimes) {
         if (!username.equals("") && !password.equals("") && examId != 0
                 && questionId != 0 && memberTimes != null) {
+            
+            if(Account.authentication(username, password) == null)
+                return "Username hoac password khong dung";
 
             QuestionBerkeley questionBerkeley = QuestionBerkeley.getQuestionBerkeleyByQuestionId(questionId);
             if (questionBerkeley == null) {
@@ -41,6 +45,9 @@ public class ExamForBerkeley {
         double totalPoint = 0;
         if (!username.equals("") && !password.equals("") && examId != 0
                 && questionId != 0 && calibrateMs != null && !correctedDateTime.equals("")) {
+            
+            if(Account.authentication(username, password) == null)
+                return "Username hoac password khong dung";
 
             QuestionBerkeley questionBerkeley = QuestionBerkeley.getQuestionBerkeleyByQuestionId(questionId);
             if (questionBerkeley == null) {

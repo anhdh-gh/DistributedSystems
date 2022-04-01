@@ -142,7 +142,10 @@
             </div>
         </div>
         <!-- End -->
-        <jsp:include page="./includes/html-body.jsp" />
+
+        <!-- Javascript begin -->
+        <jsp:include page="./includes/html-body-end.jsp" />
+        <!-- Javascript end -->
 
 
         <script type="text/javascript">

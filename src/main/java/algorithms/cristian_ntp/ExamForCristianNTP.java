@@ -7,6 +7,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.ws.Holder;
+import model.Account;
 
 @WebService(serviceName = "ExamForCristianNTP")
 public class ExamForCristianNTP {
@@ -21,6 +22,9 @@ public class ExamForCristianNTP {
 
         if (!username.equals("") && !password.equals("") && examId != 0
                 && questionId != 0 && originateTimeUtcTick != null && ntpMesage != null) {
+            
+            if(Account.authentication(username, password) == null)
+                return "Username hoac password khong dung";
 
             QuestionCristianNtp questionCristianNtp = QuestionCristianNtp.getQuestionCristianNtpByQuestionId(questionId);
             if (questionCristianNtp == null) {
@@ -56,6 +60,9 @@ public class ExamForCristianNTP {
             transmitTimestamp != null && 
             originateReceiveTime != null && 
             dateTimeAfterSynchronize != null) {
+            
+            if(Account.authentication(username, password) == null)
+                return "Username hoac password khong dung";
 
             QuestionCristianNtp questionCristianNtp = QuestionCristianNtp.getQuestionCristianNtpByQuestionId(questionId);
             if(questionCristianNtp == null)

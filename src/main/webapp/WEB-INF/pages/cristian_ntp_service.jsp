@@ -17,9 +17,9 @@
             <jsp:include page="./includes/header.jsp"/>
             <!-- Header end -->  
 
-            <!-- Header begin -->
+            <!-- Navbar begin -->
             <jsp:include page="./includes/navbar.jsp"/>
-            <!-- Header end --> 
+            <!-- Navbar end -->   
 
             <!-- Cristian NTP url begin -->
             <h4 class="fw-bold mt-5 pb-3 border-4 border-bottom border-danger d-inline-block">1. Cristian-NTP URL services</h4>
@@ -145,7 +145,11 @@
         </div>      
 
         <!-- Footer begin -->
-        <jsp:include page="./includes/html-body.jsp" />
+        <jsp:include page="./includes/footer.jsp" />
         <!-- Footer end -->
+
+        <!-- Javascript begin -->
+        <jsp:include page="./includes/html-body-end.jsp" />
+        <!-- Javascript end -->
     </body>
 </html>
