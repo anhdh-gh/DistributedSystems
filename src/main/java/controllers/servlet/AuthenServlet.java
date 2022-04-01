@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Account;
 import util.ServletUtil;
 
 
@@ -29,6 +30,15 @@ public class AuthenServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        this.doGet(req, resp);
+        String username = req.getParameter("username");
+        String password = req.getParameter("password");
+        
+        Account account = Account.authentication(username, password);
+        if(account == null)
+            ServletUtil.sendRedirect("/signin", req, resp);
+        else {
+            req.getSession().setAttribute("account", account);
+            ServletUtil.sendRedirect("/", req, resp);
+        }
     }    
 }
