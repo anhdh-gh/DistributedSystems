@@ -11,12 +11,10 @@
         <exception-type>java.lang.Throwable</exception-type>
         <location>/WEB-INF/pages/error.jsp</location>
     </error-page>
-    
     <filter-mapping>
         <filter-name>ClearSessionFilter</filter-name>
         <url-pattern>/signin</url-pattern>
     </filter-mapping>
-    
     <filter-mapping>
         <filter-name>NoCacheFilter</filter-name>
         <url-pattern>/tutorial</url-pattern>
@@ -30,8 +28,7 @@
         <url-pattern>/service/trung-binh</url-pattern>
         <url-pattern>/service/cristian-ntp</url-pattern>
     </filter-mapping>
-    
-     <filter-mapping>
+    <filter-mapping>
         <filter-name>AuthenticationFilter</filter-name>
         <url-pattern>/tutorial</url-pattern>
         <url-pattern>/vector-timestamp</url-pattern>
@@ -44,7 +41,6 @@
         <url-pattern>/service/trung-binh</url-pattern>
         <url-pattern>/service/cristian-ntp</url-pattern>
     </filter-mapping>
-    
     <listener>
         <listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
     </listener>
