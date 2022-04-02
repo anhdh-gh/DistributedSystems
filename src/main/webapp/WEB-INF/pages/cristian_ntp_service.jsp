@@ -196,7 +196,7 @@
                     // Update the count every 1 second
                     let max = Math.round(((new Date().getTime() + ${requestScope.timeForTest} * 60 * 1000) - new Date().getTime()) / 1000);
 
-                    let countSeconds = 2397;
+                    let countSeconds = 0;
                     x = setInterval(function () {
                         countSeconds++;
 
