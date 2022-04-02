@@ -16,6 +16,7 @@ public class TrungBinhServiceServlet extends HttpServlet {
         // Xét có thể nhận dc tiếng việt
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
+        request.setAttribute("timeForTest", 40);
         
         // Phải gọi cả hàm này của lớp cha
         super.service(request, response);

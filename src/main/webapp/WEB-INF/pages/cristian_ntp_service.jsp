@@ -142,7 +142,35 @@
                 </div>               
             </div>
             <!-- Cristian NTP list question end -->
-        </div>      
+            
+            <!-- Thời gian begin -->
+            <h4 class="fw-bold mt-5 pb-3 border-4 border-bottom border-danger d-inline-block">3. Tính thời gian</h4>
+            
+            <div class="mt-3">
+                <p class="mt-2 fs-4 text-danger">Thời gian làm bài: ${requestScope.timeForTest} phút.</p>
+                <p id="time" class="mt-2 fs-4 text-success"></p>
+                <button id="time-control" class="btn btn-success" onclick="countTime()">Start</button>
+            </div>
+            <!-- Thời gian end -->
+        </div>  
+                
+        <!-- Modal -->
+        <div id="notify" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Hết giờ</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Đã hết ${requestScope.timeForTest} phút làm bài.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Footer begin -->
         <jsp:include page="./includes/footer.jsp" />
@@ -151,5 +179,46 @@
         <!-- Javascript begin -->
         <jsp:include page="./includes/html-body-end.jsp" />
         <!-- Javascript end -->
+        
+        <script>
+            let x;
+            let notify = new bootstrap.Modal(document.getElementById('notify'));
+
+            function countTime() {
+                
+                if($('#time-control').text() === 'Stop') {
+                    clearInterval(x);
+                    $('#time-control').text("Start");
+                }
+                else if($('#time-control').text() === 'Start') {
+                    $('#time-control').text("Stop");
+
+                    // Update the count every 1 second
+                    let max = Math.round(((new Date().getTime() + ${requestScope.timeForTest} * 60 * 1000) - new Date().getTime()) / 1000);
+
+                    let countSeconds = 2397;
+                    x = setInterval(function () {
+                        countSeconds++;
+
+                        // Time calculations for hours, minutes and seconds
+                        let hours = Math.floor(countSeconds / (60 * 60));
+                        let minutes = Math.floor((countSeconds % (60 * 60)) / (60));
+                        let seconds = Math.floor((countSeconds % (60)));
+                        ;
+
+                        // Output the result in an element
+                        let text = "Thời gian: ";
+                        text += (hours < 10 ? "0" + hours : hours) + ":";
+                        text += (minutes < 10 ? "0" + minutes : minutes) + ":";
+                        text += (seconds < 10 ? "0" + seconds : seconds);
+
+                        $('#time').text(text);
+
+                        if (countSeconds === max)
+                            notify.show();
+                    }, 1000);                    
+                }
+            }
+        </script>       
     </body>
 </html>
