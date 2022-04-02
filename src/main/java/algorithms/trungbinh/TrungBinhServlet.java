@@ -17,6 +17,7 @@ public class TrungBinhServlet extends HttpServlet {
         // Xét có thể nhận dc tiếng việt
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
+        request.setAttribute("timeForTest", 30);
         
         // Phải gọi cả hàm này của lớp cha
         super.service(request, response);
@@ -54,6 +55,7 @@ public class TrungBinhServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("questionTrungBinhs", QuestionTrungBinh.getQuestionTrungBinhs());
         req.setAttribute("isSolved", false);
+        req.setAttribute("timeForTest", 30);
         ServletUtil.forward("/WEB-INF/pages/trung_binh.jsp", req, resp);
     }
 }

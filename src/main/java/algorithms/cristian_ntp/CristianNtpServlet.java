@@ -16,6 +16,7 @@ public class CristianNtpServlet extends HttpServlet {
         // Xét có thể nhận dc tiếng việt
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
+        request.setAttribute("timeForTest", 30);
 
         // Phải gọi cả hàm này của lớp cha
         super.service(request, response);
@@ -70,6 +71,7 @@ public class CristianNtpServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("questionCristianNtps", QuestionCristianNtp.getQuestionCristianNtps());
         req.setAttribute("isSolved", false);
+        req.setAttribute("timeForTest", 30);
         ServletUtil.forward("/WEB-INF/pages/cristian_ntp.jsp", req, resp);
     }
 }
