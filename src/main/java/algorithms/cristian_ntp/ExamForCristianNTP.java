@@ -32,7 +32,9 @@ public class ExamForCristianNTP {
             }
 
             originateTimeUtcTick.value = questionCristianNtp.getOriginateTimeUtcTick();
-            ntpMesage.value = questionCristianNtp.getNtpMesageByte();
+            
+            byte[] ntpMessageSend = questionCristianNtp.getNtpMesageByte();
+            System.arraycopy(ntpMessageSend, 0, ntpMesage.value, 0, ntpMessageSend.length);
             return "Lay de bai thanh cong";
         }
         return "Chua du tham so";

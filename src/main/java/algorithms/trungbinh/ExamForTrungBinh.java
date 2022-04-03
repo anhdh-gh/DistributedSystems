@@ -29,7 +29,9 @@ public class ExamForTrungBinh {
                 return "QuestionId khong ton tai";
             }
 
-            memberTimes.value = questionTrungBinh.getMemberTimes();
+            String[] memberTimesSend = questionTrungBinh.getMemberTimes();
+            System.arraycopy(memberTimesSend, 0, memberTimes.value, 0, memberTimesSend.length);
+            
             return "Lay de bai thanh cong";
         }
         return "Chua du tham so";
