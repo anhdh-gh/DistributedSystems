@@ -216,7 +216,7 @@
 
         <!-- Javascript begin -->
         <jsp:include page="./includes/html-body-end.jsp" />
-        <!-- Javascript end -->>
+        <!-- Javascript end -->
 
         <script>
             let x;
