@@ -30,6 +30,8 @@ public class ExamForTrungBinh {
             }
 
             String[] memberTimesSend = questionTrungBinh.getMemberTimes();
+            if(memberTimes.value.length < memberTimesSend.length)
+                return "Mang memberTimes qua nho";
             System.arraycopy(memberTimesSend, 0, memberTimes.value, 0, memberTimesSend.length);
             
             return "Lay de bai thanh cong";

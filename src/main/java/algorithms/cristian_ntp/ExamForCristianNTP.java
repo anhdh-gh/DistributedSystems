@@ -34,6 +34,9 @@ public class ExamForCristianNTP {
             originateTimeUtcTick.value = questionCristianNtp.getOriginateTimeUtcTick();
             
             byte[] ntpMessageSend = questionCristianNtp.getNtpMesageByte();
+            if(ntpMesage.value.length < ntpMessageSend.length)
+                return "Mang ntpMesage qua nho";
+            
             System.arraycopy(ntpMessageSend, 0, ntpMesage.value, 0, ntpMessageSend.length);
             return "Lay de bai thanh cong";
         }
