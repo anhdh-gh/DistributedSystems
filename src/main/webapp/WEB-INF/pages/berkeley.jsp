@@ -235,12 +235,15 @@
                     }
                 });
 
-                // Update the count every 1 second
                 let max = Math.round(((new Date().getTime() + ${requestScope.timeForTest} * 60 * 1000) - new Date().getTime()) / 1000);
 
                 let countSeconds = 0;
+                let preTime = new Date().getTime();
+                // Update the count every 1 second
                 x = setInterval(function () {
-                    countSeconds++;
+                    let now = new Date().getTime();
+                    countSeconds += Math.round((now - preTime)/1000);
+                    preTime = now;
 
                     // Time calculations for hours, minutes and seconds
                     let hours = Math.floor(countSeconds / (60 * 60));
