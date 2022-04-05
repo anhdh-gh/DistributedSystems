@@ -47,7 +47,7 @@ public class TrungBinhServlet extends HttpServlet {
             req.setAttribute("questionTrungBinh", questionTrungBinh);
             ServletUtil.forward("/WEB-INF/pages/trung_binh.jsp", req, resp);
         } catch (NumberFormatException | NullPointerException e) {
-            ServletUtil.sendRedirect("/trung-binh", req, resp);
+            ServletUtil.sendRedirect("/algorithm/trung-binh", req, resp);
         } 
     }
 

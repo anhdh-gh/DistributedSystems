@@ -63,7 +63,7 @@ public class CristianNtpServlet extends HttpServlet {
             req.setAttribute("questionCristianNtp", questionCristianNtp);
             ServletUtil.forward("/WEB-INF/pages/cristian_ntp.jsp", req, resp);
         } catch (NumberFormatException | NullPointerException e) {
-            ServletUtil.sendRedirect("/cristian-ntp", req, resp);
+            ServletUtil.sendRedirect("/algorithm/berkeley", req, resp);
         }
     }
 

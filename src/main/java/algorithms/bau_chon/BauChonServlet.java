@@ -52,7 +52,7 @@ public class BauChonServlet extends HttpServlet {
             req.setAttribute("questionBauChon", questionBauChon);
             ServletUtil.forward("/WEB-INF/pages/bau_chon_khong_day.jsp", req, resp);
         } catch (NumberFormatException | NullPointerException e) {
-            ServletUtil.sendRedirect("/bau-chon", req, resp);
+            ServletUtil.sendRedirect("/algorithm/bau-chon-khong-day", req, resp);
         }
     }
 

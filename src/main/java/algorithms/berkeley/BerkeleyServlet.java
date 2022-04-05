@@ -56,7 +56,7 @@ public class BerkeleyServlet extends HttpServlet {
             req.setAttribute("questionBerkeley", questionBerkeley);
             ServletUtil.forward("/WEB-INF/pages/berkeley.jsp", req, resp);
         } catch (NumberFormatException | NullPointerException e) {
-            ServletUtil.sendRedirect("/berkeley", req, resp);
+            ServletUtil.sendRedirect("/algorithm/berkeley", req, resp);
         }
     }
 
