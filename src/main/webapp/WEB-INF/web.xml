@@ -15,12 +15,12 @@
     <filter-mapping>
         <filter-name>NoCacheFilter</filter-name>
         <url-pattern>/service/tutorial</url-pattern>
-        <url-pattern>/vector-timestamp</url-pattern>
-        <url-pattern>/schlosser</url-pattern>
-        <url-pattern>/berkeley</url-pattern>
-        <url-pattern>/trung-binh</url-pattern>
-        <url-pattern>/bau-chon</url-pattern>
-        <url-pattern>/cristian-ntp</url-pattern>
+        <url-pattern>/algorithm/vector-timestamp</url-pattern>
+        <url-pattern>/algorithm/schlosser</url-pattern>
+        <url-pattern>/algorithm/berkeley</url-pattern>
+        <url-pattern>/algorithm/trung-binh</url-pattern>
+        <url-pattern>/algorithm/bau-chon-khong-day</url-pattern>
+        <url-pattern>/algorithm/cristian-ntp</url-pattern>
         <url-pattern>/service/berkeley</url-pattern>
         <url-pattern>/service/trung-binh</url-pattern>
         <url-pattern>/service/cristian-ntp</url-pattern>
@@ -28,12 +28,12 @@
     <filter-mapping>
         <filter-name>AuthenticationFilter</filter-name>
         <url-pattern>/service/tutorial</url-pattern>
-        <url-pattern>/vector-timestamp</url-pattern>
-        <url-pattern>/schlosser</url-pattern>
-        <url-pattern>/berkeley</url-pattern>
-        <url-pattern>/trung-binh</url-pattern>
-        <url-pattern>/bau-chon</url-pattern>
-        <url-pattern>/cristian-ntp</url-pattern>
+        <url-pattern>/algorithm/vector-timestamp</url-pattern>
+        <url-pattern>/algorithm/schlosser</url-pattern>
+        <url-pattern>/algorithm/berkeley</url-pattern>
+        <url-pattern>/algorithm/trung-binh</url-pattern>
+        <url-pattern>/algorithm/bau-chon-khong-day</url-pattern>
+        <url-pattern>/algorithm/cristian-ntp</url-pattern>
         <url-pattern>/service/berkeley</url-pattern>
         <url-pattern>/service/trung-binh</url-pattern>
         <url-pattern>/service/cristian-ntp</url-pattern>
