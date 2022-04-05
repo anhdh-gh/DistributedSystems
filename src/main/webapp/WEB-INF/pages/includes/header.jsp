@@ -9,13 +9,13 @@
         </div>
         <div class="fs-4 d-flex d-sm-block d-md-flex justify-content-center justify-content-sm-start">
             <div class="d-flex justify-content-between">
-                <a href="#"><i data-bs-toggle="tooltip" data-bs-placement="bottom" title="Facebook" class="fa-brands fa-facebook text-primary"></i></a>
-                <a href="mailto:abc@def.com" class="ms-2 ms-sm-0 ms-md-2"><i data-bs-toggle="tooltip" data-bs-placement="bottom" title="Mail" class="far fa-envelope text-danger"></i></a>              
+                <a href="#"><i class="fa-brands fa-facebook text-primary"></i></a>
+                <a href="mailto:abc@def.com" class="ms-2 ms-sm-0 ms-md-2"><i class="far fa-envelope text-danger"></i></a>              
             </div>
 
             <div class="ms-2 ms-sm-0 ms-md-2">
-                <a href="#"><i data-bs-toggle="tooltip" data-bs-placement="bottom" title="Github" class="fab fa-github text-dark"></i></a>
-                <a href="#"><i data-bs-toggle="tooltip" data-bs-placement="bottom" title="Youtube" class="fab fa-youtube text-danger"></i></a>               
+                <a href="#"><i class="fab fa-github text-dark"></i></a>
+                <a href="#"><i class="fab fa-youtube text-danger"></i></a>               
             </div>
         </div>            
     </div>

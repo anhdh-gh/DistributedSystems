@@ -65,7 +65,7 @@
             <!-- Nhãn thời gian vector bai lam begin -->
             <c:if test="${isSolved == false}">
                 <c:forEach var="questionVectorTimestamp" items="${questionVectorTimestamps}" varStatus="status">
-                    <form class="collapse" action="<c:url value='${request.contextPath}/vector-timestamp'/>" method="post" id="de-${questionVectorTimestamp.vector_id}">
+                    <form class="collapse" action="<c:url value='${request.contextPath}/algorithm/vector-timestamp'/>" method="post" id="de-${questionVectorTimestamp.vector_id}">
                         <div class="d-flex justify-content-between mb-3">
                             <h3 class="text-success mb-0">Đề số: <c:out value="${questionVectorTimestamp.vector_id}"></c:out></h3>
                                 <input class="btn btn-success" type="submit" value="Nộp bài">

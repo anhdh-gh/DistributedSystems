@@ -45,7 +45,7 @@
             <!-- Berkeley bai lam begin -->
             <c:if test="${isSolved == false}">
                 <c:forEach var="questionBerkeley" items="${questionBerkeleys}" varStatus="status">
-                    <form class="collapse" action="<c:url value='${request.contextPath}/berkeley'/>" method="post" id="de-${questionBerkeley.questionId}">
+                    <form class="collapse" action="<c:url value='${request.contextPath}/algorithm/berkeley'/>" method="post" id="de-${questionBerkeley.questionId}">
                         <div class="d-flex justify-content-between mb-3">
                             <h3 class="text-success mb-0">Đề số: <c:out value="${questionBerkeley.questionId}"></c:out></h3>
                                 <input class="btn btn-success" type="submit" value="Nộp bài">

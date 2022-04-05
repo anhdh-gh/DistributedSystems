@@ -113,7 +113,7 @@
             <!-- Cristian NTP bai lam begin -->
             <c:if test="${isSolved == false}">
                 <c:forEach var="questionCristianNtp" items="${questionCristianNtps}" varStatus="status">
-                    <form class="collapse mt-5" action="<c:url value='${request.contextPath}/cristian-ntp'/>" method="post" id="de-${questionCristianNtp.questionId}">
+                    <form class="collapse mt-5" action="<c:url value='${request.contextPath}/algorithm/cristian-ntp'/>" method="post" id="de-${questionCristianNtp.questionId}">
                         <div class="d-flex justify-content-between mb-3">
                             <div>
                                 <h6 class="text-success mb-0">Đề số: <c:out value="${questionCristianNtp.questionId}"></c:out></h6>

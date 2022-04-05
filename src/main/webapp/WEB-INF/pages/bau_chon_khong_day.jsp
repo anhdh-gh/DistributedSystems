@@ -96,7 +96,7 @@
             <!-- Bầu chọn không dây bai lam begin -->
             <c:if test="${isSolved == false}">
                 <c:forEach var="questionBauChon" items="${questionBauChons}" varStatus="status">
-                    <form class="collapse" action="<c:url value='${request.contextPath}/bau-chon'/>" method="post" id="de-${questionBauChon.id}">
+                    <form class="collapse" action="<c:url value='${request.contextPath}/algorithm/bau-chon-khong-day'/>" method="post" id="de-${questionBauChon.id}">
                         <div class="d-flex justify-content-between mb-3">
                             <h3 class="text-success mb-0">Đề số: <c:out value="${questionBauChon.id}"></c:out></h3>
                                 <input class="btn btn-success" type="submit" value="Nộp bài">

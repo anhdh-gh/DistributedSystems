@@ -42,7 +42,7 @@
             <!-- Trung bình bai lam begin -->
             <c:if test="${isSolved == false}">
                 <c:forEach var="questionTrungBinh" items="${questionTrungBinhs}" varStatus="status">
-                    <form class="collapse" action="<c:url value='${request.contextPath}/trung-binh'/>" method="post" id="de-${questionTrungBinh.questionId}">
+                    <form class="collapse" action="<c:url value='${request.contextPath}/algorithm/trung-binh'/>" method="post" id="de-${questionTrungBinh.questionId}">
                         <div class="d-flex justify-content-between mb-3">
                             <h3 class="text-success mb-0">Đề số: <c:out value="${questionTrungBinh.questionId}"></c:out></h3>
                                 <input class="btn btn-success" type="submit" value="Nộp bài">

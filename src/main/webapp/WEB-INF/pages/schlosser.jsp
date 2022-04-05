@@ -47,7 +47,7 @@
             <!-- Nhãn thời gian vector bai lam begin -->
             <c:if test="${isSolved == false}">
                 <c:forEach var="questionSchlosser" items="${questionSchlossers}" varStatus="status">
-                    <form class="collapse" action="<c:url value='${request.contextPath}/schlosser'/>" method="post" id="de-${questionSchlosser.id}">
+                    <form class="collapse" action="<c:url value='${request.contextPath}/algorithm/schlosser'/>" method="post" id="de-${questionSchlosser.id}">
                         <div class="d-flex justify-content-between mb-3">
                             <div>
                                 <h6 class="text-success mb-0">N = <c:out value="${questionSchlosser.soNut}"></c:out></h6>
