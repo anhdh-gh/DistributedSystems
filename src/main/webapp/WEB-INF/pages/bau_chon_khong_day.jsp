@@ -103,6 +103,7 @@
                             </div>
 
                             <input type="hidden" name="id" value="${questionBauChonKhongDay.id}">
+                            <input type="hidden" name="time">
 
                         <div class="table-responsive position-relative">
                             <table class="table table-hover border border-danger table-bordered align-middle w-100">
@@ -129,7 +130,6 @@
 
                         <div class="mt-4">
                             <p id="time-${questionBauChonKhongDay.id}" class="fs-4 text-success"></p>
-                            <input id="input-time" type="hidden" name="time">
                         </div>
                     </form>                    
                 </c:forEach>
@@ -170,7 +170,7 @@
             <c:if test="${isSolved == true}">
                 <div class="d-flex justify-content-between mt-4 mb-2">
                     <h3 class="text-success mb-0">Đáp án</h3>
-                    <a class="btn btn-success" href="<c:url value='${request.contextPath}/bau-chon'/>">Back</a>
+                    <h3 class="text-success mb-0">${time}</h3>
                 </div>
 
                 <div class="table-responsive position-relative">
@@ -280,7 +280,7 @@
                     text += (seconds < 10 ? "0" + seconds : seconds);
 
                     $('#time-' + id).text(text);
-                    $('#input-time').attr("value", text);
+                    $('input[name="time"]').val(text);
 
                     if (countSeconds === max)
                         notify.show();

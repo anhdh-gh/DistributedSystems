@@ -49,6 +49,7 @@ public class BauChonKhongDayServlet extends HttpServlet {
             req.setAttribute("score", (double) ((double) Math.round(((double) 10/countValue)*countCorrectValue * 10) / 10));
             req.setAttribute("danAnAns", danAnAns);
             req.setAttribute("isSolved", true);
+            req.setAttribute("time", req.getParameter("time"));
             req.setAttribute("questionBauChonKhongDay", questionBauChonKhongDay);
             ServletUtil.forward("/WEB-INF/pages/bau_chon_khong_day.jsp", req, resp);
         } catch (NumberFormatException | NullPointerException e) {
