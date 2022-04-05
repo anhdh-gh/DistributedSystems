@@ -24,7 +24,7 @@ public class HomeServlet extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ServletUtil.sendRedirect("/tutorial", req, resp);
+        ServletUtil.sendRedirect("/service/tutorial", req, resp);
     }
 
     @Override

@@ -8,10 +8,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav d-block d-sm-flex w-100">
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="<c:url value='${request.contextPath}/tutorial'/>">Tutorial</a>
-                </li>
-
+                
                 <li class="nav-item dropdown">
                     <span class="
                           nav-link
@@ -20,12 +17,12 @@
                         Algorithms
                     </span>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/vector-timestamp'/>">Nhãn thời gian vector</a></li>
-                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/schlosser'/>">Schlosser</a></li>
-                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/berkeley'/>">Berkeley</a></li>
-                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/trung-binh'/>">Trung bình</a></li>
-                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/bau-chon'/>">Bầu chọn không dây</a></li>
-                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/cristian-ntp'/>">Cristian - NTP</a></li>
+                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/vector-timestamp'/>">Nhãn thời gian vector</a></li>
+                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/schlosser'/>">Schlosser</a></li>
+                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/berkeley'/>">Berkeley</a></li>
+                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/trung-binh'/>">Trung bình</a></li>
+                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/bau-chon-khong-day'/>">Bầu chọn không dây</a></li>
+                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/cristian-ntp'/>">Cristian - NTP</a></li>
                     </ul>
                 </li>
 
@@ -37,12 +34,13 @@
                         Services
                     </span>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/tutorial'/>">Tutorial</a></li>                    
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/berkeley'/>">Berkeley</a></li>
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/trung-binh'/>">Trung bình</a></li>
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/cristian-ntp'/>">Cristian - NTP</a></li>                    
                     </ul>
                 </li>   
-                
+
                 <li class="nav-item dropdown ms-auto">
                     <span class="
                           nav-link text-danger fw-bold

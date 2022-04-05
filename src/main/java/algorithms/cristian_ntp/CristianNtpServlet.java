@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import util.ServletUtil;
 
-@WebServlet(name = "CristianNtpServlet", urlPatterns = {"/cristian-ntp"})
+@WebServlet(name = "CristianNtpServlet", urlPatterns = {"/algorithm/cristian-ntp"})
 public class CristianNtpServlet extends HttpServlet {
 
     @Override

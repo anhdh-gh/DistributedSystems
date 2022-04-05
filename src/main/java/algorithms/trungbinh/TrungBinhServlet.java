@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import util.ServletUtil;
 
-@WebServlet(name = "TrungBinhServlet", urlPatterns = {"/trung-binh"})
+@WebServlet(name = "TrungBinhServlet", urlPatterns = {"/algorithm/trung-binh"})
 public class TrungBinhServlet extends HttpServlet {
     
     @Override

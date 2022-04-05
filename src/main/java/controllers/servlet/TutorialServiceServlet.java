@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import util.ServletUtil;
 
-@WebServlet(name = "TutorialServlet", urlPatterns = {"/tutorial"})
-public class TutorialServlet extends HttpServlet {
+@WebServlet(name = "TutorialServiceServlet", urlPatterns = {"/service/tutorial"})
+public class TutorialServiceServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

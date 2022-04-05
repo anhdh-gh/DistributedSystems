@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import util.ServletUtil;
 
-@WebServlet(name = "VectorTimestampServlet", urlPatterns = {"/vector-timestamp"})
+@WebServlet(name = "VectorTimestampServlet", urlPatterns = {"/algorithm/vector-timestamp"})
 public class VectorTimestampServlet extends HttpServlet {
     
     @Override

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import util.ServletUtil;
 
 
-@WebServlet(name = "SchlosserServlet", urlPatterns = {"/schlosser"})
+@WebServlet(name = "SchlosserServlet", urlPatterns = {"/algorithm/schlosser"})
 public class SchlosserServlet extends HttpServlet {
     
     @Override

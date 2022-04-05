@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import util.ServletUtil;
 
-@WebServlet(name = "BerkeleyServlet", urlPatterns = {"/berkeley"})
+@WebServlet(name = "BerkeleyServlet", urlPatterns = {"/algorithm/berkeley"})
 public class BerkeleyServlet extends HttpServlet {
     
     @Override

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import util.ServletUtil;
 
-@WebServlet(name = "BauChonServlet", urlPatterns = {"/bau-chon"})
+@WebServlet(name = "BauChonServlet", urlPatterns = {"/algorithm/bau-chon-khong-day"})
 public class BauChonServlet extends HttpServlet {
     
     @Override
@@ -50,7 +50,7 @@ public class BauChonServlet extends HttpServlet {
             req.setAttribute("danAnAns", danAnAns);
             req.setAttribute("isSolved", true);
             req.setAttribute("questionBauChon", questionBauChon);
-            ServletUtil.forward("/WEB-INF/pages/bau_chon.jsp", req, resp);
+            ServletUtil.forward("/WEB-INF/pages/bau_chon_khong_day.jsp", req, resp);
         } catch (NumberFormatException | NullPointerException e) {
             ServletUtil.sendRedirect("/bau-chon", req, resp);
         }
@@ -61,6 +61,6 @@ public class BauChonServlet extends HttpServlet {
         req.setAttribute("questionBauChons", QuestionBauChon.getQuestionBauChons());
         req.setAttribute("isSolved", false);
         req.setAttribute("timeForTest", 30);
-        ServletUtil.forward("/WEB-INF/pages/bau_chon.jsp", req, resp);
+        ServletUtil.forward("/WEB-INF/pages/bau_chon_khong_day.jsp", req, resp);
     }
 }
