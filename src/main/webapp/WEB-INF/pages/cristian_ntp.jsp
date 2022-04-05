@@ -122,6 +122,7 @@
                             <input class="btn btn-success" type="submit" value="Nộp bài">
                         </div>
 
+                        <input type="hidden" name="time">
                         <input type="hidden" name="questionId" value="${questionCristianNtp.questionId}">
 
                         <div class="table-responsive">
@@ -173,7 +174,7 @@
             <c:if test="${isSolved == true}">
                 <div class="d-flex justify-content-between mb-2 mt-5">
                     <h3 class="text-success">Đáp án</h3> 
-                    <a class="btn btn-success" href="<c:url value='${request.contextPath}/cristian-ntp'/>">Back</a>
+                    <h3 class="text-success mb-0">${time}</h3>
                 </div>
 
                 <div class="d-flex justify-content-between mt-4 mb-2">
@@ -299,6 +300,7 @@
                     text += (seconds < 10 ? "0" + seconds : seconds);
 
                     $('#time-' + id).text(text);
+                    $('input[name="time"]').val(text);
 
                     if (countSeconds === max)
                         notify.show();

@@ -45,6 +45,7 @@ public class TrungBinhServlet extends HttpServlet {
             req.setAttribute("correctedMsÁns", correctedMsÁns);
             req.setAttribute("isSolved", true);
             req.setAttribute("questionTrungBinh", questionTrungBinh);
+            req.setAttribute("time", req.getParameter("time"));
             ServletUtil.forward("/WEB-INF/pages/trung_binh.jsp", req, resp);
         } catch (NumberFormatException | NullPointerException e) {
             ServletUtil.sendRedirect("/algorithm/trung-binh", req, resp);

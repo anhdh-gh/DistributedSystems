@@ -71,6 +71,7 @@
                                 <input class="btn btn-success" type="submit" value="Nộp bài">
                             </div>
 
+                            <input type="hidden" name="time">
                             <input type="hidden" name="vector_id" value="${questionVectorTimestamp.vector_id}">
 
                         <div class="table-responsive position-relative">
@@ -167,7 +168,7 @@
             <c:if test="${isSolved == true}">
                 <div class="d-flex justify-content-between mb-2 mt-4">
                     <h3 class="text-success mb-0">Đáp án</h3>
-                    <a class="btn btn-success" href="<c:url value='${request.contextPath}/vector-timestamp'/>">Back</a>
+                    <h3 class="text-success mb-0">${time}</h3>
                 </div>
 
                 <div class="table-responsive position-relative">
@@ -271,6 +272,7 @@
                     text += (seconds < 10 ? "0" + seconds : seconds);
 
                     $('#time-' + id).text(text);
+                    $('input[name="time"]').val(text);
 
                     if (countSeconds === max)
                         notify.show();

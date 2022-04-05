@@ -54,6 +54,7 @@ public class BerkeleyServlet extends HttpServlet {
             req.setAttribute("correctedDateTimeAns", correctedDateTimeAns);
             req.setAttribute("isSolved", true);
             req.setAttribute("questionBerkeley", questionBerkeley);
+            req.setAttribute("time", req.getParameter("time"));
             ServletUtil.forward("/WEB-INF/pages/berkeley.jsp", req, resp);
         } catch (NumberFormatException | NullPointerException e) {
             ServletUtil.sendRedirect("/algorithm/berkeley", req, resp);

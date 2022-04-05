@@ -52,7 +52,8 @@
                             </div>
 
                             <input type="hidden" name="questionId" value="${questionBerkeley.questionId}">
-
+                            <input type="hidden" name="time">
+                            
                         <div class="table-responsive">
                             <table class="table table-hover border border-danger table-bordered align-middle w-100">
                                 <thead style="background-color: #d30000" class="text-white align-middle">
@@ -147,7 +148,7 @@
             <c:if test="${isSolved == true}">
                 <div class="d-flex justify-content-between mb-2 mt-4">
                     <h3 class="text-success mb-0">Đáp án</h3>
-                    <a class="btn btn-success" href="<c:url value='${request.contextPath}/berkeley'/>">Back</a>
+                    <<h3 class="text-success mb-0">${time}</h3>
                 </div>
 
                 <div class="table-responsive">
@@ -258,6 +259,7 @@
                     text += (seconds < 10 ? "0" + seconds : seconds);
 
                     $('#time-' + id).text(text);
+                    $('input[name="time"]').val(text);
 
                     if (countSeconds === max)
                         notify.show();

@@ -49,7 +49,8 @@
                             </div>
 
                             <input type="hidden" name="questionId" value="${questionTrungBinh.questionId}">
-
+                            <input type="hidden" name="time">
+                            
                         <div class="table-responsive">
                             <table class="table table-hover border border-danger table-bordered align-middle w-100">
                                 <thead style="background-color: #d30000" class="text-white align-middle">
@@ -114,7 +115,7 @@
                     </table>                        
                 </div>    
 
-                <a class="btn btn-success" href="<c:url value='${request.contextPath}/trung-binh'/>">Back</a>
+                <h3 class="text-success mb-0">${time}</h3>
             </c:if>
             <!-- Trung bình ketqua end -->
         </div>     
@@ -187,6 +188,7 @@
                     text += (seconds < 10 ? "0" + seconds : seconds);
 
                     $('#time-' + id).text(text);
+                    $('input[name="time"]').val(text);
 
                     if (countSeconds === max)
                         notify.show();

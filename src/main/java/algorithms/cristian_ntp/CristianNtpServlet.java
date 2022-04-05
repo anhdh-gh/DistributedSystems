@@ -61,6 +61,7 @@ public class CristianNtpServlet extends HttpServlet {
 
             req.setAttribute("isSolved", true);
             req.setAttribute("questionCristianNtp", questionCristianNtp);
+            req.setAttribute("time", req.getParameter("time"));
             ServletUtil.forward("/WEB-INF/pages/cristian_ntp.jsp", req, resp);
         } catch (NumberFormatException | NullPointerException e) {
             ServletUtil.sendRedirect("/algorithm/berkeley", req, resp);

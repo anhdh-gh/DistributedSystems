@@ -47,6 +47,7 @@ public class SchlosserServlet extends HttpServlet {
             req.setAttribute("ans", ans);
             req.setAttribute("isSolved", true);
             req.setAttribute("questionSchlosser", questionSchlosser);
+            req.setAttribute("time", req.getParameter("time"));
             ServletUtil.forward("/WEB-INF/pages/schlosser.jsp", req, resp);
         } catch (NumberFormatException | NullPointerException e) {
             ServletUtil.sendRedirect("/algorithm/schlosser", req, resp);
