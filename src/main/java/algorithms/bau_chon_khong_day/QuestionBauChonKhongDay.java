@@ -1,4 +1,4 @@
-package algorithms.bau_chon;
+package algorithms.bau_chon_khong_day;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,26 +6,25 @@ import java.util.List;
 import lombok.Getter;
 
 @Getter
-public class QuestionBauChon {
+public class QuestionBauChonKhongDay {
 
     private final int id;
     private final int so_tien_trinh;
     private final String[][] deBai;
     private final String[][] dapAn;
 
-    public QuestionBauChon(int id, int so_tien_trinh, String[][] deBai, String[][] dapAn) {
+    public QuestionBauChonKhongDay(int id, int so_tien_trinh, String[][] deBai, String[][] dapAn) {
         this.id = id;
         this.so_tien_trinh = so_tien_trinh;
         this.deBai = deBai;
         this.dapAn = dapAn;
     }
 
-    public static List<QuestionBauChon> getQuestionBauChons() {
-        return questionBauChons;
+    public static List<QuestionBauChonKhongDay> getQuestionBauChonKhongDays() {
+        return questionBauChonKhongDays;
     }
 
-
-    private static final List<QuestionBauChon> questionBauChons = new ArrayList<>(Arrays.asList(new QuestionBauChon(
+    private static final List<QuestionBauChonKhongDay> questionBauChonKhongDays = new ArrayList<>(Arrays.asList(new QuestionBauChonKhongDay(
                     1,
                     20,
                     new String[][]{
@@ -56,7 +55,7 @@ public class QuestionBauChon {
 
                     }
             ),
-            new QuestionBauChon(
+            new QuestionBauChonKhongDay(
                     2,
                     20,
                     new String[][]{
@@ -84,7 +83,7 @@ public class QuestionBauChon {
                         {"", "", "", "", "", "", "", "", "", "", "", "P19,57", "", "", "", "", "", "", "", ""},
                         {"", "", "", "", "", "", "", "", "", "", "", "", "", "P20,63", "", "", "", "", "", ""}}
             ),
-            new QuestionBauChon(
+            new QuestionBauChonKhongDay(
                     3,
                     20,
                     new String[][]{
@@ -112,7 +111,7 @@ public class QuestionBauChon {
                         {"", "", "", "P19,80", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""},
                         {"", "", "", "", "", "P20,87", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}}
             ),
-            new QuestionBauChon(
+            new QuestionBauChonKhongDay(
                     4,
                     20,
                     new String[][]{
@@ -140,7 +139,7 @@ public class QuestionBauChon {
                         {"", "", "P19,80", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""},
                         {"", "", "", "", "", "P20,87", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}}
             ),
-            new QuestionBauChon(
+            new QuestionBauChonKhongDay(
                     5,
                     20,
                     new String[][]{
@@ -168,7 +167,7 @@ public class QuestionBauChon {
                         {"", "", "", "", "P19,60", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""},
                         {"", "", "", "", "", "", "", "P20,64", "", "", "", "", "", "", "", "", "", "", "", ""}}
             ),
-            new QuestionBauChon(
+            new QuestionBauChonKhongDay(
                     6,
                     20,
                     new String[][]{
@@ -196,7 +195,7 @@ public class QuestionBauChon {
                         {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "P19,97", "", "", ""},
                         {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "P20,106", "", ""}}
             ),
-            new QuestionBauChon(
+            new QuestionBauChonKhongDay(
                     7,
                     20,
                     new String[][]{
@@ -224,7 +223,7 @@ public class QuestionBauChon {
                         {"", "", "", "", "P19,69", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""},
                         {"", "", "", "", "", "", "P20,73", "", "", "", "", "", "", "", "", "", "", "", "", ""}}
             ),
-            new QuestionBauChon(
+            new QuestionBauChonKhongDay(
                     8,
                     16,
                     new String[][]{
@@ -250,10 +249,10 @@ public class QuestionBauChon {
             )
     ));
     
-    public static QuestionBauChon getQuestionBauChonById(int id) {
-        for (QuestionBauChon questionBauChon : questionBauChons) 
-            if(questionBauChon.getId() == id)
-                return questionBauChon;
+    public static QuestionBauChonKhongDay getQuestionBauChonById(int id) {
+        for (QuestionBauChonKhongDay questionBauChonKhongDay : questionBauChonKhongDays) 
+            if(questionBauChonKhongDay.getId() == id)
+                return questionBauChonKhongDay;
         return null;
     }
 }

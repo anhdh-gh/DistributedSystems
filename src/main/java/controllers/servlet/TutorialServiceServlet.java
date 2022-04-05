@@ -23,7 +23,7 @@ public class TutorialServiceServlet extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ServletUtil.forward("/WEB-INF/pages/tutorial.jsp", req, resp);
+        ServletUtil.forward("/WEB-INF/pages/tutorial_service.jsp", req, resp);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package algorithms.bau_chon;
+package algorithms.bau_chon_khong_day;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import util.ServletUtil;
 
-@WebServlet(name = "BauChonServlet", urlPatterns = {"/algorithm/bau-chon-khong-day"})
-public class BauChonServlet extends HttpServlet {
+@WebServlet(name = "BauChonKhongDayServlet", urlPatterns = {"/algorithm/bau-chon-khong-day"})
+public class BauChonKhongDayServlet extends HttpServlet {
     
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,13 +25,13 @@ public class BauChonServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            QuestionBauChon questionBauChon = QuestionBauChon.getQuestionBauChonById(Integer.parseInt(req.getParameter("id")));
+            QuestionBauChonKhongDay questionBauChonKhongDay = QuestionBauChonKhongDay.getQuestionBauChonById(Integer.parseInt(req.getParameter("id")));
 
             int countValue = 0;
             int countCorrectValue = 0;
             
-            String[][] danAnAns = new String[questionBauChon.getSo_tien_trinh()][questionBauChon.getSo_tien_trinh()];
-            String[][] dapAn = questionBauChon.getDapAn();
+            String[][] danAnAns = new String[questionBauChonKhongDay.getSo_tien_trinh()][questionBauChonKhongDay.getSo_tien_trinh()];
+            String[][] dapAn = questionBauChonKhongDay.getDapAn();
             
             for (int i = 0; i < dapAn.length; i++) {
                 for (int j = 0; j < dapAn[i].length; j++) { 
@@ -49,7 +49,7 @@ public class BauChonServlet extends HttpServlet {
             req.setAttribute("score", (double) ((double) Math.round(((double) 10/countValue)*countCorrectValue * 10) / 10));
             req.setAttribute("danAnAns", danAnAns);
             req.setAttribute("isSolved", true);
-            req.setAttribute("questionBauChon", questionBauChon);
+            req.setAttribute("questionBauChonKhongDay", questionBauChonKhongDay);
             ServletUtil.forward("/WEB-INF/pages/bau_chon_khong_day.jsp", req, resp);
         } catch (NumberFormatException | NullPointerException e) {
             ServletUtil.sendRedirect("/algorithm/bau-chon-khong-day", req, resp);
@@ -58,7 +58,7 @@ public class BauChonServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("questionBauChons", QuestionBauChon.getQuestionBauChons());
+        req.setAttribute("questionBauChonKhongDays", QuestionBauChonKhongDay.getQuestionBauChonKhongDays());
         req.setAttribute("isSolved", false);
         req.setAttribute("timeForTest", 30);
         ServletUtil.forward("/WEB-INF/pages/bau_chon_khong_day.jsp", req, resp);
