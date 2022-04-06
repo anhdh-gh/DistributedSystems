@@ -104,7 +104,7 @@
                     <table class="table table-hover border border-danger table-bordered align-middle w-100">
                         <thead style="background-color: #d30000" class="text-white align-middle">
                             <tr class="text-center align-middle text-nowrap">
-                                <th style="background-color: #d30000" scope="col" class="position-sticky start-0">Nút</th>
+                                <th style="background-color: #d30000; max-width: 1rem;" scope="col" class="position-sticky start-0">Nút</th>
                                 <c:forEach var="i" begin="0" end="${questionSchlosser.soNut-1}" step="1">
                                     <th scope="col">${i}</th>
                                 </c:forEach>
@@ -136,7 +136,7 @@
                     <table class="table table-hover border border-danger table-bordered align-middle w-100">
                         <thead style="background-color: #d30000" class="text-white align-middle">
                             <tr class="text-center align-middle text-nowrap">
-                                <th style="background-color: #d30000" scope="col" class="position-sticky start-0">Nút</th>
+                                <th style="background-color: #d30000; max-width: 1rem;" scope="col" class="position-sticky start-0">Nút</th>
                                 <c:forEach var="i" begin="0" end="${questionSchlosser.soNut-1}" step="1">
                                     <th scope="col">${i}</th>
                                 </c:forEach>

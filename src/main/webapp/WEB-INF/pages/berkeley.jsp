@@ -99,56 +99,13 @@
                     </form>                    
                 </c:forEach>
             </c:if>
-            <c:if test="${isSolved == true}">
-                <div class="d-flex justify-content-between mb-2">
-                    <h3 class="text-danger mb-0">Đề số: <c:out value="${questionBerkeley.questionId}"></c:out></h3>
-                    <h3 class="text-danger mb-0">Điểm: <c:out value="${score}"></c:out></h3>
-                    </div>
-
-                    <div class="table-responsive">
-                        <table class="table table-hover border border-danger table-bordered align-middle w-100">
-                            <thead style="background-color: #d30000" class="text-white align-middle">
-                                <tr class="text-center align-middle text-nowrap">
-                                    <th scope="col">Tiến trình</th>
-                                    <th scope="col">Loại</th>
-                                    <th scope="col">Thời gian trước khi đồng bộ</th>
-                                    <th scope="col">Giá trị điều chỉnh</th>
-                                </tr>
-                            </thead>
-                                <tbody class="fw-bold align-middle text-black">
-                                    <c:forEach var="memberTime" items="${questionBerkeley.memberTimes}" varStatus="statusMemberTimes">
-                                        <tr class="text-center">
-                                            <th class="text-danger">P${statusMemberTimes.count}</th>
-                                            <td>
-                                                <c:if test="${statusMemberTimes.count == 1}">
-                                                    Điều phối
-                                                </c:if>
-                                                <c:if test="${statusMemberTimes.count != 1}">
-                                                    Thành viên
-                                                </c:if>                                                    
-                                            </td>
-                                            
-                                            <td>${memberTime}</td>
-                                            
-                                            <td>${calibratedAns[statusMemberTimes.count-1]}</td>
-                                        </tr>
-                                    </c:forEach>
-                                        
-                                    <tr class="text-center">
-                                        <td colspan="2" class="text-danger">Thời gian sau khi đồng bộ</td>
-                                        <td colspan="2" class="text-success">${correctedDateTimeAns}</td>
-                                    </tr>  
-                                </tbody>
-                    </table>                        
-                </div>
-            </c:if>
             <!-- Berkeley bai lam end -->
 
             <!-- Berkeley ketqua begin -->
             <c:if test="${isSolved == true}">
                 <div class="d-flex justify-content-between mb-2 mt-4">
-                    <h3 class="text-success mb-0">Đáp án</h3>
-                    <<h3 class="text-success mb-0">${time}</h3>
+                    <h3 class="text-success mb-0">Đáp án đề <c:out value="${questionBerkeley.questionId}"></c:out>:</h3>
+                    <h3 class="text-danger mb-0">Điểm: <c:out value="${score}"></c:out></h3>
                 </div>
 
                 <div class="table-responsive">
@@ -159,6 +116,7 @@
                                 <th scope="col">Loại</th>
                                 <th scope="col">Thời gian trước khi đồng bộ</th>
                                 <th scope="col">Giá trị điều chỉnh</th>
+                                <th scope="col">Đáp án</th>
                             </tr>
                         </thead>
                         <tbody class="fw-bold align-middle text-black">
@@ -175,6 +133,8 @@
                                     </td>
 
                                     <td>${memberTime}</td>
+                                    
+                                    <td>${calibratedAns[statusMemberTimes.count-1]}</td>
 
                                     <td>${questionBerkeley.calibratedRes[statusMemberTimes.count-1]}</td>
                                 </tr>
@@ -182,11 +142,14 @@
 
                             <tr class="text-center">
                                 <td colspan="2" class="text-danger">Thời gian sau khi đồng bộ</td>
-                                <td colspan="2" class="text-success">${questionBerkeley.correctedDateTime}</td>
+                                <td colspan="2" class="text-success">${correctedDateTimeAns}</td>
+                                <td class="text-success">${questionBerkeley.correctedDateTime}</td>
                             </tr>  
                         </tbody>
                     </table>                        
-                </div>               
+                </div>    
+                            
+                <h3 class="text-success mb-0">${time}</h3>
             </c:if>
             <!-- Berkeley ketqua end -->
         </div>   
