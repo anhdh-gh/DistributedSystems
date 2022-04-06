@@ -38,10 +38,16 @@
                     (chỉ cần tập tin Program.cs) và tải tập tin nén (.zip) lên máy chủ khi nộp bài.
                 </p>
                 <p>
-                    Các tham số gọi hàm trong dịch vụ web: ExamId = 1, QuestionId = [<c:forEach var="questionTrungBinh" items="${questionTrungBinhs}" varStatus="status">
-                        ${questionTrungBinh.questionId}
-                        <c:if test="${status.count < fn:length(questionTrungBinhs)}">, </c:if>
-                    </c:forEach>].
+                    Các tham số gọi hàm trong dịch vụ web: ExamId = 1, QuestionId = 
+                    <c:if test="${fn:length(questionTrungBinhs) == 1}">
+                        ${questionTrungBinh.questionId}.
+                    </c:if>
+                    <c:if test="${fn:length(questionTrungBinhs) > 1}">
+                        [<c:forEach var="questionTrungBinh" items="${questionTrungBinhs}" varStatus="status">
+                            ${questionTrungBinh.questionId}
+                            <c:if test="${status.count < fn:length(questionTrungBinhs)}">, </c:if>
+                        </c:forEach>].                        
+                    </c:if>    
                 </p>
                 <p class="mt-3 mb-2 fw-bold">Thời gian làm bài: ${requestScope.timeForTest} phút.</p>
                 <p id="time" class="mt-2 fs-4 text-success"></p>
@@ -72,7 +78,7 @@
                                             Xem đáp án
                                         </span>
 
-                                        <div class="table-responsive collapse" id="dapan-${questionTrungBinh.questionId}">
+                                        <div class="mt-3 table-responsive collapse" id="dapan-${questionTrungBinh.questionId}">
                                             <table class="table table-warning table-hover border border-danger table-bordered align-middle w-100">
                                                 <thead class="align-middle text-danger">
                                                     <tr class="text-center align-middle text-nowrap">

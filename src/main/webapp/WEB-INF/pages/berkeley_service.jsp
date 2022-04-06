@@ -30,10 +30,16 @@
                     gọi hàm GetInputData để lấy giá trị các tham số thời gian, tính toán cần điều chỉnh cho mỗi tiến trình (đơn vị ms) và thời gian sau khi đồng bộ ghi theo định dạng yyyy-mm-dd hh:mi:ss.ms, gọi hàm Submit để cập nhật kết quả tính toán lên máy chủ. Nén mã nguồn của chương trình học viên đã viến (chỉ cần tập tin Program.cs) và tải tập tin nén (.zip) lên máy chủ khi nộp bài.
                 </p>
                 <p>
-                    Các tham số gọi hàm trong dịch vụ web: ExamId = 1, QuestionId = [<c:forEach var="questionBerkeley" items="${questionBerkeleys}" varStatus="status">
-                        ${questionBerkeley.questionId}
-                        <c:if test="${status.count < fn:length(questionBerkeleys)}">, </c:if>
-                    </c:forEach>].
+                    Các tham số gọi hàm trong dịch vụ web: ExamId = 1, QuestionId = 
+                    <c:if test="${fn:length(questionBerkeleys) == 1}">
+                         ${questionBerkeley.questionId}.
+                    </c:if>
+                    <c:if test="${fn:length(questionBerkeleys) > 1}">
+                        [<c:forEach var="questionBerkeley" items="${questionBerkeleys}" varStatus="status">
+                            ${questionBerkeley.questionId}
+                            <c:if test="${status.count < fn:length(questionBerkeleys)}">, </c:if>
+                        </c:forEach>].                        
+                    </c:if>
                 </p>
                 <p class="mt-3 mb-2 fw-bold">Thời gian làm bài: ${requestScope.timeForTest} phút.</p>
                 <p id="time" class="mt-2 fs-4 text-success"></p>
@@ -64,7 +70,7 @@
                                             Xem đáp án
                                         </span>
 
-                                        <div class="table-responsive collapse" id="dapan-${questionBerkeley.questionId}">
+                                        <div class="mt-3 table-responsive collapse" id="dapan-${questionBerkeley.questionId}">
                                             <table class="table table-warning table-hover border border-danger table-bordered align-middle w-100">
                                                 <thead class="align-middle text-danger">
                                                     <tr class="text-center align-middle text-nowrap">
