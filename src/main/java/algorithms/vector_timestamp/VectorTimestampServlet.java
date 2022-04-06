@@ -45,6 +45,7 @@ public class VectorTimestampServlet extends HttpServlet {
             req.setAttribute("isSolved", true);
             req.setAttribute("questionVectorTimestamp", questionVectorTimestamp);
             req.setAttribute("time", req.getParameter("time"));
+            req.setAttribute("isIcr", req.getParameter("isIcr"));
             ServletUtil.forward("/WEB-INF/pages/vector_timestamp.jsp", req, resp);
         } catch (NumberFormatException | NullPointerException e) {
             ServletUtil.sendRedirect("/algorithm/vector-timestamp", req, resp);

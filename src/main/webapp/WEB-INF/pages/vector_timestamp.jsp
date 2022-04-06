@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -79,20 +80,16 @@
                                 <thead style="background-color: #d30000" class="text-white align-middle">
                                     <tr class="text-center align-middle text-nowrap">
                                         <th style="background-color: #d30000" scope="col" class="position-sticky start-0">TT</th>
-                                        <th scope="col">eX,0</th>
-                                        <th scope="col">eX,1</th>
-                                        <th scope="col">eX,2</th>
-                                        <th scope="col">eX,3</th>
-                                        <th scope="col">eX,4</th>
-                                        <th scope="col">eX,5</th>
-                                        <th scope="col">eX,6</th>
-                                        <th scope="col">eX,7</th>
-                                        <th scope="col">eX,8</th>
+                                        <c:forEach var="i" begin="0" end="${fn:length(questionVectorTimestamp.res[0]) - 1}">
+                                            <th scope="col">eX,${i}</th>
+                                        </c:forEach>
                                     </tr>
                                 </thead>
                                 <tbody class="fw-bold align-middle text-black">
-                                    <c:forEach var="icr" begin="0" end="2" step="1">
-                                        <c:set var="i" value="${2-icr}"/>
+                                    <c:set var="isIcr"><%= java.lang.Math.round(java.lang.Math.random() * 2) % 2 %></c:set>
+                                    <input type="hidden" name="isIcr" value="${isIcr}">
+                                    <c:forEach var="icr" begin="0" end="${fn:length(questionVectorTimestamp.res) - 1}" step="1">
+                                        <c:set var="i" value="${isIcr == 0 ? icr : fn:length(questionVectorTimestamp.res)-1-icr}"/>
                                         <tr>
                                             <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">P${i+1}</th>
                                                 <c:forEach var="j" begin="0" end="8" step="+1">
@@ -129,20 +126,14 @@
                             <thead style="background-color: #d30000" class="text-white align-middle">
                                 <tr class="text-center align-middle text-nowrap">
                                     <th style="background-color: #d30000" scope="col" class="position-sticky start-0">TT</th>
-                                    <th scope="col">eX,0</th>
-                                    <th scope="col">eX,1</th>
-                                    <th scope="col">eX,2</th>
-                                    <th scope="col">eX,3</th>
-                                    <th scope="col">eX,4</th>
-                                    <th scope="col">eX,5</th>
-                                    <th scope="col">eX,6</th>
-                                    <th scope="col">eX,7</th>
-                                    <th scope="col">eX,8</th>
+                                    <c:forEach var="i" begin="0" end="${fn:length(questionVectorTimestamp.res[0]) - 1}">
+                                        <th scope="col">eX,${i}</th>
+                                    </c:forEach>
                                 </tr>
                             </thead>
                             <tbody class="fw-bold align-middle text-black text-center">
-                            <c:forEach var="icr" begin="0" end="2" step="1">
-                                <c:set var="i" value="${2-icr}"/>
+                            <c:forEach var="icr" begin="0" end="${fn:length(questionVectorTimestamp.res) - 1}" step="1">
+                                <c:set var="i" value="${isIcr == 0 ? icr : fn:length(questionVectorTimestamp.res) - 1 - icr}"/>
                                 <tr>
                                     <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">P${i+1}</th>
                                         <c:forEach var="j" begin="0" end="8" step="+1">
@@ -176,20 +167,14 @@
                         <thead style="background-color: #d30000" class="text-white align-middle">
                             <tr class="text-center align-middle text-nowrap">
                                 <th style="background-color: #d30000" scope="col" class="position-sticky start-0">TT</th>
-                                <th scope="col">eX,0</th>
-                                <th scope="col">eX,1</th>
-                                <th scope="col">eX,2</th>
-                                <th scope="col">eX,3</th>
-                                <th scope="col">eX,4</th>
-                                <th scope="col">eX,5</th>
-                                <th scope="col">eX,6</th>
-                                <th scope="col">eX,7</th>
-                                <th scope="col">eX,8</th>
+                                <c:forEach var="i" begin="0" end="${fn:length(questionVectorTimestamp.res[0]) - 1}">
+                                    <th scope="col">eX,${i}</th>
+                                </c:forEach>
                             </tr>
                         </thead>
                         <tbody class="fw-bold align-middle text-black text-center">
-                            <c:forEach var="icr" begin="0" end="2" step="1">
-                                <c:set var="i" value="${2-icr}"/>
+                            <c:forEach var="icr" begin="0" end="${fn:length(questionVectorTimestamp.res) - 1}" step="1">
+                                <c:set var="i" value="${isIcr == 0 ? icr : fn:length(questionVectorTimestamp.res) - 1 - icr}"/>
                                 <tr>
                                     <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">P${i+1}</th>
                                         <c:forEach var="j" begin="0" end="8" step="+1">
