@@ -22,16 +22,21 @@
             <!-- Navbar end -->  
 
             <!-- Berkeley de bai begin -->
-            <h4 class="fw-bold mt-5 pb-3 border-4 border-bottom border-danger d-inline-block">1. Đề bài</h4>
-            <p class=" mt-3 mb-2 fw-bold">Giải thuật berkeley</p>
-            <p>
-                Viết ứng dụng dạng Console Application bằng ngôn ngữ C#. Sử dụng dịch vụ web <a target="_blank" href="<c:url value='${request.contextPath}/ExamForBerkeley?wsdl'/>"><script>document.write(window.location.origin.replace("https://", "http://"));</script>${pageContext.request.contextPath}/ExamForBerkeley?wsdl</a>
-                gọi hàm GetInputData để lấy giá trị các tham số thời gian, tính toán cần điều chỉnh cho mỗi tiến trình (đơn vị ms) và thời gian sau khi đồng bộ ghi theo định dạng yyyy-mm-dd hh:mi:ss.ms, gọi hàm Submit để cập nhật kết quả tính toán lên máy chủ. Nén mã nguồn của chương trình học viên đã viến (chỉ cần tập tin Program.cs) và tải tập tin nén (.zip) lên máy chủ khi nộp bài.
-                Các tham số gọi hàm trong dịch vụ web: ExamId = 1, QuestionId = [<c:forEach var="questionBerkeley" items="${questionBerkeleys}" varStatus="status">
-                    ${questionBerkeley.questionId}
-                    <c:if test="${status.count < fn:length(questionBerkeleys)}">, </c:if>
-                </c:forEach>].
-            </p>
+            <div>
+                <h4 class="fw-bold mt-5 pb-3 border-4 border-bottom border-danger d-inline-block">1. Đề bài</h4>
+                <p class="mt-3 mb-2 fw-bold">Giải thuật berkeley</p>
+                <p style="text-align: justify;">
+                    Viết ứng dụng dạng Console Application bằng ngôn ngữ C#. Sử dụng dịch vụ web <a target="_blank" href="<c:url value='${request.contextPath}/ExamForBerkeley?wsdl'/>"><script>document.write(window.location.origin.replace("https://", "http://"));</script>${pageContext.request.contextPath}/ExamForBerkeley?wsdl</a>
+                    gọi hàm GetInputData để lấy giá trị các tham số thời gian, tính toán cần điều chỉnh cho mỗi tiến trình (đơn vị ms) và thời gian sau khi đồng bộ ghi theo định dạng yyyy-mm-dd hh:mi:ss.ms, gọi hàm Submit để cập nhật kết quả tính toán lên máy chủ. Nén mã nguồn của chương trình học viên đã viến (chỉ cần tập tin Program.cs) và tải tập tin nén (.zip) lên máy chủ khi nộp bài.
+                    Các tham số gọi hàm trong dịch vụ web: ExamId = 1, QuestionId = [<c:forEach var="questionBerkeley" items="${questionBerkeleys}" varStatus="status">
+                        ${questionBerkeley.questionId}
+                        <c:if test="${status.count < fn:length(questionBerkeleys)}">, </c:if>
+                    </c:forEach>].
+                </p>
+                <p class="mt-3 mb-2 fw-bold">Thời gian làm bài: ${requestScope.timeForTest} phút.</p>
+                <p id="time" class="mt-2 fs-4 text-success"></p>
+                <button id="time-control" class="btn btn-success" onclick="countTime()">Start</button>                
+            </div>
             <!-- Berkeley de bai end -->
 
             <!-- Berkeley list question begin -->
@@ -102,15 +107,51 @@
             </div>
             <!-- Berkeley list question end -->
 
-            <!-- Thời gian begin -->
-            <h4 class="fw-bold mt-5 pb-3 border-4 border-bottom border-danger d-inline-block">3. Bấm giờ</h4>
+            <!-- Huong dan lam bai begin -->
+            <h4 class="fw-bold mt-5 pb-3 border-4 border-bottom border-danger d-inline-block">3. Hướng dẫn</h4>
+            <p class="mt-3 mb-2 fw-bold text-success" data-bs-toggle="collapse" data-bs-target="#code-mau" aria-expanded="false" style="cursor: pointer">Code mẫu</p>
+            <code id="code-mau" class="collapse text-black" style="font-family: Consolas; color: crimson; background-color: #f1f1f1; padding: 2px; font-size: 105%;"><pre>
+    static void Main(string[] args)
+    {
+        string fomat = "yyyy-MM-dd HH:mm:ss.fff";
 
-            <div class="mt-3">
-                <p class="mt-2 fs-4 text-danger">Thời gian làm bài: ${requestScope.timeForTest} phút.</p>
-                <p id="time" class="mt-2 fs-4 text-success"></p>
-                <button id="time-control" class="btn btn-success" onclick="countTime()">Start</button>
-            </div>      
-            <!-- Thời gian end -->
+        ExamForBerkeley exam = new ExamForBerkeley();
+        string[] memberTimes;
+        string res = exam.getInputData("anonymous", "anonymous", 1, 5, out memberTimes);
+
+        Console.WriteLine(res);
+        long length = memberTimes.Length;
+
+        DateTime[] times = new DateTime[length];
+        long sum = 0;
+        for(int i = 0; i < length; i++)
+        {
+            Console.WriteLine(i + " - " + memberTimes[i]);
+            times[i] = DateTime.Parse(memberTimes[i]);
+            sum += (times[i].Ticks - times[0].Ticks) / 10000;
+        }
+
+        long tb = (long)Math.Round((double) sum/length, 0, MidpointRounding.AwayFromZero);
+
+        DateTime final = times[0].AddMilliseconds(tb);
+        Console.WriteLine(final.ToString(fomat));
+
+        int[] calibrateMs = new int[length];
+
+        for(int i = 0; i < calibrateMs.Length; i++)
+        {
+            calibrateMs[i] = (int) (final.Ticks - times[i].Ticks) / 10000;
+            Console.WriteLine(calibrateMs[i]);
+        }
+
+        res = exam.submit("anonymous", "anonymous", 1, 5, calibrateMs, final.ToString(fomat));
+        Console.WriteLine(res);
+
+        Console.ReadKey();
+    }
+            </pre></code>
+
+            <!-- Huong dan lam bai end --> 
         </div>      
 
         <!-- Modal -->

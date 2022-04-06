@@ -21,9 +21,11 @@
             <!-- Navbar end -->   
 
             <!-- Tutorial service begin -->
-            <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Service tutorial</h4>
+            <div class="d-flex justify-content-center">
+                <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger">Service tutorial</h4>
+            </div>
             
-            <h6>1. Hướng dẫn tạo file C# từ đường dẫn mô tả dịch vụ web:</h6>
+            <h5 class="text-danger mt-4">1. Hướng dẫn lấy file C# từ đường dẫn mô tả dịch vụ web:</h5>
             <ul>
                 <li>Gõ "cmd" vào ô tìm kiếm trên windows 10 và mở với quyền administrator</li>
                 <li>
@@ -40,13 +42,13 @@
                 </li>
             </ul>
 
-            <h6>1. Hướng dẫn code:</h6>
+            <h5 class="text-danger mt-4">2. Hướng dẫn code:</h5>
             <ul>
                 <li>Cài visual studio 2019 (trong option chọn ".NET desktop development" và "ASP.NET and web development")</li>
                 <li>Vào visual studio 2019 và tạo một project "Console App (.NET Framework)"</li>
                 <li>Vào thư mục chứa file wsdl.exe (thư mục "C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools"), copy file vừa sinh ra bằng câu lệnh wsdl</li>
                 <li>Tạo một thư mục "code" ở trong project vừa tạo và paste file này vào thư mục của project</li>
-                <li>Trong VS, chỗ Solution Explorer, bấm nút Show All Files -> Nháy chuột phải vào thư mục code -> Chọn Include in Project</li>
+                <li>Trong visual studio, chỗ Solution Explorer, bấm nút Show All Files -> Nháy chuột phải vào thư mục code -> Chọn Include in Project</li>
                 <li>Click chuộc phải vào chữ "References" -> "Add references" -> Search "System.Web.Services" trong Assembly -> Tích vào</li>
                 <li>Ra file program.cs và code theo yêu cầu đề bài, sử dụng các hàm của file sinh bởi wsdl</li>
             </ul>

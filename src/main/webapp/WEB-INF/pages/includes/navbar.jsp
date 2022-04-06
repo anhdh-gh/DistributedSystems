@@ -40,6 +40,20 @@
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/cristian-ntp'/>">Cristian - NTP</a></li>                    
                     </ul>
                 </li>   
+                
+                <li class="nav-item dropdown">
+                    <span class="
+                          nav-link
+                          dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                          >
+                        Sv ptit
+                    </span>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a target="_blank" class="dropdown-item" href="<c:url value='https://youtube.com/playlist?list=PLjzUB93NObY7bHA504Z3faI84mfv-wKJ8'/>">Kênh youtube</a></li>                    
+                        <li><a target="_blank" class="dropdown-item" href="<c:url value='https://drive.google.com/file/d/194u9TyF4Op2hdj3ekGriu39ImjI4H-dr/view'/>">Danh sách phát</a></li>
+                        <li><a target="_blank" class="dropdown-item" href="<c:url value='https://drive.google.com/drive/folders/1b2DXnw92ytdGiRrhS-KQ7fCQe_5ZHpio'/>">Tài liệu</a></li>                    
+                    </ul>
+                </li>  
 
                 <li class="nav-item dropdown ms-auto">
                     <span class="
