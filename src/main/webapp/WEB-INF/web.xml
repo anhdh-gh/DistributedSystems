@@ -35,6 +35,7 @@
         <url-pattern>/algorithm/bau-chon-khong-day</url-pattern>
         <url-pattern>/algorithm/cristian-ntp</url-pattern>
         <url-pattern>/service/berkeley</url-pattern>
+        <url-pattern>/service/rbs</url-pattern>
         <url-pattern>/service/trung-binh</url-pattern>
         <url-pattern>/service/cristian-ntp</url-pattern>
     </filter-mapping>
@@ -56,6 +57,11 @@
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>ExamForRbs</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ExamForBerkeley</servlet-name>
         <url-pattern>/ExamForBerkeley</url-pattern>
@@ -67,6 +73,10 @@
     <servlet-mapping>
         <servlet-name>ExamForCristianNTP</servlet-name>
         <url-pattern>/ExamForCristianNTP</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExamForRbs</servlet-name>
+        <url-pattern>/ExamForRbs</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -37,6 +37,7 @@
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/tutorial'/>">Tutorial</a></li>                    
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/berkeley'/>">Berkeley</a></li>
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/trung-binh'/>">Trung bình</a></li>
+                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/rbs'/>">Rbs</a></li>
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/cristian-ntp'/>">Cristian - NTP</a></li>                    
                     </ul>
                 </li>   

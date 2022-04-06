@@ -24,7 +24,7 @@ public class ExamForCristianNTP {
                 && QuestionId != 0 && OriginateTimeUtcTick != null && ntpMesage != null) {
             
             if(Account.authentication(UserName, UserPass) == null)
-                return "Username hoac password khong dung";
+                return "Username hoac UserPass khong dung";
 
             QuestionCristianNtp questionCristianNtp = QuestionCristianNtp.getQuestionCristianNtpByQuestionId(QuestionId);
             if (questionCristianNtp == null) {
@@ -67,7 +67,7 @@ public class ExamForCristianNTP {
             DateTimeAfterSynchronize != null) {
             
             if(Account.authentication(UserName, UserPass) == null)
-                return "Username hoac password khong dung";
+                return "Username hoac UserPass khong dung";
 
             QuestionCristianNtp questionCristianNtp = QuestionCristianNtp.getQuestionCristianNtpByQuestionId(QuestionId);
             if(questionCristianNtp == null)

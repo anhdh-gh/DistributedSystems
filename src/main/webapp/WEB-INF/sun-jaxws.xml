@@ -3,4 +3,5 @@
   <endpoint implementation="algorithms.berkeley.ExamForBerkeley" name="ExamForBerkeley" url-pattern="/ExamForBerkeley"/>
   <endpoint implementation="algorithms.trungbinh.ExamForTrungBinh" name="ExamForTrungBinh" url-pattern="/ExamForTrungBinh"/>
   <endpoint implementation="algorithms.cristian_ntp.ExamForCristianNTP" name="ExamForCristianNTP" url-pattern="/ExamForCristianNTP"/>
+  <endpoint implementation="algorithms.rbs.ExamForRbs" name="ExamForRbs" url-pattern="/ExamForRbs"/>
 </endpoints>
