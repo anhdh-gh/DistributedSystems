@@ -21,10 +21,13 @@
             <jsp:include page="./includes/navbar.jsp"/>
             <!-- Navbar end -->  
 
+            <div class="d-flex justify-content-center">
+                <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Berkeley</h4>
+            </div>
+            
             <!-- Berkeley de bai begin -->
             <div>
-                <h4 class="fw-bold mt-5 pb-3 border-4 border-bottom border-danger d-inline-block">1. Đề bài</h4>
-                <p class="mt-3 mb-2 fw-bold">Giải thuật berkeley</p>
+                <h5 class="text-danger mt-4">1. Đề bài:</h5>
                 <p style="text-align: justify;">
                     Viết ứng dụng dạng Console Application bằng ngôn ngữ C#. Sử dụng dịch vụ web <a target="_blank" href="<c:url value='${request.contextPath}/ExamForBerkeley?wsdl'/>"><script>document.write(window.location.origin.replace("https://", "http://"));</script>${pageContext.request.contextPath}/ExamForBerkeley?wsdl</a>
                     gọi hàm GetInputData để lấy giá trị các tham số thời gian, tính toán cần điều chỉnh cho mỗi tiến trình (đơn vị ms) và thời gian sau khi đồng bộ ghi theo định dạng yyyy-mm-dd hh:mi:ss.ms, gọi hàm Submit để cập nhật kết quả tính toán lên máy chủ. Nén mã nguồn của chương trình học viên đã viến (chỉ cần tập tin Program.cs) và tải tập tin nén (.zip) lên máy chủ khi nộp bài.
@@ -48,7 +51,7 @@
             <!-- Berkeley de bai end -->
 
             <!-- Berkeley list question begin -->
-            <h4 class="fw-bold mt-5 pb-3 border-4 border-bottom border-danger d-inline-block">2. Đáp án</h4>
+            <h5 class="text-danger mt-5">2. Đáp án:</h5>
             <div class="mt-2">
                 <div class="table-responsive">
                     <table class="table table-hover border border-danger table-bordered align-middle w-100">
@@ -116,9 +119,11 @@
             <!-- Berkeley list question end -->
 
             <!-- Huong dan lam bai begin -->
-            <h4 class="fw-bold mt-5 pb-3 border-4 border-bottom border-danger d-inline-block">3. Hướng dẫn</h4>
+            <h5 class="text-danger mt-4">3. Hướng dẫn:</h5>
             <p class="mt-3 mb-2 fw-bold text-success" data-bs-toggle="collapse" data-bs-target="#code-mau" aria-expanded="false" style="cursor: pointer">Code mẫu</p>
-            <code id="code-mau" class="collapse text-black" style="font-family: Consolas; color: crimson; background-color: #f1f1f1; padding: 2px; font-size: 105%;"><pre>
+            <div class="collapse" id="code-mau">
+                <div class="card card-body">
+                    <code class="text-black" style="font-family: Consolas; color: crimson; background-color: #f1f1f1; padding: 2px; font-size: 105%;"><pre>
     static void Main(string[] args)
     {
         string fomat = "yyyy-MM-dd HH:mm:ss.fff";
@@ -156,9 +161,9 @@
         Console.WriteLine(res);
 
         Console.ReadKey();
-    }
-            </pre></code>
-
+    }</pre></code>                
+                </div>
+            </div>
             <!-- Huong dan lam bai end --> 
         </div>      
 

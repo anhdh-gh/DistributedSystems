@@ -22,7 +22,9 @@
             <!-- Navbar end -->  
 
             <!-- Bầu chọn không dây de bai begin -->
-            <h4 id="vector-timestamp" class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Bầu chọn không dây</h4>
+            <div class="d-flex justify-content-center">
+                <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Bầu chọn không dây</h4>
+            </div>
             <p>Cho N tiến trình trong mạng không dây, mỗi tiến trình thể hiện bằng cặp tên và giá trị tham gia bầu chọn của tiến trình đó kèm theo mỗi quan hệ cha con với các tiến trình khác như sau:</p>
 
             <c:if test="${isSolved == false}">

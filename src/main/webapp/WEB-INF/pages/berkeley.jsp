@@ -22,7 +22,9 @@
             <!-- Navbar end -->  
 
             <!-- Berkeley de bai begin -->
-            <h4 id="vector-timestamp" class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Giải thuật Berkeley</h4>
+            <div class="d-flex justify-content-center">
+                <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Berkeley</h4>
+            </div>
 
             <c:if test="${isSolved == false}">
                 <p>Sử dụng giải thuật Berkeley tính giá trị cần điều trình (mili giây) và thời gian sau khi đồng bộ (ghi theo định dạng yyyy-mm-dd hh:mi:ss:ms) cho các tiến trình sau:</p>

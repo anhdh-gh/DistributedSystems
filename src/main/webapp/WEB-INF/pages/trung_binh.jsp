@@ -22,7 +22,9 @@
             <!-- Navbar end -->  
 
             <!-- Trung bình de bai begin -->
-            <h4 id="vector-timestamp" class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Giải thuật Trung bình</h4>
+            <div class="d-flex justify-content-center">
+                <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Trung bình</h4>
+            </div>
 
             <p>Tại một thời điểm các tiến trình đồng loại gửi thời gian cho các tiến trình khác trong nhóm, giả thiết sau đó mỗi tiến trình đều nhận được thời gian của các tiến trình khác, hãy tính thời gian của mỗi tiến trình sau khi thực hiện giải thuật đồng bộ (ghi thời gian theo định dạng yyyy-mm-dd hh:mi:ss:ms).</p>
             

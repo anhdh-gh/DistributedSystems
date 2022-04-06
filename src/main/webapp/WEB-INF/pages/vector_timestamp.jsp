@@ -22,7 +22,9 @@
             <!-- Navbar end -->  
 
             <!-- Nhãn thời gian vector de bai begin -->
-            <h4 id="vector-timestamp" class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Nhãn thời gian vector</h4>
+            <div class="d-flex justify-content-center">
+                <h4 id="vector-timestamp" class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Nhãn thời gian vector</h4>
+            </div>
             <p>Nhãn thời gian của mỗi tiến trình được đặt theo cấu trúc (P1,P2,P3), các sự kiện trên mỗi tiến trình thể hiện như sau:</p>
             <ul>
                 <li>eX,Y thể hiện sự kiện</li>
