@@ -11,50 +11,50 @@ import model.Account;
 @WebService(serviceName = "ExamForTrungBinh")
 public class ExamForTrungBinh {
 
-    @WebMethod(operationName = "getInputData")
-    public String getInputData(@WebParam(name = "username") String username,
-            @WebParam(name = "password") String password,
-            @WebParam(name = "examId") int examId,
-            @WebParam(name = "questionId") long questionId,
-            @WebParam(name = "memberTimes", mode = WebParam.Mode.IN) Holder<String[]> memberTimes) {
-        if (!username.equals("") && !password.equals("") && examId != 0
-                && questionId != 0 && memberTimes != null) {
+    @WebMethod(operationName = "GetInputData")
+    public String GetInputData(@WebParam(name = "UserName") String UserName,
+            @WebParam(name = "UserPass") String UserPass,
+            @WebParam(name = "ExamId") int ExamId,
+            @WebParam(name = "QuestionId") long QuestionId,
+            @WebParam(name = "MemberTimes", mode = WebParam.Mode.OUT) Holder<String[]> MemberTimes) {
+        if (!UserName.equals("") && !UserPass.equals("") && ExamId != 0
+                && QuestionId != 0 && MemberTimes != null) {
 
-            if (Account.authentication(username, password) == null) {
-                return "Username hoac password khong dung";
+            if (Account.authentication(UserName, UserPass) == null) {
+                return "UserName hoac UserPass khong dung";
             }
 
-            QuestionTrungBinh questionTrungBinh = QuestionTrungBinh.getQuestionTrungBinhByQuestionId(questionId);
+            QuestionTrungBinh questionTrungBinh = QuestionTrungBinh.getQuestionTrungBinhByQuestionId(QuestionId);
             if (questionTrungBinh == null) {
                 return "QuestionId khong ton tai";
             }
 
             String[] memberTimesSend = questionTrungBinh.getMemberTimes();
-            if(memberTimes.value.length < memberTimesSend.length)
+            if(MemberTimes.value.length < memberTimesSend.length)
                 return "Mang memberTimes qua nho";
-            System.arraycopy(memberTimesSend, 0, memberTimes.value, 0, memberTimesSend.length);
+            System.arraycopy(memberTimesSend, 0, MemberTimes.value, 0, memberTimesSend.length);
             
             return "Lay de bai thanh cong";
         }
         return "Chua du tham so";
     }
-
-    @WebMethod(operationName = "submit")
-    public String submit(@WebParam(name = "username") String username,
-            @WebParam(name = "password") String password,
-            @WebParam(name = "examId") int examId,
-            @WebParam(name = "questionId") long questionId,
-            @WebParam(name = "calibrateMs") @XmlElement(required = true, nillable = false) List<String> calibrateMs) {
+    
+    @WebMethod(operationName = "Submit")
+    public String Submit(@WebParam(name = "UserName") String UserName,
+            @WebParam(name = "UserPass") String UserPass,
+            @WebParam(name = "ExamId") int ExamId,
+            @WebParam(name = "QuestionId") long QuestionId,
+            @WebParam(name = "MemberTimes") @XmlElement(required = true, nillable = false) List<String> MemberTimes) {
 
         double totalPoint = 0;
-        if (!username.equals("") && !password.equals("") && examId != 0
-                && questionId != 0 && calibrateMs != null) {
+        if (!UserName.equals("") && !UserPass.equals("") && ExamId != 0
+                && QuestionId != 0 && MemberTimes != null) {
 
-            if (Account.authentication(username, password) == null) {
+            if (Account.authentication(UserName, UserPass) == null) {
                 return "Username hoac password khong dung";
             }
 
-            QuestionTrungBinh questionTrungBinh = QuestionTrungBinh.getQuestionTrungBinhByQuestionId(questionId);
+            QuestionTrungBinh questionTrungBinh = QuestionTrungBinh.getQuestionTrungBinhByQuestionId(QuestionId);
             if (questionTrungBinh == null) {
                 return "QuestionId khong ton tai";
             }
@@ -63,7 +63,7 @@ public class ExamForTrungBinh {
             List<String> correctedMs = questionTrungBinh.getCorrectedMs();
 
             for (int i = 0; i < correctedMs.size(); i++) {
-                if (correctedMs.get(i).equals(calibrateMs.get(i))) {
+                if (correctedMs.get(i).equals(MemberTimes.get(i))) {
                     totalPoint += answerPoint;
                 }
             }

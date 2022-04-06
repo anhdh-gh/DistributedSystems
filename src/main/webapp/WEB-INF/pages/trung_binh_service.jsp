@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,35 +21,36 @@
             <jsp:include page="./includes/navbar.jsp"/>
             <!-- Navbar end -->  
 
-            <!-- Berkeley url begin -->
-            <h4 class="fw-bold mt-5 pb-3 border-4 border-bottom border-danger d-inline-block">1. Trung bình URL services</h4>
-            <div class="mt-2">
-                <div class="table-responsive">
-                    <table class="table table-hover border border-danger table-bordered align-middle w-100">
-                        <thead
-                            style="background-color: #d30000"
-                            class="text-white align-middle"
-                            >
-                            <tr class="text-center align-middle text-nowrap">
-                                <th>STT</th>
-                                <th>URL</th>
-                                <th>Mô tả</th>
-                            </tr>
-                        </thead>
-                        <tbody class="fw-bold align-middle">
-                            <tr>
-                                <td class="text-center">1</td>
-                                <td><a target="_blank" href="<c:url value='${request.contextPath}/ExamForTrungBinh?wsdl'/>"><script>document.write(window.location.origin.replace("https://", "http://"));</script>${pageContext.request.contextPath}/ExamForTrungBinh?wsdl</a></td>
-                                <td>Web Service cho giải thuật trung bình</td>
-                            </tr>
-                        </tbody>
-                    </table>            
-                </div>               
+            <!-- Berkeley de bai begin -->
+            <div>
+                <h4 class="fw-bold mt-5 pb-3 border-4 border-bottom border-danger d-inline-block">1. Đề bài</h4>
+                <p class="mt-3 mb-2 fw-bold">Giải thuật trung bình</p>
+                <p style="text-align: justify;">
+                    Tại một thời điểm các tiến trình đồng loạt gửi thời gian cho các tiến trình khác trong nhóm, 
+                    giả thiết sau đó mỗi tiến trình đều nhận được thời gian của các tiến trình khác, 
+                    hãy tính thời gian của mỗi tiến trình sau khi thực hiện giải thuật đồng bộ 
+                    (ghi thời gian theo định dạng yyyy-mm-dd hh24:mi:ss.ms). 
+                    Viết ứng dụng dạng Console Application bằng ngôn ngữ C#. Sử dụng dịch vụ web 
+                    <a target="_blank" href="<c:url value='${request.contextPath}/ExamForTrungBinh?wsdl'/>"><script>document.write(window.location.origin.replace("https://", "http://"));</script>${pageContext.request.contextPath}/ExamForTrungBinh?wsdl</a>
+                    gọi hàm GetInputData để lấy giá trị thời gian của các tiến trình, 
+                    gọi hàm Submit để cập nhật kết quả tính toán lên máy chủ. 
+                    Nén mã nguồn của chương trình học viên đã viết 
+                    (chỉ cần tập tin Program.cs) và tải tập tin nén (.zip) lên máy chủ khi nộp bài.
+                </p>
+                <p>
+                    Các tham số gọi hàm trong dịch vụ web: ExamId = 1, QuestionId = [<c:forEach var="questionTrungBinh" items="${questionTrungBinhs}" varStatus="status">
+                        ${questionTrungBinh.questionId}
+                        <c:if test="${status.count < fn:length(questionTrungBinhs)}">, </c:if>
+                    </c:forEach>].
+                </p>
+                <p class="mt-3 mb-2 fw-bold">Thời gian làm bài: ${requestScope.timeForTest} phút.</p>
+                <p id="time" class="mt-2 fs-4 text-success"></p>
+                <button id="time-control" class="btn btn-success" onclick="countTime()">Start</button>                 
             </div>
-            <!-- Berkeley url end --> 
+            <!-- Berkeley de bai end --> 
 
             <!-- Berkeley list question begin -->
-            <h4 class="fw-bold mt-5 pb-3 border-4 border-bottom border-danger d-inline-block">2. Trung bình questions</h4>
+            <h4 class="fw-bold mt-5 pb-3 border-4 border-bottom border-danger d-inline-block">2. Đáp án</h4>
             <div class="mt-2">
                 <div class="table-responsive">
                     <table class="table table-hover border border-danger table-bordered align-middle w-100">
@@ -57,8 +59,7 @@
                             class="text-white align-middle"
                             >
                             <tr class="text-center align-middle text-nowrap">
-                                <th>QuestionId</th>
-                                <th>Đề bài</th>
+                                <th style="width: 1rem;">QuestionId</th>
                                 <th>Đáp án</th>
                             </tr>
                         </thead>
@@ -67,35 +68,30 @@
                                 <tr>
                                     <td class="text-center">${questionTrungBinh.questionId}</td>
                                     <td class="text-center">
-                                        <span class="text-success" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#debai-${questionTrungBinh.questionId}" aria-expanded="false" aria-controls="collapseExample">
-                                            Xem đề bài
-                                        </span>
-
-                                        <div class="collapse" id="debai-${questionTrungBinh.questionId}">
-                                            <div class="card card-body text-start">
-                                                <p class="text-danger">MemberTimes:</p>
-                                                <ul>
-                                                    <c:forEach var="memberTime" items="${questionTrungBinh.memberTimes}" varStatus="status">
-                                                        <li>MemberTime[${status.count}]: ${memberTime}</li>
-                                                    </c:forEach>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-center">
                                         <span class="text-success" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#dapan-${questionTrungBinh.questionId}" aria-expanded="false" aria-controls="collapseExample">
                                             Xem đáp án
                                         </span>
 
-                                        <div class="collapse" id="dapan-${questionTrungBinh.questionId}">
-                                            <div class="card card-body text-start">
-                                                <p class="text-danger">CorrectedMs:</p>
-                                                <ul>
-                                                    <c:forEach var="correctedMsi" items="${questionTrungBinh.correctedMs}" varStatus="status">
-                                                        <li>CorrectedMs[${status.count}]: ${correctedMsi}</li>
+                                        <div class="table-responsive collapse" id="dapan-${questionTrungBinh.questionId}">
+                                            <table class="table table-warning table-hover border border-danger table-bordered align-middle w-100">
+                                                <thead class="align-middle text-danger">
+                                                    <tr class="text-center align-middle text-nowrap">
+                                                        <th scope="col">Tiến trình</th>
+                                                        <th scope="col">Trước đồng bộ</th>
+                                                        <th scope="col">Sau đồng bộ</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="fw-bold align-middle text-black">
+                                                    <c:forEach var="memberTime" items="${questionTrungBinh.memberTimes}" varStatus="statusMemberTimes">
+                                                        <tr class="text-center">
+                                                            <th class="text-danger">${statusMemberTimes.count}</th>
+
+                                                            <td>${memberTime}</td>
+                                                            <td>${questionTrungBinh.correctedMs[statusMemberTimes.count-1]}</td>
+                                                        </tr>
                                                     </c:forEach>
-                                                </ul>
-                                            </div>
+                                                </tbody>
+                                            </table>                        
                                         </div>
                                     </td>
                                 </tr>                                
@@ -105,18 +101,57 @@
                 </div>               
             </div>
             <!-- Berkeley list question end -->
-            
-            <!-- Thời gian begin -->
-            <h4 class="fw-bold mt-5 pb-3 border-4 border-bottom border-danger d-inline-block">3. Tính thời gian</h4>
-            
-            <div class="mt-3">
-                <p class="mt-2 fs-4 text-danger">Thời gian làm bài: ${requestScope.timeForTest} phút.</p>
-                <p id="time" class="mt-2 fs-4 text-success"></p>
-                <button id="time-control" class="btn btn-success" onclick="countTime()">Start</button>
-            </div>
-            <!-- Thời gian end -->
+
+            <!-- Huong dan lam bai begin -->
+            <h4 class="fw-bold mt-5 pb-3 border-4 border-bottom border-danger d-inline-block">3. Hướng dẫn</h4>
+            <p class="mt-3 mb-2 fw-bold text-success" data-bs-toggle="collapse" data-bs-target="#code-mau" aria-expanded="false" style="cursor: pointer">Code mẫu</p>
+            <code id="code-mau" class="collapse text-black" style="font-family: Consolas; color: crimson; background-color: #f1f1f1; padding: 2px; font-size: 105%;"><pre>
+    static void Main(string[] args)
+    {
+        ExamForTrungBinh exam = new ExamForTrungBinh();
+        string fomat = "yyyy-MM-dd HH:mm:ss.fff";
+        string[] memberTimes;
+        string res = exam.GetInputData("anonymous", "anonymous", 1, 1, out memberTimes);
+
+        Console.WriteLine(res);
+        long length = memberTimes.Length;
+        List&ltlong&gt ticks = new List&ltlong&gt();
+        for(int i = 0; i &lt length; i++)
+        {
+            Console.WriteLine(i + " - " + memberTimes[i]);
+            ticks.Add(DateTime.Parse(memberTimes[i]).Ticks);
+        }
+
+        string[] kq = new string[length];
+        for(int i = 0; i &lt ticks.Count; i++)
+        {
+            List&ltlong&gt copy = new List&ltlong&gt(ticks);
+            copy.Remove(ticks[i]);
+            copy.Sort();
+            copy.Remove(copy[0]);
+            copy.Remove(copy[copy.Count - 1]);
+
+            long sum = 0, count = 0;
+            foreach(long t in copy)
+            {
+                sum += t;
+                count++;
+            }
+
+            kq[i] = new DateTime(sum / count).ToString(fomat);
+            Console.WriteLine(kq[i]);
+        }
+
+        res = exam.Submit("anonymous", "anonymous", 1, 1, kq);
+        Console.WriteLine(res);
+
+        Console.ReadKey();
+    }
+                </pre></code>
+
+            <!-- Huong dan lam bai end -->
         </div>      
-                
+
         <!-- Modal -->
         <div id="notify" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -142,18 +177,17 @@
         <!-- Javascript begin -->
         <jsp:include page="./includes/html-body-end.jsp" />
         <!-- Javascript end -->
-        
+
         <script>
             let x;
             let notify = new bootstrap.Modal(document.getElementById('notify'));
 
             function countTime() {
-                
-                if($('#time-control').text() === 'Stop') {
+
+                if ($('#time-control').text() === 'Stop') {
                     clearInterval(x);
                     $('#time-control').text("Start");
-                }
-                else if($('#time-control').text() === 'Start') {
+                } else if ($('#time-control').text() === 'Start') {
                     $('#time-control').text("Stop");
 
                     // Update the count every 1 second
@@ -164,7 +198,7 @@
                     // Update the count every 1 second
                     x = setInterval(function () {
                         let now = new Date().getTime();
-                        countSeconds += Math.round((now - preTime)/1000);
+                        countSeconds += Math.round((now - preTime) / 1000);
                         preTime = now;
 
                         // Time calculations for hours, minutes and seconds
@@ -183,7 +217,7 @@
 
                         if (countSeconds === max)
                             notify.show();
-                    }, 1000);                    
+                    }, 1000);
                 }
             }
         </script>

@@ -28,6 +28,8 @@
                 <p style="text-align: justify;">
                     Viết ứng dụng dạng Console Application bằng ngôn ngữ C#. Sử dụng dịch vụ web <a target="_blank" href="<c:url value='${request.contextPath}/ExamForBerkeley?wsdl'/>"><script>document.write(window.location.origin.replace("https://", "http://"));</script>${pageContext.request.contextPath}/ExamForBerkeley?wsdl</a>
                     gọi hàm GetInputData để lấy giá trị các tham số thời gian, tính toán cần điều chỉnh cho mỗi tiến trình (đơn vị ms) và thời gian sau khi đồng bộ ghi theo định dạng yyyy-mm-dd hh:mi:ss.ms, gọi hàm Submit để cập nhật kết quả tính toán lên máy chủ. Nén mã nguồn của chương trình học viên đã viến (chỉ cần tập tin Program.cs) và tải tập tin nén (.zip) lên máy chủ khi nộp bài.
+                </p>
+                <p>
                     Các tham số gọi hàm trong dịch vụ web: ExamId = 1, QuestionId = [<c:forEach var="questionBerkeley" items="${questionBerkeleys}" varStatus="status">
                         ${questionBerkeley.questionId}
                         <c:if test="${status.count < fn:length(questionBerkeleys)}">, </c:if>
@@ -64,7 +66,7 @@
 
                                         <div class="table-responsive collapse" id="dapan-${questionBerkeley.questionId}">
                                             <table class="table table-warning table-hover border border-danger table-bordered align-middle w-100">
-                                                <thead class="align-middle">
+                                                <thead class="align-middle text-danger">
                                                     <tr class="text-center align-middle text-nowrap">
                                                         <th scope="col">Tiến trình</th>
                                                         <th scope="col">Loại</th>
