@@ -21,6 +21,7 @@
         <url-pattern>/algorithm/trung-binh</url-pattern>
         <url-pattern>/algorithm/bau-chon-khong-day</url-pattern>
         <url-pattern>/algorithm/cristian-ntp</url-pattern>
+        <url-pattern>/algorithm/cristian</url-pattern>
         <url-pattern>/service/berkeley</url-pattern>
         <url-pattern>/service/rbs</url-pattern>
         <url-pattern>/service/trung-binh</url-pattern>
@@ -35,6 +36,7 @@
         <url-pattern>/algorithm/trung-binh</url-pattern>
         <url-pattern>/algorithm/bau-chon-khong-day</url-pattern>
         <url-pattern>/algorithm/cristian-ntp</url-pattern>
+        <url-pattern>/algorithm/cristian</url-pattern>
         <url-pattern>/service/berkeley</url-pattern>
         <url-pattern>/service/rbs</url-pattern>
         <url-pattern>/service/trung-binh</url-pattern>

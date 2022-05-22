@@ -23,6 +23,7 @@
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/trung-binh'/>">Trung bình</a></li>
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/bau-chon-khong-day'/>">Bầu chọn không dây</a></li>
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/cristian-ntp'/>">Cristian - NTP</a></li>
+                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/cristian'/>">Cristian</a></li>
                     </ul>
                 </li>
 
@@ -38,7 +39,7 @@
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/berkeley'/>">Berkeley</a></li>
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/trung-binh'/>">Trung bình</a></li>
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/rbs'/>">Rbs</a></li>
-                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/cristian-ntp'/>">Cristian - NTP</a></li>                    
+                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/cristian-ntp'/>">Cristian - NTP</a></li>
                     </ul>
                 </li>   
                 
