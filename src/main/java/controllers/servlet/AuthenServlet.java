@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Account;
 import util.ServletUtil;
 
@@ -25,6 +26,14 @@ public class AuthenServlet extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String return_url = "";
+        String urlPath = ServletUtil.getUrlPath(req, resp);
+        int index = urlPath.indexOf("?return_url=");
+        
+        if(index >= 0) 
+            return_url = urlPath.substring(index).replace("?return_url=", "");
+  
+        req.setAttribute("return_url", return_url);
         ServletUtil.forward("/WEB-INF/pages/signin.jsp", req, resp);
     }
 
@@ -32,13 +41,15 @@ public class AuthenServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
+        String url_return = req.getParameter("url_return");
         
         Account account = Account.authentication(username, password);
         if(account == null)
-            ServletUtil.sendRedirect("/signin", req, resp);
+            ServletUtil.sendRedirect("/signin" + (url_return != null && !url_return.trim().isEmpty() ? "?return_url=" + url_return : ""), req, resp);
         else {
-            req.getSession().setAttribute("account", account);
-            ServletUtil.sendRedirect("/", req, resp);
+            HttpSession session = req.getSession();
+            session.setAttribute("account", account);
+            ServletUtil.sendRedirect(url_return, req, resp);
         }
     }    
 }

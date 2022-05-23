@@ -7,9 +7,20 @@ import javax.servlet.http.HttpServletResponse;
 
 public class ServletUtil {
 
-    private ServletUtil() {
-    }
+    private ServletUtil() {}
 
+    /**
+    Hàm này thực hiện lấy url và return một string gồm "servletPath" + "pathInfo" + "queryString"
+    @param request: HttpServletRequest
+    @param response: HttpServletResponse
+    @return path: String
+    */
+    public static String getUrlPath(HttpServletRequest request, HttpServletResponse response) {
+        return (request.getServletPath() != null ? request.getServletPath() : "")
+                + (request.getPathInfo() != null ? "/" + request.getPathInfo() : "")
+                + (request.getQueryString() != null ? "?" + request.getQueryString() : "");
+    }
+    
     public static void sendRedirect(String location, HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.sendRedirect(request.getContextPath() + location);
     }

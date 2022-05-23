@@ -47,6 +47,7 @@
                         <label for="password" class="form-label text-muted">Password:</label>
                         <input type="password" class="form-control" id="password" name="password">
                     </div>
+                    <input type="hidden" name="url_return" value="${return_url}">
                     <button type="submit" class="btn btn-danger fw-bold mt-2" style="background-color: #d30000;  min-width: 100%">Sign in</button>
                 </form>     
                 <!-- Form login end -->
