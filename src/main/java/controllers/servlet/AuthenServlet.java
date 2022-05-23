@@ -49,7 +49,7 @@ public class AuthenServlet extends HttpServlet {
         else {
             HttpSession session = req.getSession();
             session.setAttribute("account", account);
-            ServletUtil.sendRedirect(url_return, req, resp);
+            ServletUtil.sendRedirect(url_return != null && !url_return.isEmpty() ? url_return : "/", req, resp);
         }
     }    
 }
