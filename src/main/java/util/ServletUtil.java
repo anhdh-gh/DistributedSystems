@@ -16,9 +16,17 @@ public class ServletUtil {
     @return path: String
     */
     public static String getUrlPath(HttpServletRequest request, HttpServletResponse response) {
-        return (request.getServletPath() != null ? request.getServletPath() : "")
-                + (request.getPathInfo() != null ? "/" + request.getPathInfo() : "")
-                + (request.getQueryString() != null ? "?" + request.getQueryString() : "");
+        String servletPath = request.getServletPath();
+        String pathInfo = request.getPathInfo();
+        String queryString = request.getQueryString();
+        
+        String path = (servletPath != null && !servletPath.isEmpty() ? servletPath : "")
+                        + (pathInfo != null && !pathInfo.isEmpty() ? "/" + pathInfo : "")
+                        + (queryString != null && !queryString.isEmpty() ? "?" + queryString : "");
+
+        if(path.charAt(0) == '/' && path.charAt(1) == '/')
+            path = path.substring(1);
+        return path;
     }
     
     public static void sendRedirect(String location, HttpServletRequest request, HttpServletResponse response) throws IOException {
