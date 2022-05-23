@@ -29,8 +29,8 @@ public class AuthenticationFilter implements Filter {
         
         Account account = (Account) session.getAttribute("account");
         if(account == null) {
-            String from = ServletUtil.getUrlPath(req, resp);
-            ServletUtil.sendRedirect("/signin?return_url=" + from, req, resp);
+            String return_url = ServletUtil.getUrlPath(req, resp);
+            ServletUtil.sendRedirect("/signin?return_url=" + return_url, req, resp);
         }
         else 
             chain.doFilter(request, response);

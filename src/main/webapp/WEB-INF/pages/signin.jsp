@@ -41,11 +41,11 @@
                     <label class="fw-bold">Sign in</label>
                     <div class="mb-3 mt-2">
                         <label for="username" class="form-label text-muted">Username:</label>
-                        <input type="text" class="form-control" id="username" name="username">
+                        <input type="text" class="form-control" id="username" name="username" value="${username}">
                     </div>
                     <div class="mb-3 mt-2">
                         <label for="password" class="form-label text-muted">Password:</label>
-                        <input type="password" class="form-control" id="password" name="password">
+                        <input type="password" class="form-control" id="password" name="password" value="${password}">
                     </div>
                     <input type="hidden" name="url_return" value="${return_url != null && return_url != "" ? return_url : "/"}">
                     <button type="submit" class="btn btn-danger fw-bold mt-2" style="background-color: #d30000;  min-width: 100%">Sign in</button>

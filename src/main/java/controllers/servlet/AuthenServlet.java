@@ -44,8 +44,13 @@ public class AuthenServlet extends HttpServlet {
         String url_return = req.getParameter("url_return");
         
         Account account = Account.authentication(username, password);
-        if(account == null)
-            ServletUtil.sendRedirect("/signin" + (url_return != null && !url_return.isEmpty() ? "?return_url=" + url_return : ""), req, resp);
+        if(account == null) {
+            req.setAttribute("username", username);
+            req.setAttribute("password", password);
+            req.setAttribute("return_url", url_return);
+            
+            ServletUtil.forward("/WEB-INF/pages/signin.jsp", req, resp);
+        }
         else {
             HttpSession session = req.getSession();
             session.setAttribute("account", account);
