@@ -20,13 +20,34 @@
                         Algorithms
                     </span>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item dropdown-toggle" href="#">Bầu chọn không dây</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/bau-chon-khong-day'/>">Dạng 1</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/bau-chon-khong-day-2'/>">Dạng 2</a></li>
+                            </ul>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/vector-timestamp'/>">Nhãn thời gian vector</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/schlosser'/>">Schlosser</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/berkeley'/>">Berkeley</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/trung-binh'/>">Trung bình</a></li>
-                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/bau-chon-khong-day'/>">Bầu chọn không dây</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/cristian-ntp'/>">Cristian - NTP</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/cristian'/>">Cristian</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/dong-thuan-phan-tan'/>">Đồng thuận phân tán</a></li>
                     </ul>
                 </li>
@@ -40,9 +61,17 @@
                     </span>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/tutorial'/>">Tutorial</a></li>                    
+                        <li><hr class="dropdown-divider"></li>
+                        
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/berkeley'/>">Berkeley</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/trung-binh'/>">Trung bình</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/rbs'/>">Rbs</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/cristian-ntp'/>">Cristian - NTP</a></li>
                     </ul>
                 </li>   
@@ -56,7 +85,11 @@
                     </span>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><a target="_blank" class="dropdown-item" href="<c:url value='https://youtube.com/playlist?list=PLjzUB93NObY7bHA504Z3faI84mfv-wKJ8'/>">Kênh youtube</a></li>                    
+                        <li><hr class="dropdown-divider"></li>
+                        
                         <li><a target="_blank" class="dropdown-item" href="<c:url value='https://drive.google.com/file/d/194u9TyF4Op2hdj3ekGriu39ImjI4H-dr/view'/>">Danh sách phát</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        
                         <li><a target="_blank" class="dropdown-item" href="<c:url value='https://drive.google.com/drive/folders/1b2DXnw92ytdGiRrhS-KQ7fCQe_5ZHpio'/>">Tài liệu</a></li>                    
                     </ul>
                 </li>  

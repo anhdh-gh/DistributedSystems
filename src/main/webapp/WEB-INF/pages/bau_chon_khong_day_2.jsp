@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Bầu chọn không dây (Dạng 1)</title>
+        <title>Bầu chọn không dây (Dạng 2)</title>
         <jsp:include page="./includes/html-head.jsp" />
     </head>
     <body>
@@ -23,7 +23,7 @@
 
             <!-- Bầu chọn không dây de bai begin -->
             <div class="d-flex justify-content-center">
-                <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Bầu chọn không dây (Dạng 1)</h4>
+                <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Bầu chọn không dây (Dạng 2)</h4>
             </div>
             <p>Cho N tiến trình trong mạng không dây, mỗi tiến trình thể hiện bằng cặp tên và giá trị tham gia bầu chọn của tiến trình đó kèm theo mỗi quan hệ cha con với các tiến trình khác như sau:</p>
 
@@ -91,14 +91,14 @@
                 </div>
             </c:if>
 
-            <p>Điền các thông điệp bầu chọn theo dịnh dạng cặp tên tiến trình và giá trị bầu chọn phân cách bằng dấu phẩy (Ví dụ P5,10). Quy định: Hàng là tiến trình gửi, cột là tiến trình nhận. Giao của hàng và cột là cặp tên tiến trình và giá trị bầu chọn cách nhau bởi dấu phẩy.</p>
+            <p>Khởi nguồn từ tiến trình P1. Điền các thông điệp bầu chọn theo dịnh dạng cặp tên tiến trình và giá trị bầu chọn phân cách bằng dấu phẩy (Ví dụ P5,10).</p>
             <p>Thời gian làm bài: ${requestScope.timeForTest} phút.</p>
             <!-- Bầu chọn không dây de bai end -->
 
             <!-- Bầu chọn không dây bai lam begin -->
             <c:if test="${isSolved == false}">
                 <c:forEach var="questionBauChonKhongDay" items="${questionBauChonKhongDays}" varStatus="status">
-                    <form autocomplete="off" class="collapse" action="<c:url value='${request.contextPath}/algorithm/bau-chon-khong-day'/>" method="post" id="de-${questionBauChonKhongDay.id}">
+                    <form autocomplete="off" class="collapse" action="<c:url value='${request.contextPath}/algorithm/bau-chon-khong-day-2'/>" method="post" id="de-${questionBauChonKhongDay.id}">
                         <div class="d-flex justify-content-between mb-3">
                             <h3 class="text-success mb-0">Đề số: <c:out value="${questionBauChonKhongDay.id}"></c:out></h3>
                                 <input autocomplete="off" class="btn btn-success" type="submit" value="Nộp bài">
@@ -107,24 +107,31 @@
                             <input autocomplete="off" type="hidden" name="id" value="${questionBauChonKhongDay.id}">
                             <input autocomplete="off" type="hidden" name="time">
 
-                        <div class="table-responsive position-relative">
+                        <div class="table-responsive">
                             <table class="table table-hover border border-danger table-bordered align-middle w-100">
                                 <thead style="background-color: #d30000" class="text-white align-middle text-center">
-                                <th style="background-color: #d30000" scope="col" class="position-sticky start-0">Tiến trình</th>
-                                    <c:forEach var="i" begin="0" end="${questionBauChonKhongDay.so_tien_trinh-1}">
-                                    <th scope="col">P${i+1}</th>
-                                    </c:forEach>                                            
+                                    <th scope="col">Thông điệp</th>
+                                    <th scope="col">Tiến trình bầu chọn</th>                                          
                                 </thead>
                                 <tbody class="fw-bold align-middle text-black">
-                                    <c:forEach var="i" begin="0" end="${questionBauChonKhongDay.so_tien_trinh-1}" step="1">
-                                        <tr>
-                                            <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">P${i+1}</th>
-                                                <c:forEach var="j" begin="0" end="${questionBauChonKhongDay.so_tien_trinh-1}" step="1">
-                                                <td>
-                                                    <input autocomplete="off" style="min-width: 100px" class="form-control" type="text" name="dapAn-${i}-${j}" class="text-danger" size="10">
-                                                </td>
-                                            </c:forEach>                                       
-                                        </tr>
+                                    <c:forEach var="j" begin="0" end="${questionBauChonKhongDay.so_tien_trinh-1}" step="1">
+                                        <c:forEach var="i" begin="0" end="${questionBauChonKhongDay.so_tien_trinh-1}" step="1">
+                                            <c:if test="${not empty questionBauChonKhongDay.dapAn[i][j]}">
+                                                <tr>
+                                                    <c:choose>
+                                                        <c:when test="${i == 0}">
+                                                            <th>Tiến trình được chọn</th>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <th>P${i+1} gửi P${j+1}</th>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                    <td>
+                                                        <input autocomplete="off" style="min-width: 100px" class="form-control" type="text" name="dapAn-${i}-${j}" class="text-danger" size="10">
+                                                    </td>
+                                                </tr>
+                                            </c:if>
+                                        </c:forEach>
                                     </c:forEach>
                                 </tbody>
                             </table>                        
@@ -139,79 +146,43 @@
 
             <c:if test="${isSolved == true}">
                 <div class="d-flex justify-content-between mb-2">
-                    <h3 class="text-danger mb-0">Đề số: <c:out value="${questionBauChonKhongDay.id}"></c:out></h3>
+                    <h3 class="text-success mb-0">Đáp án đề <c:out value="${questionBauChonKhongDay.id}"></c:out>:</h3>
                     <h3 class="text-danger mb-0">Điểm: <c:out value="${score}"></c:out></h3>
-                    </div>
-
-                    <div class="table-responsive position-relative">
-                        <table class="table table-hover border border-danger table-bordered align-middle w-100">
-                            <thead style="background-color: #d30000" class="text-white align-middle text-center">
-                            <th style="background-color: #d30000" scope="col" class="position-sticky start-0">Tiến trình</th>
-                            <c:forEach var="i" begin="0" end="${questionBauChonKhongDay.so_tien_trinh-1}">
-                            <th scope="col">P${i+1}</th>
-                            </c:forEach>                                            
-                        </thead>
-                        <tbody class="fw-bold align-middle text-black text-center">
-                        <tbody class="fw-bold align-middle text-black">
-                            <c:forEach var="i" begin="0" end="${questionBauChonKhongDay.so_tien_trinh-1}" step="1">
-                                <tr class="text-center">
-                                    <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">P${i+1}</th>
-                                        <c:forEach var="j" begin="0" end="${questionBauChonKhongDay.so_tien_trinh-1}" step="1">
-                                        <td>${danAnAns[i][j]}</td>
-                                    </c:forEach>                                       
-                                </tr>
-                            </c:forEach>
-                        </tbody>
-                        </tbody>
-                    </table>                        
-                </div>
-            </c:if>
-            <!-- Bầu chọn không dây bai lam end -->
-
-            <!-- Bầu chọn không dây ketqua begin -->
-            <c:if test="${isSolved == true}">
-                <div class="d-flex justify-content-between mt-4 mb-2">
-                    <h3 class="text-success mb-0">Đáp án</h3>
-                    <h3 class="text-success mb-0">${time}</h3>
                 </div>
 
-                <div class="table-responsive position-relative">
+                <div class="table-responsive">
                     <table class="table table-hover border border-danger table-bordered align-middle w-100">
                         <thead style="background-color: #d30000" class="text-white align-middle text-center">
-                        <th style="background-color: #d30000" scope="col" class="position-sticky start-0">
-                            Nhận <br/>
-                            <i class="fa-solid fa-arrow-right-long"></i> <br/>
-                            Gửi <br/>
-                            <i class="fa-solid fa-arrow-down-long"></i>
-                        </th>
-                        <c:forEach var="i" begin="0" end="${questionBauChonKhongDay.so_tien_trinh-1}">
-                            <th scope="col">P${i+1}</th>
-                            </c:forEach>                                            
+                            <th scope="col">Thông điệp</th>
+                            <th scope="col">Tiến trình bầu chọn</th>  
+                            <th scope="col">Đáp án</th>
                         </thead>
                         <tbody class="fw-bold align-middle text-black">
-                            <c:forEach var="i" begin="0" end="${questionBauChonKhongDay.so_tien_trinh-1}" step="1">
-                                <tr>
-                                    <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">P${i+1}</th>
-                                        <c:forEach var="j" begin="0" end="${questionBauChonKhongDay.so_tien_trinh-1}" step="1">
-                                            <c:if test="${fn:contains(questionBauChonKhongDay.dapAn[i][j], '(được chọn)')}">
-                                                <c:set var = "dapAn" value = "${fn:replace(questionBauChonKhongDay.dapAn[i][j], '(được chọn)', '<br/>(được chọn)')}" />
-                                            <td class="text-center bg-warning">
-                                                ${dapAn}
-                                            </td>                                        
-                                        </c:if>
-                                        <c:if test="${!fn:contains(questionBauChonKhongDay.dapAn[i][j], '(được chọn)')}">
-                                            <td class="text-center">
-                                                ${questionBauChonKhongDay.dapAn[i][j]}
-                                            </td>                                        
-                                        </c:if>
-                                    </c:forEach>                                       
-                                </tr>
+                            <c:forEach var="j" begin="0" end="${questionBauChonKhongDay.so_tien_trinh-1}" step="1">
+                                <c:forEach var="i" begin="0" end="${questionBauChonKhongDay.so_tien_trinh-1}" step="1">
+                                    <c:if test="${not empty questionBauChonKhongDay.dapAn[i][j]}">
+                                        <tr>
+                                            <c:choose>
+                                                <c:when test="${i == 0}">
+                                                    <th>Tiến trình được chọn</th>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <th>P${i+1} gửi P${j+1}</th>
+                                                </c:otherwise>
+                                            </c:choose>
+                                            <td class="text-center">${danAnAns[i][j]}</td>
+                                            <td class="text-center">${fn:replace(questionBauChonKhongDay.dapAn[i][j], ' (được chọn)', '')}</td>
+                                        </tr>
+                                    </c:if>
+                                </c:forEach>
                             </c:forEach>
                         </tbody>
                     </table>                        
-                </div>               
+                </div>
+                
+                <h3 class="text-success mb-0">${time}</h3>
             </c:if>
-            <!-- Bầu chọn không dây ketqua end -->
+            <!-- Bầu chọn không dây bai lam end -->
         </div>   
 
         <!-- Modal -->
