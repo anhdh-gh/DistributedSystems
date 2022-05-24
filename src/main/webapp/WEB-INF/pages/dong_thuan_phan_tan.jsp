@@ -104,14 +104,14 @@
             <!-- Đồng thuận phân tán bai lam begin -->
             <c:if test="${isSolved == false}">
                 <c:forEach var="questionDongThuanPhanTan" items="${questionDongThuanPhanTans}" varStatus="status">
-                    <form class="collapse" action="<c:url value='${request.contextPath}/algorithm/dong-thuan-phan-tan'/>" method="post" id="de-${questionDongThuanPhanTan.id}">
+                    <form autocomplete="off" class="collapse" action="<c:url value='${request.contextPath}/algorithm/dong-thuan-phan-tan'/>" method="post" id="de-${questionDongThuanPhanTan.id}">
                         <div class="d-flex justify-content-between mb-3">
                             <h3 class="text-success mb-0">Đề số: <c:out value="${questionDongThuanPhanTan.id}"></c:out></h3>
-                            <input class="btn btn-success" type="submit" value="Nộp bài">
+                            <input autocomplete="off" class="btn btn-success" type="submit" value="Nộp bài">
                         </div>
 
-                        <input type="hidden" name="time">
-                        <input type="hidden" name="id" value="${questionDongThuanPhanTan.id}">
+                        <input autocomplete="off" type="hidden" name="time">
+                        <input autocomplete="off" type="hidden" name="id" value="${questionDongThuanPhanTan.id}">
 
                         <div class="table-responsive">
                             <table class="table table-hover border border-danger table-bordered align-middle w-100">
@@ -128,7 +128,7 @@
                                         <th>Kết quả lần thứ nhất</th>
                                         <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
                                             <td>
-                                                <input style="min-width: 100px" class="form-control" type="text" name="result_1-${i}">
+                                                <input autocomplete="off" style="min-width: 100px" class="form-control" type="text" name="result_1-${i}">
                                             </td>
                                         </c:forEach>
                                     </tr>
@@ -138,7 +138,7 @@
                                         <c:forEach var="j" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
                                             <td>
                                                 <c:forEach var="i" begin="0" end="${fn:length(questionDongThuanPhanTan.result_2) - 1}">
-                                                     <input style="min-width: 100px" class="form-control mb-${fn:length(questionDongThuanPhanTan.result_2) - 1 == i ? 0 : 2}" type="text" name="result_2-${i}-${j}">
+                                                     <input autocomplete="off" style="min-width: 100px" class="form-control mb-${fn:length(questionDongThuanPhanTan.result_2) - 1 == i ? 0 : 2}" type="text" name="result_2-${i}-${j}">
                                                 </c:forEach>
                                             </td>
                                         </c:forEach>
@@ -148,7 +148,7 @@
                                         <th>Kết quả cuối cùng</th>
                                         <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
                                         <td>
-                                            <input style="min-width: 100px" class="form-control" type="text" name="result_final-${i}">
+                                            <input autocomplete="off" style="min-width: 100px" class="form-control" type="text" name="result_final-${i}">
                                         </td>
                                         </c:forEach>
                                     </tr>

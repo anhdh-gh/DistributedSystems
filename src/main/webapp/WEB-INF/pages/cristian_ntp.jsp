@@ -115,17 +115,17 @@
             <!-- Cristian NTP bai lam begin -->
             <c:if test="${isSolved == false}">
                 <c:forEach var="questionCristianNtp" items="${questionCristianNtps}" varStatus="status">
-                    <form class="collapse mt-5" action="<c:url value='${request.contextPath}/algorithm/cristian-ntp'/>" method="post" id="de-${questionCristianNtp.questionId}">
+                    <form autocomplete="off" class="collapse mt-5" action="<c:url value='${request.contextPath}/algorithm/cristian-ntp'/>" method="post" id="de-${questionCristianNtp.questionId}">
                         <div class="d-flex justify-content-between mb-3">
                             <div>
                                 <h6 class="text-success mb-0">Đề số: <c:out value="${questionCristianNtp.questionId}"></c:out></h6>
                                 <p class="text-danger mb-0">Thời gian nhận được bản ghi: ${questionCristianNtp.originateReceiveTime}</p>
                             </div>
-                            <input class="btn btn-success" type="submit" value="Nộp bài">
+                            <input autocomplete="off" class="btn btn-success" type="submit" value="Nộp bài">
                         </div>
 
-                        <input type="hidden" name="time">
-                        <input type="hidden" name="questionId" value="${questionCristianNtp.questionId}">
+                        <input autocomplete="off" type="hidden" name="time">
+                        <input autocomplete="off" type="hidden" name="questionId" value="${questionCristianNtp.questionId}">
 
                         <div class="table-responsive">
                             <table class="table table-hover border border-danger table-bordered align-middle w-100">
@@ -138,27 +138,27 @@
                                 <tbody class="fw-bold align-middle text-black">
                                     <tr>
                                         <td class="text-success">Thời gian máy khách gửi</td>
-                                        <td><input style="min-width: 200px" class="form-control" type="text" name="originateSendTimestamp" class="text-danger"></td>
+                                        <td><input autocomplete="off" style="min-width: 200px" class="form-control" type="text" name="originateSendTimestamp" class="text-danger"></td>
                                     </tr>  
 
                                     <tr>
                                         <td class="text-success">Thời gian máy chủ NTP nhận</td>
-                                        <td><input style="min-width: 200px" class="form-control" type="text" name="receiveTimestamp" class="text-danger"></td>
+                                        <td><input autocomplete="off" style="min-width: 200px" class="form-control" type="text" name="receiveTimestamp" class="text-danger"></td>
                                     </tr>  
 
                                     <tr>
                                         <td class="text-success">Thời gian máy chủ NTP gửi</td>
-                                        <td><input style="min-width: 200px" class="form-control" type="text" name="transmitTimestamp" class="text-danger"></td>
+                                        <td><input autocomplete="off" style="min-width: 200px" class="form-control" type="text" name="transmitTimestamp" class="text-danger"></td>
                                     </tr>  
 
                                     <tr>
                                         <td class="text-success">Thời gian mới cần thiết lập cho máy khách</td>
-                                        <td><input style="min-width: 200px" class="form-control" type="text" name="dateTimeAfterSynchronize" class="text-danger"></td>
+                                        <td><input autocomplete="off" style="min-width: 200px" class="form-control" type="text" name="dateTimeAfterSynchronize" class="text-danger"></td>
                                     </tr>
 
                                     <tr>
                                         <td class="text-success">Độ lệch thời gian giữa máy khách và máy chủ (tính bằng đơn vị Tick)</td>
-                                        <td><input style="min-width: 200px" class="form-control" type="text" name="differentTicks" class="text-danger"></td>
+                                        <td><input autocomplete="off" style="min-width: 200px" class="form-control" type="text" name="differentTicks" class="text-danger"></td>
                                     </tr>
                                 </tbody>
                             </table>                        

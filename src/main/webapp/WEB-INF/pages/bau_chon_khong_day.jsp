@@ -98,14 +98,14 @@
             <!-- Bầu chọn không dây bai lam begin -->
             <c:if test="${isSolved == false}">
                 <c:forEach var="questionBauChonKhongDay" items="${questionBauChonKhongDays}" varStatus="status">
-                    <form class="collapse" action="<c:url value='${request.contextPath}/algorithm/bau-chon-khong-day'/>" method="post" id="de-${questionBauChonKhongDay.id}">
+                    <form autocomplete="off" class="collapse" action="<c:url value='${request.contextPath}/algorithm/bau-chon-khong-day'/>" method="post" id="de-${questionBauChonKhongDay.id}">
                         <div class="d-flex justify-content-between mb-3">
                             <h3 class="text-success mb-0">Đề số: <c:out value="${questionBauChonKhongDay.id}"></c:out></h3>
-                                <input class="btn btn-success" type="submit" value="Nộp bài">
+                                <input autocomplete="off" class="btn btn-success" type="submit" value="Nộp bài">
                             </div>
 
-                            <input type="hidden" name="id" value="${questionBauChonKhongDay.id}">
-                            <input type="hidden" name="time">
+                            <input autocomplete="off" type="hidden" name="id" value="${questionBauChonKhongDay.id}">
+                            <input autocomplete="off" type="hidden" name="time">
 
                         <div class="table-responsive position-relative">
                             <table class="table table-hover border border-danger table-bordered align-middle w-100">
@@ -121,7 +121,7 @@
                                             <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">P${i+1}</th>
                                                 <c:forEach var="j" begin="0" end="${questionBauChonKhongDay.so_tien_trinh-1}" step="1">
                                                 <td>
-                                                    <input style="min-width: 100px" class="form-control" type="text" name="dapAn-${i}-${j}" class="text-danger" size="10">
+                                                    <input autocomplete="off" style="min-width: 100px" class="form-control" type="text" name="dapAn-${i}-${j}" class="text-danger" size="10">
                                                 </td>
                                             </c:forEach>                                       
                                         </tr>

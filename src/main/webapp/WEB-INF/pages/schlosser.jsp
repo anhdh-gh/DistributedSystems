@@ -49,18 +49,18 @@
             <!-- Nhãn thời gian vector bai lam begin -->
             <c:if test="${isSolved == false}">
                 <c:forEach var="questionSchlosser" items="${questionSchlossers}" varStatus="status">
-                    <form class="collapse" action="<c:url value='${request.contextPath}/algorithm/schlosser'/>" method="post" id="de-${questionSchlosser.id}">
+                    <form autocomplete="off" class="collapse" action="<c:url value='${request.contextPath}/algorithm/schlosser'/>" method="post" id="de-${questionSchlosser.id}">
                         <div class="d-flex justify-content-between mb-3">
                             <div>
                                 <h6 class="text-success mb-0">N = <c:out value="${questionSchlosser.soNut}"></c:out></h6>
                                 <p class="text-danger mb-0 me-1"><c:out value="Số lượng láng giềng cho mỗi nút: ${questionSchlosser.so_lang_gieng}"></c:out></p>
                             </div>
                             
-                            <input class="btn btn-success" type="submit" value="Nộp bài">
+                            <input autocomplete="off" class="btn btn-success" type="submit" value="Nộp bài">
                         </div>
 
-                        <input type="hidden" name="id" value="${questionSchlosser.id}">
-                        <input type="hidden" name="time">
+                        <input autocomplete="off" type="hidden" name="id" value="${questionSchlosser.id}">
+                        <input autocomplete="off" type="hidden" name="time">
 
                         <div class="table-responsive position-relative">
                             <table class="table table-hover border border-danger table-bordered align-middle w-100">
@@ -78,7 +78,7 @@
                                             <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">${i}</th>
                                             <c:forEach var="j" begin="0" end="${questionSchlosser.soNut-1}" step="1">
                                                 <td>
-                                                    <input style="min-width: 100px" class="form-control" type="text" name="${i}-${j}" class="text-danger">
+                                                    <input autocomplete="off" style="min-width: 100px" class="form-control" type="text" name="${i}-${j}" class="text-danger">
                                                 </td>
                                             </c:forEach>                                       
                                         </tr>

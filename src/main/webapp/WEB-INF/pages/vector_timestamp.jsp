@@ -68,14 +68,14 @@
             <!-- Nhãn thời gian vector bai lam begin -->
             <c:if test="${isSolved == false}">
                 <c:forEach var="questionVectorTimestamp" items="${questionVectorTimestamps}" varStatus="status">
-                    <form class="collapse" action="<c:url value='${request.contextPath}/algorithm/vector-timestamp'/>" method="post" id="de-${questionVectorTimestamp.vector_id}">
+                    <form autocomplete="off" class="collapse" action="<c:url value='${request.contextPath}/algorithm/vector-timestamp'/>" method="post" id="de-${questionVectorTimestamp.vector_id}">
                         <div class="d-flex justify-content-between mb-3">
                             <h3 class="text-success mb-0">Đề số: <c:out value="${questionVectorTimestamp.vector_id}"></c:out></h3>
-                                <input class="btn btn-success" type="submit" value="Nộp bài">
+                                <input autocomplete="off" class="btn btn-success" type="submit" value="Nộp bài">
                             </div>
 
-                            <input type="hidden" name="time">
-                            <input type="hidden" name="vector_id" value="${questionVectorTimestamp.vector_id}">
+                            <input autocomplete="off" type="hidden" name="time">
+                            <input autocomplete="off" type="hidden" name="vector_id" value="${questionVectorTimestamp.vector_id}">
 
                         <div class="table-responsive position-relative">
                             <table class="table table-hover border border-danger table-bordered align-middle w-100">
@@ -89,7 +89,7 @@
                                 </thead>
                                 <tbody class="fw-bold align-middle text-black">
                                     <c:set var="isIcr"><%= java.lang.Math.round(java.lang.Math.random() * 2) % 2 %></c:set>
-                                    <input type="hidden" name="isIcr" value="${isIcr}">
+                                    <input autocomplete="off" type="hidden" name="isIcr" value="${isIcr}">
                                     <c:forEach var="icr" begin="0" end="${fn:length(questionVectorTimestamp.res) - 1}" step="1">
                                         <c:set var="i" value="${isIcr == 0 ? icr : fn:length(questionVectorTimestamp.res)-1-icr}"/>
                                         <tr>
@@ -101,7 +101,7 @@
                                                     </c:if>
 
                                                     <c:if test="${j != 0}">
-                                                        <input style="min-width: 100px" class="form-control" type="text" name="${i}-${j}" value="e${i + 1},${j}">
+                                                        <input autocomplete="off" style="min-width: 100px" class="form-control" type="text" name="${i}-${j}" value="e${i + 1},${j}">
                                                     </c:if>
                                                 </td>
                                             </c:forEach>                                       

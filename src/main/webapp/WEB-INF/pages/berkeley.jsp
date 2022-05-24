@@ -47,14 +47,14 @@
             <!-- Berkeley bai lam begin -->
             <c:if test="${isSolved == false}">
                 <c:forEach var="questionBerkeley" items="${questionBerkeleys}" varStatus="status">
-                    <form class="collapse" action="<c:url value='${request.contextPath}/algorithm/berkeley'/>" method="post" id="de-${questionBerkeley.questionId}">
+                    <form autocomplete="off" class="collapse" action="<c:url value='${request.contextPath}/algorithm/berkeley'/>" method="post" id="de-${questionBerkeley.questionId}">
                         <div class="d-flex justify-content-between mb-3">
                             <h3 class="text-success mb-0">Đề số: <c:out value="${questionBerkeley.questionId}"></c:out></h3>
-                                <input class="btn btn-success" type="submit" value="Nộp bài">
+                                <input autocomplete="off" class="btn btn-success" type="submit" value="Nộp bài">
                             </div>
 
-                            <input type="hidden" name="questionId" value="${questionBerkeley.questionId}">
-                            <input type="hidden" name="time">
+                            <input autocomplete="off" type="hidden" name="questionId" value="${questionBerkeley.questionId}">
+                            <input autocomplete="off" type="hidden" name="time">
                             
                         <div class="table-responsive">
                             <table class="table table-hover border border-danger table-bordered align-middle w-100">
@@ -82,14 +82,14 @@
                                             <td>${memberTime}</td>
                                             
                                             <td>
-                                                <input style="min-width: 100px" class="form-control" type="text" name="calibratedRes-${statusMemberTimes.count}" class="text-danger" size="10">
+                                                <input autocomplete="off" style="min-width: 100px" class="form-control" type="text" name="calibratedRes-${statusMemberTimes.count}" class="text-danger" size="10">
                                             </td>
                                         </tr>
                                     </c:forEach>
                                         
                                     <tr class="text-center">
                                         <td colspan="2"class="text-success">Thời gian sau khi đồng bộ</td>
-                                        <td colspan="2"><input style="min-width: 100px" class="form-control" type="text" name="correctedDateTime" class="text-danger" size="10"></td>
+                                        <td colspan="2"><input autocomplete="off" style="min-width: 100px" class="form-control" type="text" name="correctedDateTime" class="text-danger" size="10"></td>
                                     </tr>  
                                 </tbody>
                             </table>                        

@@ -118,14 +118,14 @@
             <!-- Cristian bai lam begin -->
             <c:if test="${isSolved == false}">
                 <c:forEach var="questionCristian" items="${questionCristians}" varStatus="status">
-                    <form class="collapse mt-5" action="<c:url value='${request.contextPath}/algorithm/cristian'/>" method="post" id="de-${questionCristian.questionId}">
+                    <form autocomplete="off" class="collapse mt-5" action="<c:url value='${request.contextPath}/algorithm/cristian'/>" method="post" id="de-${questionCristian.questionId}">
                         <div class="d-flex justify-content-between mb-3">
                             <h3 class="text-success mb-0">Đề số: <c:out value="${questionCristian.questionId}"></c:out></h3>
-                            <input class="btn btn-success" type="submit" value="Nộp bài">
+                            <input autocomplete="off" class="btn btn-success" type="submit" value="Nộp bài">
                         </div>
 
-                        <input type="hidden" name="time">
-                        <input type="hidden" name="questionId" value="${questionCristian.questionId}">
+                        <input autocomplete="off" type="hidden" name="time">
+                        <input autocomplete="off" type="hidden" name="questionId" value="${questionCristian.questionId}">
 
                         <div class="table-responsive">
                             <table class="table table-hover border border-danger table-bordered align-middle w-100">
@@ -136,7 +136,7 @@
                                 </thead>
                                 <tbody class="fw-bold align-middle text-black">
                                     <tr>
-                                        <td><input style="min-width: 100px" class="form-control" type="text" name="dateTimeAfterSynchronize" placeholder="Ghi theo định dạng yyyy-mm-dd hh:mi:ss.ms"></td>
+                                        <td><input autocomplete="off" style="min-width: 100px" class="form-control" type="text" name="dateTimeAfterSynchronize" placeholder="Ghi theo định dạng yyyy-mm-dd hh:mi:ss.ms"></td>
                                     </tr>  
                                 </tbody>
                             </table>                        
