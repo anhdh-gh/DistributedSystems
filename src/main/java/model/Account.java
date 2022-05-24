@@ -18,7 +18,8 @@ public class Account {
     }
  
     private static final List<Account> accounts = new ArrayList<>(Arrays.asList(
-        new Account(1, "anonymous", "anonymous")
+        new Account(1, "Đỗ Hùng Anh", "Đỗ Hùng Anh"),
+        new Account(2, "anonymous", "anonymous")
     ));
     
     public static Account authentication(String username, String password) {
