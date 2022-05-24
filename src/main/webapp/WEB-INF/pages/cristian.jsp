@@ -136,7 +136,7 @@
                                 </thead>
                                 <tbody class="fw-bold align-middle text-black">
                                     <tr>
-                                        <td><input class="form-control" type="text" name="dateTimeAfterSynchronize" placeholder="Ghi theo định dạng yyyy-mm-dd hh:mi:ss.ms"></td>
+                                        <td><input style="min-width: 100px" class="form-control" type="text" name="dateTimeAfterSynchronize" placeholder="Ghi theo định dạng yyyy-mm-dd hh:mi:ss.ms"></td>
                                     </tr>  
                                 </tbody>
                             </table>                        

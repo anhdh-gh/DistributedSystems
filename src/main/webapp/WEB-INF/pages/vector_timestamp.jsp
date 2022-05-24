@@ -101,7 +101,7 @@
                                                     </c:if>
 
                                                     <c:if test="${j != 0}">
-                                                        <input style="min-width: 100px" class="form-control" type="text" name="${i}-${j}" value="e${i + 1},${j}" class="text-danger" size="10">
+                                                        <input style="min-width: 100px" class="form-control" type="text" name="${i}-${j}" value="e${i + 1},${j}">
                                                     </c:if>
                                                 </td>
                                             </c:forEach>                                       

@@ -27,6 +27,7 @@
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/bau-chon-khong-day'/>">Bầu chọn không dây</a></li>
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/cristian-ntp'/>">Cristian - NTP</a></li>
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/cristian'/>">Cristian</a></li>
+                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/dong-thuan-phan-tan'/>">Đồng thuận phân tán</a></li>
                     </ul>
                 </li>
 

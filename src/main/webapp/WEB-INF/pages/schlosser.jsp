@@ -53,7 +53,7 @@
                         <div class="d-flex justify-content-between mb-3">
                             <div>
                                 <h6 class="text-success mb-0">N = <c:out value="${questionSchlosser.soNut}"></c:out></h6>
-                                <p class="text-danger mb-0"><c:out value="Số lượng láng giềng cho mỗi nút: ${questionSchlosser.so_lang_gieng}"></c:out></p>
+                                <p class="text-danger mb-0 me-1"><c:out value="Số lượng láng giềng cho mỗi nút: ${questionSchlosser.so_lang_gieng}"></c:out></p>
                             </div>
                             
                             <input class="btn btn-success" type="submit" value="Nộp bài">
@@ -78,7 +78,7 @@
                                             <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">${i}</th>
                                             <c:forEach var="j" begin="0" end="${questionSchlosser.soNut-1}" step="1">
                                                 <td>
-                                                    <input class="form-control" type="text" name="${i}-${j}" class="text-danger">
+                                                    <input style="min-width: 100px" class="form-control" type="text" name="${i}-${j}" class="text-danger">
                                                 </td>
                                             </c:forEach>                                       
                                         </tr>
@@ -97,7 +97,7 @@
                 <div class="d-flex justify-content-between mb-2">
                     <div>
                         <h6 class="text-success mb-0">N = <c:out value="${questionSchlosser.soNut}"></c:out></h6>
-                        <p class="text-danger mb-0"><c:out value="Số lượng láng giềng cho mỗi nút: ${questionSchlosser.so_lang_gieng}"></c:out></p>
+                        <p class="text-danger mb-0 me-1"><c:out value="Số lượng láng giềng cho mỗi nút: ${questionSchlosser.so_lang_gieng}"></c:out></p>
                     </div>
                     <h3 class="text-danger mb-0">Điểm: <c:out value="${score}"></c:out></h3>
                 </div>
@@ -130,7 +130,7 @@
             <!-- Nhãn thời gian vector ketqua begin -->
             <c:if test="${isSolved == true}">
                 <div class="d-flex justify-content-between mb-2 mt-4">
-                    <h3 class="text-success mb-0">Đáp án</h3>
+                    <h3 class="text-success mb-0 me-1">Đáp án</h3>
                     <h3 class="text-success mb-0">${time}</h3>
                 </div>
 
