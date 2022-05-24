@@ -27,10 +27,12 @@ public class VectorTimestampServlet extends HttpServlet {
         try {
             QuestionVectorTimestamp questionVectorTimestamp = QuestionVectorTimestamp.getQuestionVectorTimestampByVector_id(Integer.parseInt(req.getParameter("vector_id")));
 
-            double answerPoint = (double) 10 / 24;
-            double score = 0;
-            String[][] ans = new String[3][9];
             String[][] res = questionVectorTimestamp.getRes();
+            
+            double answerPoint = (double) 10 / (res.length * res[0].length);
+            double score = 0;
+            
+            String[][] ans = new String[res.length][res[0].length];
             for (int i = 0; i < ans.length; i++) {
                 for (int j = 1; j < ans[i].length; j++) { // 3 ô đầu tiên mỗi hàng ko tính điểm
                     ans[i][j] = req.getParameter(i + "-" + j);
