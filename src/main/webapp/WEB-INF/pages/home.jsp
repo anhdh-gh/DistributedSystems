@@ -48,7 +48,8 @@
             <h5 class="text-danger mt-4">2. Important notes:</h5>
             <ul>
                 <li>Khi sử dụng xong hệ thống thì phải luôn <b>đăng xuất tài khoản</b>.</li>
-                <li>Tài khoản đang sử dụng thì sẽ không thể đăng nhập được ở một trình duyệt nào khác.</li>
+                <li>Tài khoản đang sử dụng thì sẽ không thể đăng nhập được ở bất kỳ trình duyệt nào khác.</li>
+                <li>Nếu lỡ quên đăng xuất tài khoản, đừng lo lắng. Hãy thử đăng nhập lại sau 30 -> 120 phút. Hoặc sử dụng một tài khoản khác chưa được đăng nhập.</li>
             </ul>    
             <!-- Chú ý end -->
         </div>      
