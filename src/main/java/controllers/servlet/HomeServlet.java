@@ -4,7 +4,6 @@ package controllers.servlet;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Account;
 import org.joda.time.LocalDateTime;
+import org.joda.time.Minutes;
 import util.DateUtil;
 import util.ServletUtil;
 
@@ -35,8 +35,20 @@ public class HomeServlet extends HttpServlet {
         
         for (Account account : Account.getAccounts()) {
             LocalDateTime dateTime = (LocalDateTime) this.getServletContext().getAttribute(account.getUsername());
-            if(dateTime != null)
-                accounts.put(account.getUsername(), DateUtil.getDateTimeStringFormat(dateTime.toDate()));
+            if(dateTime != null) {
+                int offset = Math.abs(Minutes.minutesBetween(LocalDateTime.now(), dateTime).getMinutes());
+                
+                accounts.put(
+                    account.getUsername(), 
+                    offset == 0 ? "Đang online" : "Online " + offset + " phút trước"
+                );               
+            }
+            else {
+                accounts.put(
+                    account.getUsername(), 
+                    "Offline"
+                ); 
+            }
         }
         
         req.setAttribute("accounts", accounts);

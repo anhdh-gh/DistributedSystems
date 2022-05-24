@@ -21,21 +21,21 @@
             <!-- Header end -->  
             
             <!-- Người dùng đang sử dụng begin-->
-            <h5 class="text-danger mt-4">1. Users are using:</h5>
+            <h5 class="text-danger mt-4">1. User status:</h5>
             <div class="table-responsive">
                 <table class="table table-warning border border-danger table-bordered align-middle w-100 mb-0">
                     <thead class="text-danger align-middle">
                         <tr class="text-center align-middle text-nowrap">
                             <th scope="col">ID</th>
                             <th scope="col">Username</th>
-                            <th scope="col">Time</th>
+                            <th scope="col">Status</th>
                         </tr>
                     </thead>
                     <tbody class="fw-bold align-middle text-black">
                         <c:forEach var="account" items="${accounts}" varStatus="status">
                             <tr class="text-center">
                                 <td>${status.count}</td>
-                                <td>${account.key}</td>
+                                <td class="text-start">${account.key}</td>
                                 <td>${account.value}</td>
                             </tr>  
                         </c:forEach>
