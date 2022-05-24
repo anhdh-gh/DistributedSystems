@@ -37,7 +37,7 @@
                                 <div class="table-responsive">
                                     <table class="table table-hover border border-danger table-bordered align-middle w-100">
                                         <thead style="background-color: #d30000" class="text-white align-middle text-center">
-                                        <th scope="col">Tiến trình</th>
+                                        <th scope="col">Tiến trình (gửi)</th>
                                             <c:forEach var="i" begin="0" end="${questionBauChonKhongDay.so_tien_trinh-1}">
                                             <th scope="col">P${i+1}</th>
                                             </c:forEach>                                            
@@ -50,7 +50,7 @@
                                                 </c:forEach>
                                             </tr>
                                             <tr>
-                                                <th class="text-danger align-middle">Tiến trình cha</th>
+                                                <th class="text-danger align-middle">Tiến trình cha (nhận)</th>
                                                     <c:forEach var="i" begin="0" end="${questionBauChonKhongDay.so_tien_trinh-1}">
                                                     <td class="text-center">${questionBauChonKhongDay.deBai[1][i]}</td>
                                                 </c:forEach>                                            
@@ -68,7 +68,7 @@
                 <div class="table-responsive">
                     <table class="table table-hover border border-danger table-bordered align-middle w-100">
                         <thead style="background-color: #d30000" class="text-white align-middle text-center">
-                        <th scope="col">Tiến trình</th>
+                        <th scope="col">Tiến trình (gửi)</th>
                             <c:forEach var="i" begin="0" end="${questionBauChonKhongDay.so_tien_trinh-1}">
                             <th scope="col">P${i+1}</th>
                             </c:forEach>                                            
@@ -81,7 +81,7 @@
                                 </c:forEach>
                             </tr>
                             <tr>
-                                <th class="text-danger align-middle">Tiến trình cha</th>
+                                <th class="text-danger align-middle">Tiến trình cha (nhận)</th>
                                     <c:forEach var="i" begin="0" end="${questionBauChonKhongDay.so_tien_trinh-1}">
                                     <td class="text-center">${questionBauChonKhongDay.deBai[1][i]}</td>
                                 </c:forEach>                                            
