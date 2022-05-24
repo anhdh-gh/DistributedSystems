@@ -29,4 +29,8 @@ public class Account {
         
         return null;
     }
+
+    public static List<Account> getAccounts() {
+        return accounts;
+    }
 }

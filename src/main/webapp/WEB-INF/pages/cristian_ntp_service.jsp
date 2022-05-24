@@ -68,7 +68,7 @@
                             <div class="table-responsive position-relative">
                                 <table class="table table-warning border border-danger table-bordered align-middle w-100">
                                     <thead class="align-middle text-center">
-                                    <th colspan="${fn:length(questionCristianNtp.ntpMesage) + 1}">Bản tin ntp</th>                                   
+                                    <th class="text-danger" colspan="${fn:length(questionCristianNtp.ntpMesage) + 1}">Bản tin ntp</th>                                   
                                     </thead>
                                     <tbody class="fw-bold align-middle text-black">
                                         <tr>
@@ -102,7 +102,7 @@
                             <div class="text-center mt-3 table-responsive">
                                 <table class="table table-warning table-hover border border-danger table-bordered align-middle w-100">
                                     <thead class="align-middle">
-                                        <tr class="align-middle text-nowrap">
+                                        <tr class="text-danger" class="align-middle text-nowrap">
                                             <th scope="col">Tham số</th>
                                             <th scope="col">Đáp án</th>
                                         </tr>
