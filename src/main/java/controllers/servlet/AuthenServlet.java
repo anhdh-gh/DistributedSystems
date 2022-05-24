@@ -48,6 +48,7 @@ public class AuthenServlet extends HttpServlet {
             req.setAttribute("username", username);
             req.setAttribute("password", password);
             req.setAttribute("return_url", url_return);
+            req.setAttribute("notify", "Incorrect username or password");
             
             ServletUtil.forward("/WEB-INF/pages/signin.jsp", req, resp);
         }

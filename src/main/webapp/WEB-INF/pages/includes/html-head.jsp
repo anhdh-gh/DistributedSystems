@@ -16,3 +16,6 @@
 
 <!-- Loader -->
 <link rel="stylesheet" href="<c:url value='${request.contextPath}/assets/css/loader.css'/>"/>
+
+<!-- Toastify -->
+<link rel="stylesheet" href="<c:url value='${request.contextPath}/assets/css/toastify.min.css'/>"/>

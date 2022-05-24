@@ -13,6 +13,9 @@
 <!-- Loader -->
 <script src="<c:url value='${request.contextPath}/assets/js/loader.js'/>"></script>
 
+<!-- Toastify -->
+<script src="<c:url value='${request.contextPath}/assets/js/toastify.min.js'/>"></script>
+
 <script>
     $(document).ready(() => {
         // Initialize tooltips

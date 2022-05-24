@@ -61,5 +61,23 @@
         <!-- Javascript begin -->
         <jsp:include page="./includes/html-body-end.jsp" />
         <!-- Javascript end -->
+        
+        <c:if test="${not empty notify}">
+            <script>
+                Toastify({
+                    text: "${notify}",
+                    className: "info",
+                    duration: 5000,
+                    newWindow: true,
+                    close: true,
+                    gravity: "bottom", // `top` or `bottom`
+                    position: "center", // `left`, `center` or `right`
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                    style: {
+                        background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(211,0,0,1) 100%)"
+                    }
+                }).showToast();
+            </script>
+        </c:if>
     </body>
 </html>
