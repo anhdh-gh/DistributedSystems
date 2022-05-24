@@ -6,8 +6,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import model.Account;
+import org.joda.time.LocalDateTime;
+import org.joda.time.Minutes;
 import util.ServletUtil;
 
 
@@ -43,19 +44,28 @@ public class AuthenServlet extends HttpServlet {
         String password = req.getParameter("password");
         String url_return = req.getParameter("url_return");
         
+        req.setAttribute("username", username);
+        req.setAttribute("password", password);
+        req.setAttribute("return_url", url_return);
+        
         Account account = Account.authentication(username, password);
+        
         if(account == null) {
-            req.setAttribute("username", username);
-            req.setAttribute("password", password);
-            req.setAttribute("return_url", url_return);
             req.setAttribute("notify", "Incorrect username or password");
-            
             ServletUtil.forward("/WEB-INF/pages/signin.jsp", req, resp);
         }
         else {
-            HttpSession session = req.getSession();
-            session.setAttribute("account", account);
-            ServletUtil.sendRedirect(url_return != null && !url_return.isEmpty() ? url_return : "/", req, resp);
+            LocalDateTime dateTime = (LocalDateTime) this.getServletContext().getAttribute(account.getUsername());
+                
+            if(dateTime != null && Math.abs(Minutes.minutesBetween(LocalDateTime.now(), dateTime).getMinutes()) < 120) {
+                req.setAttribute("notify", "This account is already in use");
+                ServletUtil.forward("/WEB-INF/pages/signin.jsp", req, resp);  
+            }
+            else {
+                this.getServletContext().setAttribute(account.getUsername(), LocalDateTime.now());
+                req.getSession().setAttribute("account", account);
+                ServletUtil.sendRedirect(url_return != null && !url_return.isEmpty() ? url_return : "/", req, resp);
+            }            
         }
     }    
 }
