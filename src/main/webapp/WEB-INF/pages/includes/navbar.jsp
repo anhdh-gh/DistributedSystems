@@ -50,7 +50,7 @@
                         <li class="dropdown-submenu">
                             <a class="dropdown-item dropdown-toggle" href="#">Trung bình</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/trung-binh'/>">Trung bình</a></li>
+                                <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/trung-binh'/>">Dạng điển form</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/trung-binh'/>">Dạng gọi service</a></li>
                             </ul>

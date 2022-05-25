@@ -28,7 +28,7 @@
 
             <p>Lập trình viên thực hiện đồng bộ thời gian máy tính với máy chủ NTP, hãy tính thời gian gửi, thời gian máy chủ nhận, thời gian máy chủ gửi, thời gian mới trên máy khách (thời gian địa phương, viết theo định dạng yyyy-mm-dd hh:mi:ss.ms) và độ lệch thời gian (tính bằng đơn vị tick) giữa máy khách và máy chủ nếu thời gian nhận được trên máy khách và bản tin NTP nhận được có giá trị như sau:</p>
             <c:if test="${isSolved == false}">
-                <div id="de-bai">
+                <div id="de-bai" class="mb-3">
                     <c:forEach var="questionCristianNtp" items="${questionCristianNtps}" varStatus="status">
                         <div>
                             <p onclick="showDeBai(${status.count}, ${questionCristianNtp.questionId})" class="text-danger" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#de-${questionCristianNtp.questionId}" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-arrows-to-dot"></i> Xem đề ${status.count}</p>
@@ -71,38 +71,36 @@
             </c:if>
 
             <c:if test="${isSolved == true}">
-                <div>
-                    <div class="card card-body">
-                        <div class="table-responsive position-relative">
-                            <table class="table table-hover border border-danger table-bordered align-middle w-100">
-                                <thead style="background-color: #d30000" class="text-white align-middle text-center">
-                                <th style="background-color: #d30000" scope="col" class="position-sticky start-0">Byte</th>
-                                    <c:forEach var="i" begin="0" end="${fn:length(questionCristianNtp.ntpMesage)-1}">
-                                        <c:if test="${i < 10}">
-                                        <th scope="col">0${i}</th>
-                                        </c:if>
-                                        <c:if test="${i >= 10}">
-                                        <th scope="col">${i}</th>
-                                        </c:if>
-                                    </c:forEach>                                            
-                                </thead>
-                                <tbody class="fw-bold align-middle text-black">
-                                    <tr>
-                                        <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">Giá trị</th>
-                                            <c:forEach var="i" begin="0" end="${fn:length(questionCristianNtp.ntpMesage)-1}">
-                                            <td>
-                                                <c:if test="${questionCristianNtp.ntpMesage[i] < 10}">
-                                                    0${questionCristianNtp.ntpMesage[i]}
-                                                </c:if>
-                                                <c:if test="${questionCristianNtp.ntpMesage[i] >= 10}">
-                                                    ${questionCristianNtp.ntpMesage[i]}
-                                                </c:if>                                                        
-                                            </td>
-                                        </c:forEach>                                       
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                <div class="mb-3">
+                    <div class="table-responsive position-relative">
+                        <table class="table table-hover border border-danger table-bordered align-middle w-100">
+                            <thead style="background-color: #d30000" class="text-white align-middle text-center">
+                            <th style="background-color: #d30000" scope="col" class="position-sticky start-0">Byte</th>
+                                <c:forEach var="i" begin="0" end="${fn:length(questionCristianNtp.ntpMesage)-1}">
+                                    <c:if test="${i < 10}">
+                                    <th scope="col">0${i}</th>
+                                    </c:if>
+                                    <c:if test="${i >= 10}">
+                                    <th scope="col">${i}</th>
+                                    </c:if>
+                                </c:forEach>                                            
+                            </thead>
+                            <tbody class="fw-bold align-middle text-black">
+                                <tr>
+                                    <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">Giá trị</th>
+                                        <c:forEach var="i" begin="0" end="${fn:length(questionCristianNtp.ntpMesage)-1}">
+                                        <td>
+                                            <c:if test="${questionCristianNtp.ntpMesage[i] < 10}">
+                                                0${questionCristianNtp.ntpMesage[i]}
+                                            </c:if>
+                                            <c:if test="${questionCristianNtp.ntpMesage[i] >= 10}">
+                                                ${questionCristianNtp.ntpMesage[i]}
+                                            </c:if>                                                        
+                                        </td>
+                                    </c:forEach>                                       
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>                
             </c:if>

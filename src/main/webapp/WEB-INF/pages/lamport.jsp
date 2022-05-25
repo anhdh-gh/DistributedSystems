@@ -96,7 +96,7 @@
             </c:if>
 
             <c:if test="${isSolved == true}">
-                <div class="row">
+                <div class="row mb-3">
                     <div class="col-md-5 col-lg-4 mb-md-0 mb-3">
                         <div class="card border-success h-100">
                             <div class="card-header fw-bold">Thông điệp giữa các tiến trình</div>
@@ -114,7 +114,7 @@
                         <div class="card border-success h-100">
                             <div class="card-header fw-bold">Bộ đếm thời gian của mỗi tiến trình</div>
 
-                            <div class="card-body text-secondary">
+                            <div class="card-body text-secondary p-0">
                                 <div class="table-responsive position-relative">
                                     <table class="table table-hover border border-danger table-bordered align-middle w-100 m-0">
                                         <thead style="background-color: #d30000" class="text-white align-middle">

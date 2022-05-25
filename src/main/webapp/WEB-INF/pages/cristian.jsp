@@ -73,38 +73,36 @@
 
             <c:if test="${isSolved == true}">
                 <div>
-                    <div class="card card-body">
-                        <div class="table-responsive">
-                            <table class="table table-hover border border-danger table-bordered align-middle w-100 mb-0">
-                                <thead style="background-color: #d30000" class="text-white align-middle">
-                                    <tr class="text-center align-middle text-nowrap">
-                                        <th scope="col">Các mốc thời gian</th>
-                                        <th scope="col">Giá trị</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="fw-bold align-middle text-black">
-                                    <tr>
-                                        <td class="text-success">Thời gian máy khách gửi</td>
-                                        <td class="text-center">${questionCristian.originateSendTimestamp}</td>
-                                    </tr>  
+                    <div class="table-responsive">
+                        <table class="table table-hover border border-danger table-bordered align-middle w-100">
+                            <thead style="background-color: #d30000" class="text-white align-middle">
+                                <tr class="text-center align-middle text-nowrap">
+                                    <th scope="col">Các mốc thời gian</th>
+                                    <th scope="col">Giá trị</th>
+                                </tr>
+                            </thead>
+                            <tbody class="fw-bold align-middle text-black">
+                                <tr>
+                                    <td class="text-success">Thời gian máy khách gửi</td>
+                                    <td class="text-center">${questionCristian.originateSendTimestamp}</td>
+                                </tr>  
 
-                                    <tr>
-                                        <td class="text-success">Thời gian máy chủ nhận</td>
-                                        <td class="text-center">${questionCristian.receiveTimestamp}</td>
-                                    </tr>  
+                                <tr>
+                                    <td class="text-success">Thời gian máy chủ nhận</td>
+                                    <td class="text-center">${questionCristian.receiveTimestamp}</td>
+                                </tr>  
 
-                                    <tr>
-                                        <td class="text-success">Thời gian máy chủ gửi</td>
-                                        <td class="text-center">${questionCristian.transmitTimestamp}</td>
-                                    </tr>  
+                                <tr>
+                                    <td class="text-success">Thời gian máy chủ gửi</td>
+                                    <td class="text-center">${questionCristian.transmitTimestamp}</td>
+                                </tr>  
 
-                                    <tr>
-                                        <td class="text-success">Thời gian máy khách nhận</td>
-                                        <td class="text-center">${questionCristian.originateReceiveTime}</td>
-                                    </tr>
-                                </tbody>
-                            </table>                        
-                        </div>
+                                <tr>
+                                    <td class="text-success">Thời gian máy khách nhận</td>
+                                    <td class="text-center">${questionCristian.originateReceiveTime}</td>
+                                </tr>
+                            </tbody>
+                        </table>                        
                     </div>
                 </div>                
             </c:if>
