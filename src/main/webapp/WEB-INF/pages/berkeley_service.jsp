@@ -51,7 +51,7 @@
             <!-- Berkeley de bai end -->
 
             <!-- Berkeley list question begin -->
-            <h5 class="text-danger mt-4">2. Đáp án:</h5>
+            <h5 class="text-danger mt-5">2. Đáp án:</h5>
             <div class="mt-2">
                 <c:forEach var="questionBerkeley" items="${questionBerkeleys}">
                     <p class="text-success" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#dapan-${questionBerkeley.questionId}" aria-expanded="false" aria-controls="collapseExample">

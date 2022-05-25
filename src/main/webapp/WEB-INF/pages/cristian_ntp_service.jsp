@@ -56,7 +56,7 @@
             <!-- Berkeley de bai end -->
 
             <!-- Cristian NTP list question begin -->
-            <h5 class="text-danger mt-4">2. Đáp án:</h5>
+            <h5 class="text-danger mt-5">2. Đáp án:</h5>
             <div class="mt-2">
                 <c:forEach var="questionCristianNtp" items="${questionCristianNtps}">
                     <p class="text-success" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#dapan-${questionCristianNtp.questionId}" aria-expanded="false" aria-controls="collapseExample">
