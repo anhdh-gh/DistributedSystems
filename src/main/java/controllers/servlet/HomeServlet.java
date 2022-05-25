@@ -35,20 +35,12 @@ public class HomeServlet extends HttpServlet {
         
         for (Account account : Account.getAccounts()) {
             LocalDateTime dateTime = (LocalDateTime) this.getServletContext().getAttribute(account.getUsername());
-            if(dateTime != null) {
-                int offset = Math.abs(Minutes.minutesBetween(LocalDateTime.now(), dateTime).getMinutes());
-                
-                accounts.put(
-                    account.getUsername(), 
-                    offset == 0 ? "Đang online" : "Online " + offset + " phút trước"
-                );               
-            }
-            else {
-                accounts.put(
-                    account.getUsername(), 
-                    "Offline"
-                ); 
-            }
+            int offset = -1;
+            
+            if(dateTime != null)
+                offset = Math.abs(Minutes.minutesBetween(LocalDateTime.now(), dateTime).getMinutes());
+            
+            accounts.put(account.getUsername(), offset);          
         }
         
         req.setAttribute("accounts", accounts);

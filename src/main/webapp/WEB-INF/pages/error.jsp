@@ -83,7 +83,7 @@
                 </c:when>
 
                 <c:otherwise>
-                    <div class="title">OPPS..!</div>
+                    <div class="title">${pageContext.errorData.statusCode != null ? pageContext.errorData.statusCode : 'OOP...'}!</div>
                     <p>Có lỗi xảy ra</p>                                              
                 </c:otherwise>
             </c:choose>
