@@ -20,7 +20,7 @@
             <!-- Navbar begin -->
             <jsp:include page="./includes/navbar.jsp"/>
             <!-- Navbar end -->  
-            
+
             <div class="d-flex justify-content-center">
                 <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Trung bình</h4>
             </div>
@@ -61,53 +61,33 @@
             <!-- Trung binh list question begin -->
             <h5 class="text-danger mt-5">2. Đáp án:</h5>
             <div class="mt-2">
-                <div class="table-responsive">
-                    <table class="table table-hover border border-danger table-bordered align-middle w-100">
-                        <thead
-                            style="background-color: #d30000"
-                            class="text-white align-middle"
-                            >
-                            <tr class="text-center align-middle text-nowrap">
-                                <th style="width: 1rem;">QuestionId</th>
-                                <th>Đáp án</th>
-                            </tr>
-                        </thead>
-                        <tbody class="fw-bold align-middle">
-                            <c:forEach var="questionTrungBinh" items="${questionTrungBinhs}">
-                                <tr>
-                                    <td class="text-center">${questionTrungBinh.questionId}</td>
-                                    <td class="text-center">
-                                        <span class="text-success" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#dapan-${questionTrungBinh.questionId}" aria-expanded="false" aria-controls="collapseExample">
-                                            Xem đáp án
-                                        </span>
+                <c:forEach var="questionTrungBinh" items="${questionTrungBinhs}">
+                    <p class="text-success" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#dapan-${questionTrungBinh.questionId}" aria-expanded="false" aria-controls="collapseExample">
+                        <i class="fa-solid fa-circle-dot"></i> QUESTION-ID: ${questionTrungBinh.questionId}
+                    </p>         
 
-                                        <div class="mt-3 table-responsive collapse" id="dapan-${questionTrungBinh.questionId}">
-                                            <table class="table table-warning table-hover border border-danger table-bordered align-middle w-100">
-                                                <thead class="align-middle text-danger">
-                                                    <tr class="text-center align-middle text-nowrap">
-                                                        <th scope="col">Tiến trình</th>
-                                                        <th scope="col">Trước đồng bộ</th>
-                                                        <th scope="col">Sau đồng bộ</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody class="fw-bold align-middle text-black">
-                                                    <c:forEach var="memberTime" items="${questionTrungBinh.memberTimes}" varStatus="statusMemberTimes">
-                                                        <tr class="text-center">
-                                                            <th class="text-danger">${statusMemberTimes.count}</th>
+                    <div class="mt-3 table-responsive collapse" id="dapan-${questionTrungBinh.questionId}">
+                        <table class="table table-warning table-hover border border-danger table-bordered align-middle w-100">
+                            <thead class="align-middle text-danger">
+                                <tr class="text-center align-middle text-nowrap">
+                                    <th scope="col">Tiến trình</th>
+                                    <th scope="col">Trước đồng bộ</th>
+                                    <th scope="col">Sau đồng bộ</th>
+                                </tr>
+                            </thead>
+                            <tbody class="fw-bold align-middle text-black">
+                                <c:forEach var="memberTime" items="${questionTrungBinh.memberTimes}" varStatus="statusMemberTimes">
+                                    <tr class="text-center">
+                                        <th class="text-danger">${statusMemberTimes.count}</th>
 
-                                                            <td>${memberTime}</td>
-                                                            <td>${questionTrungBinh.correctedMs[statusMemberTimes.count-1]}</td>
-                                                        </tr>
-                                                    </c:forEach>
-                                                </tbody>
-                                            </table>                        
-                                        </div>
-                                    </td>
-                                </tr>                                
-                            </c:forEach>
-                        </tbody>
-                    </table>            
-                </div>               
+                                        <td>${memberTime}</td>
+                                        <td>${questionTrungBinh.correctedMs[statusMemberTimes.count-1]}</td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>                        
+                    </div>
+                </c:forEach>                            
             </div>
             <!-- Trung binh list question end -->
 

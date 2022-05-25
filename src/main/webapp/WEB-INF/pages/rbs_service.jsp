@@ -20,7 +20,7 @@
             <!-- Navbar begin -->
             <jsp:include page="./includes/navbar.jsp"/>
             <!-- Navbar end -->  
-            
+
             <div class="d-flex justify-content-center">
                 <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Rbs</h4>
             </div>
@@ -59,52 +59,32 @@
             <!-- Rbs list question begin -->
             <h5 class="text-danger mt-5">2. Đáp án:</h5>
             <div class="mt-2">
-                <div class="table-responsive">
-                    <table class="table table-hover border border-danger table-bordered align-middle w-100">
-                        <thead
-                            style="background-color: #d30000"
-                            class="text-white align-middle"
-                            >
-                            <tr class="text-center align-middle text-nowrap">
-                                <th style="width: 1rem;">QuestionId</th>
-                                <th>Đáp án</th>
-                            </tr>
-                        </thead>
-                        <tbody class="fw-bold align-middle">
-                            <c:forEach var="questionForRbs" items="${questionForRbses}">
-                                <tr>
-                                    <td class="text-center">${questionForRbs.questionId}</td>
-                                    <td class="text-center">
-                                        <span class="text-success" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#dapan-${questionForRbs.questionId}" aria-expanded="false" aria-controls="collapseExample">
-                                            Xem đáp án
-                                        </span>
+                <c:forEach var="questionForRbs" items="${questionForRbses}">
+                    <p class="text-success" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#dapan-${questionForRbs.questionId}" aria-expanded="false" aria-controls="collapseExample">
+                        <i class="fa-solid fa-circle-dot"></i> QUESTION-ID: ${questionForRbs.questionId}
+                    </p>         
 
-                                        <div class="mt-3 table-responsive collapse" id="dapan-${questionForRbs.questionId}">
-                                            <table class="table table-warning table-hover border border-danger table-bordered align-middle w-100">
-                                                <thead class="align-middle text-danger">
-                                                    <tr class="text-center align-middle text-nowrap">
-                                                        <th scope="col">Thời gian tiến trình P</th>
-                                                        <th scope="col">Thời gian tiến trình Q</th>
-                                                        <th scope="col">Độ lêch (Ticks)</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody class="fw-bold align-middle text-black">
-                                                    <c:forEach var="i" begin="0" end="${fn:length(questionForRbs.pTimes) - 1}">
-                                                        <tr class="text-center">
-                                                            <th>${questionForRbs.pTimes[i]}</th>
-                                                            <th>${questionForRbs.qTimes[i]}</th>
-                                                            <th>${questionForRbs.diffPQ[i]}</th>
-                                                        </tr>
-                                                    </c:forEach>
-                                                </tbody>
-                                            </table>                        
-                                        </div>
-                                    </td>
-                                </tr>                                
-                            </c:forEach>
-                        </tbody>
-                    </table>            
-                </div>               
+                    <div class="mt-3 table-responsive collapse" id="dapan-${questionForRbs.questionId}">
+                        <table class="table table-warning table-hover border border-danger table-bordered align-middle w-100">
+                            <thead class="align-middle text-danger">
+                                <tr class="text-center align-middle text-nowrap">
+                                    <th scope="col">Thời gian tiến trình P</th>
+                                    <th scope="col">Thời gian tiến trình Q</th>
+                                    <th scope="col">Độ lêch (Ticks)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="fw-bold align-middle text-black">
+                                <c:forEach var="i" begin="0" end="${fn:length(questionForRbs.pTimes) - 1}">
+                                    <tr class="text-center">
+                                        <th>${questionForRbs.pTimes[i]}</th>
+                                        <th>${questionForRbs.qTimes[i]}</th>
+                                        <th>${questionForRbs.diffPQ[i]}</th>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>                        
+                    </div>
+                </c:forEach>                              
             </div>
             <!-- Rbs list question end -->
 

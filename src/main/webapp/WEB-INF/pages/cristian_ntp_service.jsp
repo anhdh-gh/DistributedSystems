@@ -20,7 +20,7 @@
             <!-- Navbar begin -->
             <jsp:include page="./includes/navbar.jsp"/>
             <!-- Navbar end -->   
-            
+
             <div class="d-flex justify-content-center">
                 <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Cristian NTP</h4>
             </div>
@@ -56,7 +56,7 @@
             <!-- Berkeley de bai end -->
 
             <!-- Cristian NTP list question begin -->
-            <h5 class="text-danger mt-5">2. Đáp án:</h5>
+            <h5 class="text-danger mt-4">2. Đáp án:</h5>
             <div class="mt-2">
                 <c:forEach var="questionCristianNtp" items="${questionCristianNtps}">
                     <p class="text-success" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#dapan-${questionCristianNtp.questionId}" aria-expanded="false" aria-controls="collapseExample">
@@ -64,83 +64,81 @@
                     </p>
 
                     <div class="collapse" id="dapan-${questionCristianNtp.questionId}">
-                        <div class="card card-body">
-                            <div class="table-responsive position-relative">
-                                <table class="table table-warning border border-danger table-bordered align-middle w-100">
-                                    <thead class="align-middle text-center">
-                                    <th class="text-danger" colspan="${fn:length(questionCristianNtp.ntpMesage) + 1}">Bản tin ntp</th>                                   
-                                    </thead>
-                                    <tbody class="fw-bold align-middle text-black">
-                                        <tr>
-                                            <th scope="col" class="position-sticky start-0">Byte</th>
-                                                <c:forEach var="i" begin="0" end="${fn:length(questionCristianNtp.ntpMesage)-1}">
-                                                    <c:if test="${i < 10}">
-                                                    <th scope="col">0${i}</th>
-                                                    </c:if>
-                                                    <c:if test="${i >= 10}">
-                                                    <th scope="col">${i}</th>
-                                                    </c:if>
-                                                </c:forEach>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center position-sticky start-0">Giá trị</th>
-                                                <c:forEach var="i" begin="0" end="${fn:length(questionCristianNtp.ntpMesage)-1}">
-                                                <td>
-                                                    <c:if test="${questionCristianNtp.ntpMesage[i] < 10}">
-                                                        0${questionCristianNtp.ntpMesage[i]}
-                                                    </c:if>
-                                                    <c:if test="${questionCristianNtp.ntpMesage[i] >= 10}">
-                                                        ${questionCristianNtp.ntpMesage[i]}
-                                                    </c:if>                                                        
-                                                </td>
-                                            </c:forEach>                                       
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>  
+                        <div class="table-responsive position-relative">
+                            <table class="table table-warning border border-danger table-bordered align-middle w-100">
+                                <thead class="align-middle text-center">
+                                <th class="text-danger" colspan="${fn:length(questionCristianNtp.ntpMesage) + 1}">Bản tin ntp</th>                                   
+                                </thead>
+                                <tbody class="fw-bold align-middle text-black">
+                                    <tr>
+                                        <th scope="col" class="position-sticky start-0">Byte</th>
+                                            <c:forEach var="i" begin="0" end="${fn:length(questionCristianNtp.ntpMesage)-1}">
+                                                <c:if test="${i < 10}">
+                                                <th scope="col">0${i}</th>
+                                                </c:if>
+                                                <c:if test="${i >= 10}">
+                                                <th scope="col">${i}</th>
+                                                </c:if>
+                                            </c:forEach>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center position-sticky start-0">Giá trị</th>
+                                            <c:forEach var="i" begin="0" end="${fn:length(questionCristianNtp.ntpMesage)-1}">
+                                            <td>
+                                                <c:if test="${questionCristianNtp.ntpMesage[i] < 10}">
+                                                    0${questionCristianNtp.ntpMesage[i]}
+                                                </c:if>
+                                                <c:if test="${questionCristianNtp.ntpMesage[i] >= 10}">
+                                                    ${questionCristianNtp.ntpMesage[i]}
+                                                </c:if>                                                        
+                                            </td>
+                                        </c:forEach>                                       
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>  
 
-                            <div class="text-center mt-3 table-responsive">
-                                <table class="table table-warning table-hover border border-danger table-bordered align-middle w-100">
-                                    <thead class="align-middle">
-                                        <tr class="text-danger" class="align-middle text-nowrap">
-                                            <th scope="col">Tham số</th>
-                                            <th scope="col">Đáp án</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="fw-bold align-middle text-black">
-                                        <tr>
-                                            <td class="text-start">Thời gian máy khách gửi</td>
-                                            <td class="text-start">${questionCristianNtp.originateSendTimestamp}</td>
-                                        </tr>  
+                        <div class="text-center mt-3 table-responsive">
+                            <table class="table table-warning table-hover border border-danger table-bordered align-middle w-100">
+                                <thead class="align-middle">
+                                    <tr class="text-danger" class="align-middle text-nowrap">
+                                        <th scope="col">Tham số</th>
+                                        <th scope="col">Đáp án</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="fw-bold align-middle text-black">
+                                    <tr>
+                                        <td class="text-start">Thời gian máy khách gửi</td>
+                                        <td class="text-start">${questionCristianNtp.originateSendTimestamp}</td>
+                                    </tr>  
 
-                                        <tr>
-                                            <td class="text-start">Thời gian máy chủ NTP nhận</td>
-                                            <td class="text-start">${questionCristianNtp.receiveTimestamp}</td>
-                                        </tr>  
+                                    <tr>
+                                        <td class="text-start">Thời gian máy chủ NTP nhận</td>
+                                        <td class="text-start">${questionCristianNtp.receiveTimestamp}</td>
+                                    </tr>  
 
-                                        <tr>
-                                            <td class="text-start">Thời gian máy chủ NTP gửi</td>
-                                            <td class="text-start">${questionCristianNtp.transmitTimestamp}</td>
-                                        </tr>  
+                                    <tr>
+                                        <td class="text-start">Thời gian máy chủ NTP gửi</td>
+                                        <td class="text-start">${questionCristianNtp.transmitTimestamp}</td>
+                                    </tr>  
 
-                                        <tr>
-                                            <td class="text-start">Thời gian máy khách nhận</td>
-                                            <td class="text-start">${questionCristianNtp.originateReceiveTime} = ${questionCristianNtp.originateTimeUtcTick} (Tick)</td>
-                                        </tr>
+                                    <tr>
+                                        <td class="text-start">Thời gian máy khách nhận</td>
+                                        <td class="text-start">${questionCristianNtp.originateReceiveTime} = ${questionCristianNtp.originateTimeUtcTick} (Tick)</td>
+                                    </tr>
 
-                                        <tr>
-                                            <td class="text-start">Thời gian mới cần thiết lập cho máy khách</td>
-                                            <td class="text-start">${questionCristianNtp.dateTimeAfterSynchronize}</td>
-                                        </tr>
+                                    <tr>
+                                        <td class="text-start">Thời gian mới cần thiết lập cho máy khách</td>
+                                        <td class="text-start">${questionCristianNtp.dateTimeAfterSynchronize}</td>
+                                    </tr>
 
-                                        <tr>
-                                            <td class="text-start">Độ lệch thời gian giữa máy khách và máy chủ (tính bằng đơn vị Tick)</td>
-                                            <td class="text-start">${questionCristianNtp.differentTicks}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>                        
-                            </div> 
-                        </div>
+                                    <tr>
+                                        <td class="text-start">Độ lệch thời gian giữa máy khách và máy chủ (tính bằng đơn vị Tick)</td>
+                                        <td class="text-start">${questionCristianNtp.differentTicks}</td>
+                                    </tr>
+                                </tbody>
+                            </table>                        
+                        </div> 
                     </div>
                 </c:forEach>
             </div>

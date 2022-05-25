@@ -24,7 +24,7 @@
             <div class="d-flex justify-content-center">
                 <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Berkeley</h4>
             </div>
-            
+
             <!-- Berkeley de bai begin -->
             <div>
                 <h5 class="text-danger mt-4">1. Đề bài:</h5>
@@ -35,7 +35,7 @@
                 <p>
                     Các tham số gọi hàm trong dịch vụ web: ExamId = 1, QuestionId = 
                     <c:if test="${fn:length(questionBerkeleys) == 1}">
-                         ${questionBerkeley.questionId}.
+                        ${questionBerkeley.questionId}.
                     </c:if>
                     <c:if test="${fn:length(questionBerkeleys) > 1}">
                         [<c:forEach var="questionBerkeley" items="${questionBerkeleys}" varStatus="status">
@@ -51,70 +51,50 @@
             <!-- Berkeley de bai end -->
 
             <!-- Berkeley list question begin -->
-            <h5 class="text-danger mt-5">2. Đáp án:</h5>
+            <h5 class="text-danger mt-4">2. Đáp án:</h5>
             <div class="mt-2">
-                <div class="table-responsive">
-                    <table class="table table-hover border border-danger table-bordered align-middle w-100">
-                        <thead
-                            style="background-color: #d30000"
-                            class="text-white align-middle"
-                            >
-                            <tr class="text-center align-middle text-nowrap">
-                                <th style="width: 1rem;">QuestionId</th>
-                                <th>Đáp án</th>
-                            </tr>
-                        </thead>
-                        <tbody class="fw-bold align-middle">
-                            <c:forEach var="questionBerkeley" items="${questionBerkeleys}">
-                                <tr>
-                                    <td class="text-center">${questionBerkeley.questionId}</td>
-                                    <td class="text-center">
-                                        <span class="text-success" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#dapan-${questionBerkeley.questionId}" aria-expanded="false" aria-controls="collapseExample">
-                                            Xem đáp án
-                                        </span>
+                <c:forEach var="questionBerkeley" items="${questionBerkeleys}">
+                    <p class="text-success" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#dapan-${questionBerkeley.questionId}" aria-expanded="false" aria-controls="collapseExample">
+                        <i class="fa-solid fa-circle-dot"></i> QUESTION-ID: ${questionBerkeley.questionId}
+                    </p>         
 
-                                        <div class="mt-3 table-responsive collapse" id="dapan-${questionBerkeley.questionId}">
-                                            <table class="table table-warning table-hover border border-danger table-bordered align-middle w-100">
-                                                <thead class="align-middle text-danger">
-                                                    <tr class="text-center align-middle text-nowrap">
-                                                        <th scope="col">Tiến trình</th>
-                                                        <th scope="col">Loại</th>
-                                                        <th scope="col">Thời gian trước khi đồng bộ</th>
-                                                        <th scope="col">Giá trị điều chỉnh</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody class="fw-bold align-middle text-black">
-                                                    <c:forEach var="memberTime" items="${questionBerkeley.memberTimes}" varStatus="statusMemberTimes">
-                                                        <tr class="text-center">
-                                                            <th class="text-danger">P${statusMemberTimes.count}</th>
-                                                            <td>
-                                                                <c:if test="${statusMemberTimes.count == 1}">
-                                                                    Điều phối
-                                                                </c:if>
-                                                                <c:if test="${statusMemberTimes.count != 1}">
-                                                                    Thành viên
-                                                                </c:if>                                                    
-                                                            </td>
+                    <div class="mt-3 table-responsive collapse" id="dapan-${questionBerkeley.questionId}">
+                        <table class="table table-warning table-hover border border-danger table-bordered align-middle w-100">
+                            <thead class="align-middle text-danger">
+                                <tr class="text-center align-middle text-nowrap">
+                                    <th scope="col">Tiến trình</th>
+                                    <th scope="col">Loại</th>
+                                    <th scope="col">Thời gian trước khi đồng bộ</th>
+                                    <th scope="col">Giá trị điều chỉnh</th>
+                                </tr>
+                            </thead>
+                            <tbody class="fw-bold align-middle text-black">
+                                <c:forEach var="memberTime" items="${questionBerkeley.memberTimes}" varStatus="statusMemberTimes">
+                                    <tr class="text-center">
+                                        <th class="text-danger">P${statusMemberTimes.count}</th>
+                                        <td>
+                                            <c:if test="${statusMemberTimes.count == 1}">
+                                                Điều phối
+                                            </c:if>
+                                            <c:if test="${statusMemberTimes.count != 1}">
+                                                Thành viên
+                                            </c:if>                                                    
+                                        </td>
 
-                                                            <td>${memberTime}</td>
+                                        <td>${memberTime}</td>
 
-                                                            <td>${questionBerkeley.calibratedRes[statusMemberTimes.count-1]}</td>
-                                                        </tr>
-                                                    </c:forEach>
+                                        <td>${questionBerkeley.calibratedRes[statusMemberTimes.count-1]}</td>
+                                    </tr>
+                                </c:forEach>
 
-                                                    <tr class="text-center">
-                                                        <td colspan="2" class="text-danger">Thời gian sau khi đồng bộ</td>
-                                                        <td colspan="2" class="text-success">${questionBerkeley.correctedDateTime}</td>
-                                                    </tr>  
-                                                </tbody>
-                                            </table>                        
-                                        </div>
-                                    </td>
-                                </tr>                                
-                            </c:forEach>
-                        </tbody>
-                    </table>            
-                </div>               
+                                <tr class="text-center">
+                                    <td colspan="2" class="text-danger">Thời gian sau khi đồng bộ</td>
+                                    <td colspan="2" class="text-success">${questionBerkeley.correctedDateTime}</td>
+                                </tr>  
+                            </tbody>
+                        </table>                        
+                    </div>
+                </c:forEach>            
             </div>
             <!-- Berkeley list question end -->
 
