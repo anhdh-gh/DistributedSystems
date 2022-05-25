@@ -20,6 +20,9 @@
 <!-- Toastify -->
 <link rel="stylesheet" href="<c:url value='${request.contextPath}/assets/css/toastify.min.css'/>"/>
 
+<!-- Tree view -->
+<link rel="stylesheet" href="<c:url value='${request.contextPath}/assets/css/style.min.css'/>"/>
+
 <!-- Dropdown -->
 <style>
     .dropdown-submenu {

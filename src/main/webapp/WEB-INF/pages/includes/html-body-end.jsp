@@ -16,6 +16,9 @@
 <!-- Toastify -->
 <script src="<c:url value='${request.contextPath}/assets/js/toastify.min.js'/>"></script>
 
+<!-- Tree view -->
+<script src="<c:url value='${request.contextPath}/assets/js/jstree.min.js'/>"></script>
+
 <script>
     $(document).ready(() => {
         // Initialize tooltips

@@ -94,6 +94,67 @@
                 <li>Nếu lỡ quên đăng xuất tài khoản, đừng lo lắng. Hãy thử đăng nhập lại sau 30 -> 120 phút. Hoặc sử dụng một tài khoản khác chưa được đăng nhập.</li>
             </ul>    
             <!-- Chú ý end -->
+            
+            <!-- Tree begin -->
+            <h5 class="text-danger mt-4">3. Các thuật toán:</h5>
+            <div id="tree">
+                <ul>
+                    <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
+                        <span>Algorithms</span>
+                        <ul>
+                            <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
+                                <a href="#">Bầu chọn không dây</a>
+                                <ul>
+                                    <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/bau-chon-khong-day'/>">Dạng 1</a></li>
+       
+                                    <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/bau-chon-khong-day-2'/>">Dạng 2</a></li>
+                                </ul>
+                            </li>
+
+                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/vector-timestamp'/>">Nhãn thời gian vector</a></li>
+
+                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/schlosser'/>">Schlosser</a></li>
+
+                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/berkeley'/>">Berkeley</a></li>
+
+                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/trung-binh'/>">Trung bình</a></li>
+
+                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/cristian-ntp'/>">Cristian - NTP</a></li>
+
+                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/cristian'/>">Cristian</a></li>
+
+                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/dong-thuan-phan-tan'/>">Đồng thuận phân tán</a></li>
+                        </ul>
+                    </li>
+
+                    <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
+                        <span>Services</span>
+                        <ul>
+                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/service/tutorial'/>">Tutorial</a></li>                    
+
+                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/service/berkeley'/>">Berkeley</a></li>
+
+                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/service/trung-binh'/>">Trung bình</a></li>
+
+                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/service/rbs'/>">Rbs</a></li>
+
+                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/service/cristian-ntp'/>">Cristian - NTP</a></li>
+                        </ul>
+                    </li>   
+                    
+                    <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
+                        <span>Sv ptit</span>
+                        <ul>
+                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a target="_blank" href="<c:url value='https://youtube.com/playlist?list=PLjzUB93NObY7bHA504Z3faI84mfv-wKJ8'/>">Kênh youtube</a></li>                    
+
+                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a target="_blank" href="<c:url value='https://drive.google.com/file/d/194u9TyF4Op2hdj3ekGriu39ImjI4H-dr/view'/>">Danh sách phát</a></li>
+
+                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a target="_blank" href="<c:url value='https://drive.google.com/drive/folders/1b2DXnw92ytdGiRrhS-KQ7fCQe_5ZHpio'/>">Tài liệu</a></li>                    
+                        </ul>
+                    </li>  
+                </ul>
+            </div>      
+            <!-- Tree end -->
         </div>      
 
         <!-- Footer begin -->
@@ -103,5 +164,21 @@
         <!-- Footer begin -->
         <jsp:include page="./includes/html-body-end.jsp" />
         <!-- Footer end -->
+        
+        <script>    
+            $.jstree.defaults.core.themes.variant = "large";
+            
+            $('#tree')
+                .jstree({"plugins" : [ "types"]})
+                .on("activate_node.jstree", function(e, data){
+                    let href = data.node.a_attr.href;
+                    let target = data.node.a_attr.target;
+                    if(href !== '#')
+                        if(target === '_blank')
+                            window.open(href, target).focus();
+                        else
+                            window.location.href = href;
+                });
+        </script>
     </body>
 </html>
