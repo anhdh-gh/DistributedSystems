@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 import model.Account;
 import org.joda.time.LocalDateTime;
 import org.joda.time.Minutes;
-import util.ServletUtil;
 
 @WebFilter(filterName = "LogFilter")
 public class LogFilter implements Filter {
