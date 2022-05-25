@@ -28,10 +28,10 @@
             <p>Cho N tiến trình trong mạng không dây, mỗi tiến trình thể hiện bằng cặp tên và giá trị tham gia bầu chọn của tiến trình đó kèm theo mỗi quan hệ cha con với các tiến trình khác như sau:</p>
 
             <c:if test="${isSolved == false}">
-                <ul id="de-bai">
+                <div id="de-bai">
                     <c:forEach var="questionBauChonKhongDay" items="${questionBauChonKhongDays}" varStatus="status">
-                        <li>
-                            <p onclick="showDeBai(${status.count}, ${questionBauChonKhongDay.id})" class="text-danger" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#de-${questionBauChonKhongDay.id}" aria-expanded="false" aria-controls="collapseExample">Xem đề ${status.count}</p>
+                        <div>
+                            <p onclick="showDeBai(${status.count}, ${questionBauChonKhongDay.id})" class="text-danger" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#de-${questionBauChonKhongDay.id}" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-arrows-to-dot"></i> Xem đề ${status.count}</p>
 
                             <div class="collapse" id="de-${questionBauChonKhongDay.id}">
                                 <div class="table-responsive">
@@ -59,9 +59,9 @@
                                     </table>
                                 </div>
                             </div>
-                        </li>
+                        </div>
                     </c:forEach>
-                </ul>                
+                </div>              
             </c:if>
 
             <c:if test="${isSolved == true}">

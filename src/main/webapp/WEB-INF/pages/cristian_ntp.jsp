@@ -28,10 +28,10 @@
 
             <p>Lập trình viên thực hiện đồng bộ thời gian máy tính với máy chủ NTP, hãy tính thời gian gửi, thời gian máy chủ nhận, thời gian máy chủ gửi, thời gian mới trên máy khách (thời gian địa phương, viết theo định dạng yyyy-mm-dd hh:mi:ss.ms) và độ lệch thời gian (tính bằng đơn vị tick) giữa máy khách và máy chủ nếu thời gian nhận được trên máy khách và bản tin NTP nhận được có giá trị như sau:</p>
             <c:if test="${isSolved == false}">
-                <ul id="de-bai">
+                <div id="de-bai">
                     <c:forEach var="questionCristianNtp" items="${questionCristianNtps}" varStatus="status">
-                        <li>
-                            <p onclick="showDeBai(${status.count}, ${questionCristianNtp.questionId})" class="text-danger" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#de-${questionCristianNtp.questionId}" aria-expanded="false" aria-controls="collapseExample">Xem đề ${status.count}</p>
+                        <div>
+                            <p onclick="showDeBai(${status.count}, ${questionCristianNtp.questionId})" class="text-danger" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#de-${questionCristianNtp.questionId}" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-arrows-to-dot"></i> Xem đề ${status.count}</p>
 
                             <div class="collapse" id="de-${questionCristianNtp.questionId}">
                                 <div class="card card-body">
@@ -67,9 +67,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </li>
+                        </div>
                     </c:forEach>
-                </ul>                
+                </div>                
             </c:if>
 
             <c:if test="${isSolved == true}">

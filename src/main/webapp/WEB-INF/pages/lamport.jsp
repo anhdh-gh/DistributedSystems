@@ -34,10 +34,10 @@
             <p>Bộ đếm thời gian của mỗi tiến trình và thông điệp giữa các tiến trình như sau:</p>
 
             <c:if test="${isSolved == false}">
-                <ul id="de-bai">                    
+                <div id="de-bai">                    
                     <c:forEach var="questionLamport" items="${questionLamports}" varStatus="status">
-                        <li>
-                            <p onclick="showDeBai(${status.count}, ${questionLamport.id})" class="text-danger" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#de-${questionLamport.id}" aria-expanded="false" aria-controls="collapseExample">Xem đề ${status.count}</p>
+                        <div>
+                            <p onclick="showDeBai(${status.count}, ${questionLamport.id})" class="text-danger" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#de-${questionLamport.id}" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-arrows-to-dot"></i> Xem đề ${status.count}</p>
 
                             <div class="collapse" id="de-${questionLamport.id}">
                                 <div class="card card-body">
@@ -93,9 +93,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </li>
+                        </div>
                     </c:forEach>
-                </ul>                
+                </div>                
             </c:if>
 
             <c:if test="${isSolved == true}">

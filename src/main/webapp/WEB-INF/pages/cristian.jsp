@@ -28,10 +28,10 @@
 
             <p>Máy khách thực hiện đồng bộ thời gian vật lý với máy chủ, thời gian gửi và nhận các thông điệp như sau:</p>
             <c:if test="${isSolved == false}">
-                <ul id="de-bai">
+                <div id="de-bai">
                     <c:forEach var="questionCristian" items="${questionCristians}" varStatus="status">
-                        <li>
-                            <p onclick="showDeBai(${status.count}, ${questionCristian.questionId})" class="text-danger" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#de-${questionCristian.questionId}" aria-expanded="false" aria-controls="collapseExample">Xem đề ${status.count}</p>
+                        <div>
+                            <p onclick="showDeBai(${status.count}, ${questionCristian.questionId})" class="text-danger" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#de-${questionCristian.questionId}" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-arrows-to-dot"></i> Xem đề ${status.count}</p>
 
                             <div class="collapse" id="de-${questionCristian.questionId}">
                                 <div class="card card-body">
@@ -68,9 +68,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </li>
+                        </div>
                     </c:forEach>
-                </ul>                
+                </div>                
             </c:if>
 
             <c:if test="${isSolved == true}">

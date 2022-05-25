@@ -34,11 +34,11 @@
             <p>Thông điệp giữa các tiến trình như sau:</p>
 
             <c:if test="${isSolved == false}">
-                <ul id="de-bai">
+                <div id="de-bai">
                     <c:forEach var="questionVectorTimestamp" items="${questionVectorTimestamps}" varStatus="status">
-                        <li>
-                            <p onclick="showDeBai(${status.count}, ${questionVectorTimestamp.vector_id})" class="text-danger" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#de-${questionVectorTimestamp.vector_id}" aria-expanded="false" aria-controls="collapseExample">Xem đề ${status.count}</p>
-
+                        <div>
+                            <p onclick="showDeBai(${status.count}, ${questionVectorTimestamp.vector_id})" class="text-danger" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#de-${questionVectorTimestamp.vector_id}" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-arrows-to-dot"></i> Xem đề ${status.count}</p>
+                        
                             <div class="collapse" id="de-${questionVectorTimestamp.vector_id}">
                                 <div class="card card-body">
                                     <ul style="list-style-type:disc;">
@@ -48,9 +48,9 @@
                                     </ul>
                                 </div>
                             </div>
-                        </li>
+                        </div>
                     </c:forEach>
-                </ul>                
+                </div>             
             </c:if>
 
             <c:if test="${isSolved == true}">

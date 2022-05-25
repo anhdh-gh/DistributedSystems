@@ -28,10 +28,10 @@
             <p>Điền giá trị của các bước thực hiện giải thuật đồng thuật phân tán cho các tiến trình sau:</p>
 
             <c:if test="${isSolved == false}">
-                <ul id="de-bai">
+                <div id="de-bai">
                     <c:forEach var="questionDongThuanPhanTan" items="${questionDongThuanPhanTans}" varStatus="status">
-                        <li>
-                            <p onclick="showDeBai(${status.count}, ${questionDongThuanPhanTan.id})" class="text-danger" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#de-${questionDongThuanPhanTan.id}" aria-expanded="false" aria-controls="collapseExample">Xem đề ${status.count}</p>
+                        <div>
+                            <p onclick="showDeBai(${status.count}, ${questionDongThuanPhanTan.id})" class="text-danger" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#de-${questionDongThuanPhanTan.id}" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-arrows-to-dot"></i> Xem đề ${status.count}</p>
 
                             <div class="collapse" id="de-${questionDongThuanPhanTan.id}">
                                 <div class="card card-body">
@@ -63,9 +63,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </li>
+                        </div>
                     </c:forEach>
-                </ul>                
+                </div>                
             </c:if>
 
             <c:if test="${isSolved == true}">
