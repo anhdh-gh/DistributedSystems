@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import model.Account;
 import org.joda.time.LocalDateTime;
 import org.joda.time.Minutes;
-import util.DateUtil;
 import util.ServletUtil;
 
 @WebServlet(name = "HomeServlet", urlPatterns = {""})

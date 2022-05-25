@@ -113,6 +113,8 @@
 
                             <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/vector-timestamp'/>">Nhãn thời gian vector</a></li>
 
+                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/lamport'/>">Nhãn thời gian lamport</a></li>
+                            
                             <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/schlosser'/>">Schlosser</a></li>
 
                             <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/berkeley'/>">Berkeley</a></li>

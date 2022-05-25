@@ -21,6 +21,7 @@
         <url-pattern>/</url-pattern>
         <url-pattern>/service/tutorial</url-pattern>
         <url-pattern>/algorithm/vector-timestamp</url-pattern>
+        <url-pattern>/algorithm/lamport</url-pattern>
         <url-pattern>/algorithm/schlosser</url-pattern>
         <url-pattern>/algorithm/berkeley</url-pattern>
         <url-pattern>/algorithm/trung-binh</url-pattern>
@@ -39,6 +40,7 @@
         <url-pattern>/</url-pattern>
         <url-pattern>/service/tutorial</url-pattern>
         <url-pattern>/algorithm/vector-timestamp</url-pattern>
+        <url-pattern>/algorithm/lamport</url-pattern>
         <url-pattern>/algorithm/schlosser</url-pattern>
         <url-pattern>/algorithm/berkeley</url-pattern>
         <url-pattern>/algorithm/trung-binh</url-pattern>

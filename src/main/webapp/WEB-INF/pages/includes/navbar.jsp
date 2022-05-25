@@ -33,6 +33,9 @@
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/vector-timestamp'/>">Nhãn thời gian vector</a></li>
                         <li><hr class="dropdown-divider"></li>
                         
+                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/lamport'/>">Nhãn thời gian lamport</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        
                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/schlosser'/>">Schlosser</a></li>
                         <li><hr class="dropdown-divider"></li>
                         

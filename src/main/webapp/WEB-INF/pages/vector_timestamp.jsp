@@ -25,7 +25,7 @@
             <div class="d-flex justify-content-center">
                 <h4 id="vector-timestamp" class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Nhãn thời gian vector</h4>
             </div>
-            <p>Nhãn thời gian của mỗi tiến trình được đặt theo cấu trúc (P1,P2,P3), các sự kiện trên mỗi tiến trình thể hiện như sau:</p>
+            <p>Nhãn thời gian của mỗi tiến trình được đặt theo cấu trúc (P1,P2,P3,...,Pn), n là số lượng tiến trình. Các sự kiện trên mỗi tiến trình thể hiện như sau:</p>
             <ul>
                 <li>eX,Y thể hiện sự kiện</li>
                 <li>X là số hiệu tiến trình</li>
@@ -94,7 +94,7 @@
                                         <c:set var="i" value="${isIcr == 0 ? icr : fn:length(questionVectorTimestamp.res)-1-icr}"/>
                                         <tr>
                                             <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">P${i+1}</th>
-                                                <c:forEach var="j" begin="0" end="8" step="+1">
+                                                <c:forEach var="j" begin="0" end="${fn:length(questionVectorTimestamp.res[i]) - 1}" step="+1">
                                                 <td>
                                                     <c:if test="${j == 0}">
                                                         ${questionVectorTimestamp.res[i][j]}
@@ -138,7 +138,7 @@
                                 <c:set var="i" value="${isIcr == 0 ? icr : fn:length(questionVectorTimestamp.res) - 1 - icr}"/>
                                 <tr>
                                     <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">P${i+1}</th>
-                                        <c:forEach var="j" begin="0" end="8" step="+1">
+                                        <c:forEach var="j" begin="0" end="${fn:length(questionVectorTimestamp.res[i]) - 1}" step="+1">
                                         <td>
                                             <c:if test="${j == 0}">
                                                 ${questionVectorTimestamp.res[i][j]}
@@ -179,7 +179,7 @@
                                 <c:set var="i" value="${isIcr == 0 ? icr : fn:length(questionVectorTimestamp.res) - 1 - icr}"/>
                                 <tr>
                                     <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">P${i+1}</th>
-                                        <c:forEach var="j" begin="0" end="8" step="+1">
+                                        <c:forEach var="j" begin="0" end="${fn:length(questionVectorTimestamp.res[i]) - 1}" step="+1">
                                         <td>${questionVectorTimestamp.res[i][j]}</td>
                                     </c:forEach>                                       
                                 </tr>
