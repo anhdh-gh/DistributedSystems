@@ -25,7 +25,7 @@
             <div class="d-flex justify-content-center">
                 <h4 id="lamport-timestamp" class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Nhãn thời gian lamport</h4>
             </div>
-            <p>Có n tiến trình P1, P2, ..., Pn, mỗi tiến trình đều có bộ đếm thời gian riêng nhưng nhịp đếm không giống nhau. Mỗi tiến trình Pi có bộ đếm Ci để đánh dấu thời điểm xảy tra các sự kiện trong tiến trình, sự kiện ở đây có thể là nội tại trong tiến trình hoặc gửi thông điệp cho tiến trình khác. Các sự kiện trên mỗi tiến trình thể hiện như sau:</p>
+            <p>Có ${isSolved == false ? 'n' : fn:length(questionLamport.deBai)} tiến trình P1, ..., P${isSolved == false ? 'n' : fn:length(questionLamport.deBai)}, mỗi tiến trình đều có bộ đếm thời gian riêng nhưng nhịp đếm không giống nhau. Mỗi tiến trình Pi có bộ đếm Ci để đánh dấu thời điểm xảy tra các sự kiện trong tiến trình, sự kiện ở đây có thể là nội tại trong tiến trình hoặc gửi thông điệp cho tiến trình khác. Các sự kiện trên mỗi tiến trình thể hiện như sau:</p>
             <ul>
                 <li>eX,Y thể hiện sự kiện</li>
                 <li>X là số hiệu tiến trình</li>
@@ -40,56 +40,53 @@
                             <p onclick="showDeBai(${status.count}, ${questionLamport.id})" class="text-danger" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#de-${questionLamport.id}" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-arrows-to-dot"></i> Xem đề ${status.count}</p>
 
                             <div class="collapse" id="de-${questionLamport.id}">
-                                <div class="card card-body">
+                                <div class="row mb-3">
+                                    <div class="col-md-5 col-lg-4 mb-md-0 mb-3">
+                                        <div class="card border-success h-100">
+                                            <div class="card-header fw-bold">Thông điệp giữa các tiến trình</div>
+                                            <div class="card-body text-secondary">
+                                                <ul style="list-style-type:disc;">
+                                                    <c:forEach var="event" items="${questionLamport.events}">
+                                                        <li>${event}</li>
+                                                        </c:forEach>                                               
+                                                </ul>
+                                            </div>
+                                        </div>                                  
+                                    </div>
 
-                                    <div class="row">
-                                        <div class="col-md-5 col-lg-4 mb-md-0 mb-3">
-                                            <div class="card border-success h-100">
-                                                <div class="card-header fw-bold">Thông điệp giữa các tiến trình</div>
-                                                <div class="card-body text-secondary">
-                                                    <ul style="list-style-type:disc;">
-                                                        <c:forEach var="event" items="${questionLamport.events}">
-                                                            <li>${event}</li>
-                                                            </c:forEach>                                               
-                                                    </ul>
-                                                </div>
-                                            </div>                                  
-                                        </div>
+                                    <div class="col-md-7 col-lg-8">
+                                        <div class="card border-success h-100">
+                                            <div class="card-header fw-bold">Bộ đếm thời gian của mỗi tiến trình</div>
 
-                                        <div class="col-md-7 col-lg-8">
-                                            <div class="card border-success h-100">
-                                                <div class="card-header fw-bold">Bộ đếm thời gian của mỗi tiến trình</div>
-
-                                                <div class="card-body text-secondary">
-                                                    <div class="table-responsive position-relative">
-                                                        <table class="table table-hover border border-danger table-bordered align-middle w-100 m-0">
-                                                            <thead style="background-color: #d30000" class="text-white align-middle">
-                                                                <tr class="text-center align-middle text-nowrap">
-                                                                    <th style="background-color: #d30000" scope="col" class="position-sticky start-0">TT</th>
-                                                                        <c:forEach var="i" begin="0" end="${fn:length(questionLamport.deBai[0]) - 1}">
-                                                                        <th scope="col">eX,${i}</th>
-                                                                        </c:forEach>
+                                            <div class="card-body text-secondary p-0">
+                                                <div class="table-responsive position-relative">
+                                                    <table class="table table-hover border border-danger table-bordered align-middle w-100 m-0">
+                                                        <thead style="background-color: #d30000" class="text-white align-middle">
+                                                            <tr class="text-center align-middle text-nowrap">
+                                                                <th style="background-color: #d30000" scope="col" class="position-sticky start-0">TT</th>
+                                                                    <c:forEach var="i" begin="0" end="${fn:length(questionLamport.deBai[0]) - 1}">
+                                                                    <th scope="col">eX,${i}</th>
+                                                                    </c:forEach>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="fw-bold align-middle text-black">
+                                                            <jsp:useBean id="map" class="java.util.HashMap"/>
+                                                            <c:set var="isIcr"><%= java.lang.Math.round(java.lang.Math.random() * 2) % 2%></c:set>
+                                                            <c:set var="noUse" value="${map.put(questionLamport.id, isIcr)}"/>
+                                                            <c:forEach var="icr" begin="0" end="${fn:length(questionLamport.deBai) - 1}" step="1">
+                                                                <c:set var="i" value="${isIcr == 0 ? icr : fn:length(questionLamport.deBai)-1-icr}"/>
+                                                                <tr>
+                                                                    <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">P${i+1}</th>
+                                                                        <c:forEach var="j" begin="0" end="${fn:length(questionLamport.deBai[i]) - 1}" step="+1">
+                                                                        <td class="text-center">${questionLamport.deBai[i][j]}</td>
+                                                                    </c:forEach>                                       
                                                                 </tr>
-                                                            </thead>
-                                                            <tbody class="fw-bold align-middle text-black">
-                                                                <jsp:useBean id="map" class="java.util.HashMap"/>
-                                                                <c:set var="isIcr"><%= java.lang.Math.round(java.lang.Math.random() * 2) % 2%></c:set>
-                                                                <c:set var="noUse" value="${map.put(questionLamport.id, isIcr)}"/>
-                                                                <c:forEach var="icr" begin="0" end="${fn:length(questionLamport.deBai) - 1}" step="1">
-                                                                    <c:set var="i" value="${isIcr == 0 ? icr : fn:length(questionLamport.deBai)-1-icr}"/>
-                                                                    <tr>
-                                                                        <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">P${i+1}</th>
-                                                                            <c:forEach var="j" begin="0" end="${fn:length(questionLamport.deBai[i]) - 1}" step="+1">
-                                                                            <td class="text-center">${questionLamport.deBai[i][j]}</td>
-                                                                        </c:forEach>                                       
-                                                                    </tr>
-                                                                </c:forEach>
-                                                            </tbody>
-                                                        </table>                        
-                                                    </div>                                                            
-                                                </div>                                       
-                                            </div>                                              
-                                        </div>
+                                                            </c:forEach>
+                                                        </tbody>
+                                                    </table>                        
+                                                </div>                                                            
+                                            </div>                                       
+                                        </div>                                              
                                     </div>
                                 </div>
                             </div>
@@ -168,26 +165,26 @@
                                 <thead style="background-color: #d30000" class="text-white align-middle">
                                     <tr class="text-center align-middle text-nowrap">
                                         <th style="background-color: #d30000" scope="col" class="position-sticky start-0">TT</th>
-                                        <c:forEach var="i" begin="0" end="${fn:length(questionLamport.result[0]) - 1}">
+                                            <c:forEach var="i" begin="0" end="${fn:length(questionLamport.result[0]) - 1}">
                                             <th scope="col">eX,${i}</th>
-                                        </c:forEach>
+                                            </c:forEach>
                                     </tr>
                                 </thead>
                                 <tbody class="fw-bold align-middle text-black">
-                                    <c:set var="isIcr"><%= java.lang.Math.round(java.lang.Math.random() * 2) % 2 %></c:set>
-                                    <input autocomplete="off" type="hidden" name="debai_isIcr" value="${map.get(questionLamport.id)}">
-                                    <input autocomplete="off" type="hidden" name="bailam_isIcr" value="${isIcr}">
-                                    <c:forEach var="icr" begin="0" end="${fn:length(questionLamport.result) - 1}" step="1">
-                                        <c:set var="i" value="${isIcr == 0 ? icr : fn:length(questionLamport.result)-1-icr}"/>
-                                        <tr>
-                                            <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">P${i+1}</th>
-                                                <c:forEach var="j" begin="0" end="${fn:length(questionLamport.result[i]) - 1}" step="+1">
-                                                <td>
-                                                    <input autocomplete="off" style="min-width: 100px" class="form-control" type="text" name="${i}-${j}" value="e${i + 1},${j}">
-                                                </td>
-                                            </c:forEach>                                       
-                                        </tr>
-                                    </c:forEach>
+                                    <c:set var="isIcr"><%= java.lang.Math.round(java.lang.Math.random() * 2) % 2%></c:set>
+                                <input autocomplete="off" type="hidden" name="debai_isIcr" value="${map.get(questionLamport.id)}">
+                                <input autocomplete="off" type="hidden" name="bailam_isIcr" value="${isIcr}">
+                                <c:forEach var="icr" begin="0" end="${fn:length(questionLamport.result) - 1}" step="1">
+                                    <c:set var="i" value="${isIcr == 0 ? icr : fn:length(questionLamport.result)-1-icr}"/>
+                                    <tr>
+                                        <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">P${i+1}</th>
+                                            <c:forEach var="j" begin="0" end="${fn:length(questionLamport.result[i]) - 1}" step="+1">
+                                            <td>
+                                                <input autocomplete="off" style="min-width: 100px" class="form-control" type="text" name="${i}-${j}" value="e${i + 1},${j}">
+                                            </td>
+                                        </c:forEach>                                       
+                                    </tr>
+                                </c:forEach>
                                 </tbody>
                             </table>                        
                         </div>
@@ -210,11 +207,11 @@
                                 <tr class="text-center align-middle text-nowrap">
                                     <th style="background-color: #d30000" scope="col" class="position-sticky start-0">TT</th>
                                     <c:forEach var="i" begin="0" end="${fn:length(questionLamport.result[0]) - 1}">
-                                        <th scope="col">eX,${i}</th>
+                                    <th scope="col">eX,${i}</th>
                                     </c:forEach>
-                                </tr>
-                            </thead>
-                            <tbody class="fw-bold align-middle text-black text-center">
+                            </tr>
+                        </thead>
+                        <tbody class="fw-bold align-middle text-black text-center">
                             <c:forEach var="icr" begin="0" end="${fn:length(questionLamport.result) - 1}" step="1">
                                 <c:set var="i" value="${bailam_isIcr == 0 ? icr : fn:length(questionLamport.result) - 1 - icr}"/>
                                 <tr>
@@ -242,9 +239,9 @@
                         <thead style="background-color: #d30000" class="text-white align-middle">
                             <tr class="text-center align-middle text-nowrap">
                                 <th style="background-color: #d30000" scope="col" class="position-sticky start-0">TT</th>
-                                <c:forEach var="i" begin="0" end="${fn:length(questionLamport.result[0]) - 1}">
+                                    <c:forEach var="i" begin="0" end="${fn:length(questionLamport.result[0]) - 1}">
                                     <th scope="col">eX,${i}</th>
-                                </c:forEach>
+                                    </c:forEach>
                             </tr>
                         </thead>
                         <tbody class="fw-bold align-middle text-black text-center">
@@ -316,7 +313,7 @@
                 // Update the count every 1 second
                 x = setInterval(function () {
                     let now = new Date().getTime();
-                    countSeconds += Math.round((now - preTime)/1000);
+                    countSeconds += Math.round((now - preTime) / 1000);
                     preTime = now;
 
                     // Time calculations for hours, minutes and seconds

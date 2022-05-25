@@ -5,7 +5,7 @@
     <head>
         <title>Home</title>
         <jsp:include page="./includes/html-head.jsp" />
-        
+
         <style>
             .user-link {
                 background: #efefef;
@@ -13,19 +13,19 @@
                 height: 45px;
                 border-radius: 5px;
             }
-            
+
             .user-img {
                 display: inline-block;
                 position: relative;
             }
-            
+
             .user-img img {
                 border: 1px solid #00B871;
             }
             .rounded-circle {
                 border-radius: 50%!important;
             }
-            
+
             .user-img .status {
                 bottom: 18px;
                 border-radius: 50%;
@@ -50,15 +50,15 @@
             <!-- Header begin -->
             <jsp:include page="./includes/header.jsp"/>
             <!-- Header end -->  
-            
+
             <!-- Header begin -->
             <jsp:include page="./includes/navbar.jsp"/>
             <!-- Header end --> 
-            
+
             <div class="d-flex justify-content-center">
                 <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger">Welcome</h4>
             </div>
-            
+
             <!-- Người dùng đang sử dụng begin-->
             <h5 class="text-danger mt-4">1. User status:</h5>
             <div class="row mt-3">
@@ -69,7 +69,7 @@
                                 <img class="rounded-circle" src="<c:url value='${request.contextPath}/assets/img/avata-icon.jpg'/>" width="30" alt="Avata">
                                 <span class="status ${account.value == 0 ? 'online' : account.value > 0 ? 'bg-warning' : 'bg-danger'}"></span>
                             </span>     
-                                
+
                             <div class="d-inline d-flex flex-column justify-content-center ms-2" style="line-height: normal;">
                                 <span class="fw-bold" style="font-size: 14px">${account.key}</span>
                                 <span class="text-muted" style="font-size: 10px">
@@ -85,7 +85,7 @@
                 </c:forEach>
             </div>
             <!-- Người dùng đang sử dụng end-->
-            
+
             <!-- Chú ý begin -->
             <h5 class="text-danger mt-4">2. Important notes:</h5>
             <ul>
@@ -94,66 +94,118 @@
                 <li>Nếu lỡ quên đăng xuất tài khoản, đừng lo lắng. Hãy thử đăng nhập lại sau 30 -> 120 phút. Hoặc sử dụng một tài khoản khác chưa được đăng nhập.</li>
             </ul>    
             <!-- Chú ý end -->
-            
+
             <!-- Tree begin -->
             <h5 class="text-danger mt-4">3. Các thuật toán:</h5>
-            <div id="tree">
+            <div id="tree" class="overflow-auto">
                 <ul>
                     <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
-                        <span>Algorithms</span>
+                        <span>TRAO ĐỔI THÔNG TIN TRONG HỆ THỐNG PHÂN TÁN</span>
                         <ul>
                             <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
-                                <a href="#">Bầu chọn không dây</a>
+                                <span>Truyền thông theo nhóm</span>
                                 <ul>
-                                    <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/bau-chon-khong-day'/>">Dạng 1</a></li>
-       
-                                    <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/bau-chon-khong-day-2'/>">Dạng 2</a></li>
+                                    <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
+                                        <span>Quảng bá trong nhóm</span>
+                                        <ul>
+                                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/schlosser'/>">Giải thuật Schlosser</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
-
-                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/vector-timestamp'/>">Nhãn thời gian vector</a></li>
-
-                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/lamport'/>">Nhãn thời gian lamport</a></li>
-                            
-                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/schlosser'/>">Schlosser</a></li>
-
-                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/berkeley'/>">Berkeley</a></li>
-
-                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/trung-binh'/>">Trung bình</a></li>
-
-                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/cristian-ntp'/>">Cristian - NTP</a></li>
-
-                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/cristian'/>">Cristian</a></li>
-
-                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/dong-thuan-phan-tan'/>">Đồng thuận phân tán</a></li>
                         </ul>
                     </li>
 
                     <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
-                        <span>Services</span>
+                        <span>ĐỒNG BỘ VÀ CÁC GIẢI THUẬT PHÂN TÁN</span>
                         <ul>
-                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/service/tutorial'/>">Tutorial</a></li>                    
+                            <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
+                                <a href="#">Đồng bộ đồng hồ vật lý</a>
+                                <ul>
+                                    <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
+                                        <a href="#">Giải thuật Cristian</a>
+                                        <ul>
+                                            <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
+                                                <a href="#">Dạng điền form</a>
+                                                <ul>
+                                                    <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/cristian'/>">Dạng cơ bản</a></li>
+                                                    <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/cristian-ntp'/>">Dạng bản tin NTP</a></li>
+                                                </ul>
+                                            </li>
 
-                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/service/berkeley'/>">Berkeley</a></li>
+                                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/service/cristian-ntp'/>">Dạng gọi service (NTP)</a></li>
+                                        </ul>
+                                    </li>
 
-                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/service/trung-binh'/>">Trung bình</a></li>
+                                    <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
+                                        <a href="#">Giải thuật Berkeley</a>
+                                        <ul>
+                                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/berkeley'/>">Dạng điền form</a></li>
+                                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/service/berkeley'/>">Dạng gọi service</a></li>
+                                        </ul>                                  
+                                    </li>
 
-                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/service/rbs'/>">Rbs</a></li>
+                                    <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
+                                        <a href="#">Giải thuật trung bình</a>
+                                        <ul>
+                                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/trung-binh'/>">Dạng điền form</a></li>
+                                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/service/trung-binh'/>">Dạng gọi service</a></li>
+                                        </ul>                                  
+                                    </li>
 
-                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/service/cristian-ntp'/>">Cristian - NTP</a></li>
+                                    <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
+                                        <a href="#">Giải thuật tham chiếu quảng bá (RBS)</a>
+                                        <ul>
+                                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/service/rbs'/>">Dạng gọi service</a></li>
+                                        </ul>                                  
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
+                                <a href="#">Thời gian và đồng hồ logic</a>
+                                <ul>
+                                    <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/lamport'/>">Đồng hồ Lamport</a></li>
+                                    <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/vector-timestamp'/>">Đồng hồ vector</a></li>
+                                </ul>
+                            </li>
+
+                            <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
+                                <a href="#">Các giải thuật bầu chọn</a>
+                                <ul>
+                                    <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
+                                        <a href="#">Bầu chọn trong môi trường không dây</a>
+                                        <ul>
+                                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/bau-chon-khong-day'/>">Dạng 1</a></li>
+                                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/bau-chon-khong-day-2'/>">Dạng 2</a></li>
+                                        </ul>                                       
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
-                    </li>   
-                    
+                    </li>
+
                     <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
-                        <span>Sv ptit</span>
+                        <span>PHỤC HỒI VÀ TÍNH CHỊU LỖI</span>
                         <ul>
-                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a target="_blank" href="<c:url value='https://youtube.com/playlist?list=PLjzUB93NObY7bHA504Z3faI84mfv-wKJ8'/>">Kênh youtube</a></li>                    
-
-                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a target="_blank" href="<c:url value='https://drive.google.com/file/d/194u9TyF4Op2hdj3ekGriu39ImjI4H-dr/view'/>">Danh sách phát</a></li>
-
-                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a target="_blank" href="<c:url value='https://drive.google.com/drive/folders/1b2DXnw92ytdGiRrhS-KQ7fCQe_5ZHpio'/>">Tài liệu</a></li>                    
+                            <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
+                                <span>Các biện pháp đảm bảo tính chịu lỗi</span>
+                                <ul>
+                                    <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
+                                        <span>Tiến trình bền bỉ</span>
+                                        <ul>
+                                            <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
+                                                <span>Đồng thuận trong các hệ thống lỗi</span>
+                                                <ul>
+                                                    <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/dong-thuan-phan-tan'/>">Thuật toán đồng thuận phân tán</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
-                    </li>  
+                    </li>
                 </ul>
             </div>      
             <!-- Tree end -->
@@ -162,25 +214,25 @@
         <!-- Footer begin -->
         <jsp:include page="./includes/footer.jsp" />
         <!-- Footer end -->
-            
+
         <!-- Footer begin -->
         <jsp:include page="./includes/html-body-end.jsp" />
         <!-- Footer end -->
-        
-        <script>    
+
+        <script>
             $.jstree.defaults.core.themes.variant = "large";
-            
+
             $('#tree')
-                .jstree({"plugins" : [ "types"]})
-                .on("activate_node.jstree", function(e, data){
-                    let href = data.node.a_attr.href;
-                    let target = data.node.a_attr.target;
-                    if(href !== '#')
-                        if(target === '_blank')
-                            window.open(href, target).focus();
-                        else
-                            window.location.href = href;
-                });
+                    .jstree({"plugins": ["types"]})
+                    .on("activate_node.jstree", function (e, data) {
+                        let href = data.node.a_attr.href;
+                        let target = data.node.a_attr.target;
+                        if (href !== '#')
+                            if (target === '_blank')
+                                window.open(href, target).focus();
+                            else
+                                window.location.href = href;
+                    });
         </script>
     </body>
 </html>

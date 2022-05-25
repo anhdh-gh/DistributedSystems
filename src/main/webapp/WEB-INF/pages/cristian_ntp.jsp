@@ -34,37 +34,35 @@
                             <p onclick="showDeBai(${status.count}, ${questionCristianNtp.questionId})" class="text-danger" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#de-${questionCristianNtp.questionId}" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-arrows-to-dot"></i> Xem đề ${status.count}</p>
 
                             <div class="collapse" id="de-${questionCristianNtp.questionId}">
-                                <div class="card card-body">
-                                    <div class="table-responsive position-relative">
-                                        <table class="table table-hover border border-danger table-bordered align-middle w-100">
-                                            <thead style="background-color: #d30000" class="text-white align-middle text-center">
-                                            <th style="background-color: #d30000" scope="col" class="position-sticky start-0">Byte</th>
-                                                <c:forEach var="i" begin="0" end="${fn:length(questionCristianNtp.ntpMesage)-1}">
-                                                    <c:if test="${i < 10}">
-                                                    <th scope="col">0${i}</th>
-                                                    </c:if>
-                                                    <c:if test="${i >= 10}">
-                                                    <th scope="col">${i}</th>
-                                                    </c:if>
-                                                </c:forEach>                                            
-                                            </thead>
-                                            <tbody class="fw-bold align-middle text-black">
-                                                <tr>
-                                                    <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">Giá trị</th>
-                                                        <c:forEach var="i" begin="0" end="${fn:length(questionCristianNtp.ntpMesage)-1}">
-                                                        <td>
-                                                            <c:if test="${questionCristianNtp.ntpMesage[i] < 10}">
-                                                                0${questionCristianNtp.ntpMesage[i]}
-                                                            </c:if>
-                                                            <c:if test="${questionCristianNtp.ntpMesage[i] >= 10}">
-                                                                ${questionCristianNtp.ntpMesage[i]}
-                                                            </c:if>                                                        
-                                                        </td>
-                                                    </c:forEach>                                       
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                <div class="table-responsive position-relative">
+                                    <table class="table table-hover border border-danger table-bordered align-middle w-100">
+                                        <thead style="background-color: #d30000" class="text-white align-middle text-center">
+                                        <th style="background-color: #d30000" scope="col" class="position-sticky start-0">Byte</th>
+                                            <c:forEach var="i" begin="0" end="${fn:length(questionCristianNtp.ntpMesage)-1}">
+                                                <c:if test="${i < 10}">
+                                                <th scope="col">0${i}</th>
+                                                </c:if>
+                                                <c:if test="${i >= 10}">
+                                                <th scope="col">${i}</th>
+                                                </c:if>
+                                            </c:forEach>                                            
+                                        </thead>
+                                        <tbody class="fw-bold align-middle text-black">
+                                            <tr>
+                                                <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">Giá trị</th>
+                                                    <c:forEach var="i" begin="0" end="${fn:length(questionCristianNtp.ntpMesage)-1}">
+                                                    <td>
+                                                        <c:if test="${questionCristianNtp.ntpMesage[i] < 10}">
+                                                            0${questionCristianNtp.ntpMesage[i]}
+                                                        </c:if>
+                                                        <c:if test="${questionCristianNtp.ntpMesage[i] >= 10}">
+                                                            ${questionCristianNtp.ntpMesage[i]}
+                                                        </c:if>                                                        
+                                                    </td>
+                                                </c:forEach>                                       
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -108,7 +106,7 @@
                     </div>
                 </div>                
             </c:if>
-            
+
             <p>Thời gian làm bài: ${requestScope.timeForTest} phút.</p>
             <!-- Cristian NTP de bai end -->
 
@@ -163,7 +161,7 @@
                                 </tbody>
                             </table>                        
                         </div>
-                        
+
                         <div class="mt-4">
                             <p id="time-${questionCristianNtp.questionId}" class="fs-4 text-success"></p>
                         </div>
@@ -184,23 +182,23 @@
                         <h6 class="text-success mb-0">Đề số: <c:out value="${questionCristianNtp.questionId}"></c:out></h6>
                         <p class="text-danger mb-0">Thời gian nhận được bản ghi: ${questionCristianNtp.originateReceiveTime}</p>
                     </div>  
-                    
-                    <h3 class="text-danger mb-0">Điểm: <c:out value="${score}"></c:out></h3>
-                </div>
 
-                <div class="table-responsive">
-                    <table class="table table-hover border border-danger table-bordered align-middle w-100">
-                        <thead style="background-color: #d30000" class="text-white align-middle">
-                            <tr class="text-center align-middle text-nowrap">
-                                <th scope="col">Câu hỏi</th>
-                                <th scope="col">Thời gian</th>
-                                <th scope="col">Đáp án</th>
-                            </tr>
-                        </thead>
-                        <tbody class="fw-bold align-middle text-black">
-                            <tr>
-                                <td class="text-success">Thời gian máy khách gửi</td>
-                                <td class="text-center">${originateSendTimestamp}</td>
+                    <h3 class="text-danger mb-0">Điểm: <c:out value="${score}"></c:out></h3>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-hover border border-danger table-bordered align-middle w-100">
+                            <thead style="background-color: #d30000" class="text-white align-middle">
+                                <tr class="text-center align-middle text-nowrap">
+                                    <th scope="col">Câu hỏi</th>
+                                    <th scope="col">Thời gian</th>
+                                    <th scope="col">Đáp án</th>
+                                </tr>
+                            </thead>
+                            <tbody class="fw-bold align-middle text-black">
+                                <tr>
+                                    <td class="text-success">Thời gian máy khách gửi</td>
+                                    <td class="text-center">${originateSendTimestamp}</td>
                                 <td class="text-center">${questionCristianNtp.originateSendTimestamp}</td>
                             </tr>  
 
@@ -251,7 +249,7 @@
                 </div>
             </div>
         </div>
-                    
+
         <!-- Footer begin -->
         <jsp:include page="./includes/footer.jsp" />
         <!-- Footer end -->
@@ -286,7 +284,7 @@
                 // Update the count every 1 second
                 x = setInterval(function () {
                     let now = new Date().getTime();
-                    countSeconds += Math.round((now - preTime)/1000);
+                    countSeconds += Math.round((now - preTime) / 1000);
                     preTime = now;
 
                     // Time calculations for hours, minutes and seconds

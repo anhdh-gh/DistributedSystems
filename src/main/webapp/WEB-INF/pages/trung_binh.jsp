@@ -29,13 +29,13 @@
             <p>Tại một thời điểm các tiến trình đồng loại gửi thời gian cho các tiến trình khác trong nhóm, giả thiết sau đó mỗi tiến trình đều nhận được thời gian của các tiến trình khác, hãy tính thời gian của mỗi tiến trình sau khi thực hiện giải thuật đồng bộ (ghi thời gian theo định dạng yyyy-mm-dd hh:mi:ss:ms).</p>
             
             <c:if test="${isSolved == false}">
-                <ul id="de-bai">
+                <div id="de-bai">
                     <c:forEach var="questionTrungBinh" items="${questionTrungBinhs}" varStatus="status">
-                        <li>
-                            <p onclick="showDeBai(${status.count}, ${questionTrungBinh.questionId})" class="text-danger" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#de-${questionTrungBinh.questionId}" aria-expanded="false" aria-controls="collapseExample">Xem đề ${status.count}</p>
-                        </li>
+                        <div>
+                            <p onclick="showDeBai(${status.count}, ${questionTrungBinh.questionId})" class="text-danger" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#de-${questionTrungBinh.questionId}" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-arrows-to-dot"></i> Xem đề ${status.count}</p>
+                        </div>
                     </c:forEach>
-                </ul>                
+                </div>                
             </c:if>
             
             <p>Thời gian làm bài: ${requestScope.timeForTest} phút.</p>

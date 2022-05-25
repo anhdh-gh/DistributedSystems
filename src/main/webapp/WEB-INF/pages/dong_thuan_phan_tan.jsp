@@ -34,33 +34,32 @@
                             <p onclick="showDeBai(${status.count}, ${questionDongThuanPhanTan.id})" class="text-danger" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#de-${questionDongThuanPhanTan.id}" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-arrows-to-dot"></i> Xem đề ${status.count}</p>
 
                             <div class="collapse" id="de-${questionDongThuanPhanTan.id}">
-                                <div class="card card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-hover border border-danger table-bordered align-middle w-100">
-                                            <thead style="background-color: #d30000" class="text-white align-middle">
-                                                <tr class="text-center align-middle text-nowrap">
-                                                    <th scope="col">Tiến trình</th>
+
+                                <div class="table-responsive">
+                                    <table class="table table-hover border border-danger table-bordered align-middle w-100">
+                                        <thead style="background-color: #d30000" class="text-white align-middle">
+                                            <tr class="text-center align-middle text-nowrap">
+                                                <th scope="col">Tiến trình</th>
                                                     <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
-                                                        <th scope="col">Tiến trình ${i+1}</th>
+                                                    <th scope="col">Tiến trình ${i+1}</th>
                                                     </c:forEach>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="fw-bold align-middle text-black text-center">
-                                                <tr>
-                                                    <th>Giá trị</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="fw-bold align-middle text-black text-center">
+                                            <tr>
+                                                <th>Giá trị</th>
                                                     <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
-                                                        <td>${questionDongThuanPhanTan.deBai[0][i]}</td>
-                                                    </c:forEach>
-                                                </tr>
-                                                <tr>
-                                                    <th>Trạng thái</th>
+                                                    <td>${questionDongThuanPhanTan.deBai[0][i]}</td>
+                                                </c:forEach>
+                                            </tr>
+                                            <tr>
+                                                <th>Trạng thái</th>
                                                     <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
-                                                        <td>${questionDongThuanPhanTan.deBai[1][i]}</td>
-                                                    </c:forEach>
-                                                </tr>
-                                            </tbody>
-                                        </table>                        
-                                    </div>
+                                                    <td>${questionDongThuanPhanTan.deBai[1][i]}</td>
+                                                </c:forEach>
+                                            </tr>
+                                        </tbody>
+                                    </table>                        
                                 </div>
                             </div>
                         </div>
@@ -74,21 +73,21 @@
                         <thead style="background-color: #d30000" class="text-white align-middle">
                             <tr class="text-center align-middle text-nowrap">
                                 <th scope="col">Tiến trình</th>
-                                <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
+                                    <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
                                     <th scope="col">Tiến trình ${i+1}</th>
-                                </c:forEach>
+                                    </c:forEach>
                             </tr>
                         </thead>
                         <tbody class="fw-bold align-middle text-black text-center">
                             <tr>
                                 <th>Giá trị</th>
-                                <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
+                                    <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
                                     <td>${questionDongThuanPhanTan.deBai[0][i]}</td>
                                 </c:forEach>
                             </tr>
                             <tr>
                                 <th>Trạng thái</th>
-                                <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
+                                    <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
                                     <td>${questionDongThuanPhanTan.deBai[1][i]}</td>
                                 </c:forEach>
                             </tr>
@@ -107,49 +106,49 @@
                     <form autocomplete="off" class="collapse" action="<c:url value='${request.contextPath}/algorithm/dong-thuan-phan-tan'/>" method="post" id="de-${questionDongThuanPhanTan.id}">
                         <div class="d-flex justify-content-between mb-3">
                             <h3 class="text-success mb-0">Đề số: <c:out value="${questionDongThuanPhanTan.id}"></c:out></h3>
-                            <input autocomplete="off" class="btn btn-success" type="submit" value="Nộp bài">
-                        </div>
+                                <input autocomplete="off" class="btn btn-success" type="submit" value="Nộp bài">
+                            </div>
 
-                        <input autocomplete="off" type="hidden" name="time">
-                        <input autocomplete="off" type="hidden" name="id" value="${questionDongThuanPhanTan.id}">
+                            <input autocomplete="off" type="hidden" name="time">
+                            <input autocomplete="off" type="hidden" name="id" value="${questionDongThuanPhanTan.id}">
 
                         <div class="table-responsive">
                             <table class="table table-hover border border-danger table-bordered align-middle w-100">
                                 <thead style="background-color: #d30000" class="text-white align-middle">
                                     <tr class="text-center align-middle text-nowrap">
                                         <th scope="col">Các kết quả</th>
-                                        <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
+                                            <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
                                             <th scope="col">Tiến trình ${i+1}</th>
-                                        </c:forEach>
+                                            </c:forEach>
                                     </tr>
                                 </thead>
                                 <tbody class="fw-bold align-middle text-black">
                                     <tr>
                                         <th>Kết quả lần thứ nhất</th>
-                                        <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
+                                            <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
                                             <td>
                                                 <input autocomplete="off" style="min-width: 100px" class="form-control" type="text" name="result_1-${i}">
                                             </td>
                                         </c:forEach>
                                     </tr>
-                                    
+
                                     <tr>
                                         <th>Kết quả lần thứ hai</th>
-                                        <c:forEach var="j" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
+                                            <c:forEach var="j" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
                                             <td>
                                                 <c:forEach var="i" begin="0" end="${fn:length(questionDongThuanPhanTan.result_2) - 1}">
-                                                     <input autocomplete="off" style="min-width: 100px" class="form-control mb-${fn:length(questionDongThuanPhanTan.result_2) - 1 == i ? 0 : 2}" type="text" name="result_2-${i}-${j}">
+                                                    <input autocomplete="off" style="min-width: 100px" class="form-control mb-${fn:length(questionDongThuanPhanTan.result_2) - 1 == i ? 0 : 2}" type="text" name="result_2-${i}-${j}">
                                                 </c:forEach>
                                             </td>
                                         </c:forEach>
                                     </tr>
-                                    
+
                                     <tr>
                                         <th>Kết quả cuối cùng</th>
-                                        <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
-                                        <td>
-                                            <input autocomplete="off" style="min-width: 100px" class="form-control" type="text" name="result_final-${i}">
-                                        </td>
+                                            <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
+                                            <td>
+                                                <input autocomplete="off" style="min-width: 100px" class="form-control" type="text" name="result_final-${i}">
+                                            </td>
                                         </c:forEach>
                                     </tr>
                                 </tbody>
@@ -166,29 +165,29 @@
                 <div class="d-flex justify-content-between mb-2">
                     <h3 class="text-danger mb-0">Đề số: <c:out value="${questionDongThuanPhanTan.id}"></c:out></h3>
                     <h3 class="text-danger mb-0">Điểm: <c:out value="${score}"></c:out></h3>
-                </div>
+                    </div>
 
-                <div class="table-responsive">
-                    <table class="table table-hover border border-danger table-bordered align-middle w-100">
-                        <thead style="background-color: #d30000" class="text-white align-middle">
-                            <tr class="text-center align-middle text-nowrap">
-                                <th scope="col">Các kết quả</th>
-                                <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
+                    <div class="table-responsive">
+                        <table class="table table-hover border border-danger table-bordered align-middle w-100">
+                            <thead style="background-color: #d30000" class="text-white align-middle">
+                                <tr class="text-center align-middle text-nowrap">
+                                    <th scope="col">Các kết quả</th>
+                                    <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
                                     <th scope="col">Tiến trình ${i+1}</th>
-                                </c:forEach>
+                                    </c:forEach>
                             </tr>
                         </thead>
                         <tbody class="fw-bold align-middle text-black">
                             <tr>
                                 <th>Kết quả lần thứ nhất</th>
-                                <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
-                                <td class="text-center">${ans_result_1[i]}</td>
+                                    <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
+                                    <td class="text-center">${ans_result_1[i]}</td>
                                 </c:forEach>
                             </tr>
 
                             <tr>
                                 <th>Kết quả lần thứ hai</th>
-                                <c:forEach var="j" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
+                                    <c:forEach var="j" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
                                     <td class="text-center">
                                         <c:forEach var="i" begin="0" end="${fn:length(questionDongThuanPhanTan.result_2) - 1}">
                                             <div class="mb-${fn:length(questionDongThuanPhanTan.result_2) - 1 == i ? 0 : 2}">${ans_result_2[i][j]}</div>
@@ -199,7 +198,7 @@
 
                             <tr>
                                 <th>Kết quả cuối cùng</th>
-                                <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
+                                    <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
                                     <td class="text-center">${ans_result_final[i]}</td>
                                 </c:forEach>
                             </tr>
@@ -221,22 +220,22 @@
                         <thead style="background-color: #d30000" class="text-white align-middle">
                             <tr class="text-center align-middle text-nowrap">
                                 <th scope="col">Các kết quả</th>
-                                <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
+                                    <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
                                     <th scope="col">Tiến trình ${i+1}</th>
-                                </c:forEach>
+                                    </c:forEach>
                             </tr>
                         </thead>
                         <tbody class="fw-bold align-middle text-black">
                             <tr>
                                 <th>Kết quả lần thứ nhất</th>
-                                <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
+                                    <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
                                     <td class="text-center">${questionDongThuanPhanTan.result_1[i]}</td>
                                 </c:forEach>
                             </tr>
 
                             <tr>
                                 <th>Kết quả lần thứ hai</th>
-                                <c:forEach var="j" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
+                                    <c:forEach var="j" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
                                     <td class="text-center">
                                         <c:forEach var="i" begin="0" end="${fn:length(questionDongThuanPhanTan.result_2) - 1}">
                                             <div class="mb-${fn:length(questionDongThuanPhanTan.result_2) - 1 == i ? 0 : 2}">${questionDongThuanPhanTan.result_2[i][j]}</div>
@@ -247,7 +246,7 @@
 
                             <tr>
                                 <th>Kết quả cuối cùng</th>
-                                <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
+                                    <c:forEach var="i" begin="0" end="${questionDongThuanPhanTan.soTienTrinh - 1}">
                                     <td class="text-center">${questionDongThuanPhanTan.result_final[i]}</td>
                                 </c:forEach>
                             </tr>
@@ -310,7 +309,7 @@
                 // Update the count every 1 second
                 x = setInterval(function () {
                     let now = new Date().getTime();
-                    countSeconds += Math.round((now - preTime)/1000);
+                    countSeconds += Math.round((now - preTime) / 1000);
                     preTime = now;
 
                     // Time calculations for hours, minutes and seconds

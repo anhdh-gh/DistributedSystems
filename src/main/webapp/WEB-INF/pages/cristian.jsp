@@ -34,38 +34,36 @@
                             <p onclick="showDeBai(${status.count}, ${questionCristian.questionId})" class="text-danger" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#de-${questionCristian.questionId}" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-arrows-to-dot"></i> Xem đề ${status.count}</p>
 
                             <div class="collapse" id="de-${questionCristian.questionId}">
-                                <div class="card card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-hover border border-danger table-bordered align-middle w-100 mb-0">
-                                            <thead style="background-color: #d30000" class="text-white align-middle">
-                                                <tr class="text-center align-middle text-nowrap">
-                                                    <th scope="col">Các mốc thời gian</th>
-                                                    <th scope="col">Giá trị</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="fw-bold align-middle text-black">
-                                                <tr>
-                                                    <td class="text-success">Thời gian máy khách gửi</td>
-                                                     <td class="text-center">${questionCristian.originateSendTimestamp}</td>
-                                                </tr>  
+                                <div class="table-responsive">
+                                    <table class="table table-hover border border-danger table-bordered align-middle w-100">
+                                        <thead style="background-color: #d30000" class="text-white align-middle">
+                                            <tr class="text-center align-middle text-nowrap">
+                                                <th scope="col">Các mốc thời gian</th>
+                                                <th scope="col">Giá trị</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="fw-bold align-middle text-black">
+                                            <tr>
+                                                <td class="text-success">Thời gian máy khách gửi</td>
+                                                <td class="text-center">${questionCristian.originateSendTimestamp}</td>
+                                            </tr>  
 
-                                                <tr>
-                                                    <td class="text-success">Thời gian máy chủ nhận</td>
-                                                    <td class="text-center">${questionCristian.receiveTimestamp}</td>
-                                                </tr>  
+                                            <tr>
+                                                <td class="text-success">Thời gian máy chủ nhận</td>
+                                                <td class="text-center">${questionCristian.receiveTimestamp}</td>
+                                            </tr>  
 
-                                                <tr>
-                                                    <td class="text-success">Thời gian máy chủ gửi</td>
-                                                    <td class="text-center">${questionCristian.transmitTimestamp}</td>
-                                                </tr>  
+                                            <tr>
+                                                <td class="text-success">Thời gian máy chủ gửi</td>
+                                                <td class="text-center">${questionCristian.transmitTimestamp}</td>
+                                            </tr>  
 
-                                                <tr>
-                                                    <td class="text-success">Thời gian máy khách nhận</td>
-                                                    <td class="text-center">${questionCristian.originateReceiveTime}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>                        
-                                    </div>
+                                            <tr>
+                                                <td class="text-success">Thời gian máy khách nhận</td>
+                                                <td class="text-center">${questionCristian.originateReceiveTime}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>                        
                                 </div>
                             </div>
                         </div>
@@ -87,7 +85,7 @@
                                 <tbody class="fw-bold align-middle text-black">
                                     <tr>
                                         <td class="text-success">Thời gian máy khách gửi</td>
-                                         <td class="text-center">${questionCristian.originateSendTimestamp}</td>
+                                        <td class="text-center">${questionCristian.originateSendTimestamp}</td>
                                     </tr>  
 
                                     <tr>
@@ -110,7 +108,7 @@
                     </div>
                 </div>                
             </c:if>
-            
+
             <p>Tính thời gian máy khách ngay sau khi hoàn thành đồng bộ (Ghi theo định dạng yyyy-mm-dd hh:mi:ss.ms).</p>
             <p>Thời gian làm bài: ${requestScope.timeForTest} phút.</p>
             <!-- Cristian de bai end -->
@@ -121,11 +119,11 @@
                     <form autocomplete="off" class="collapse mt-5" action="<c:url value='${request.contextPath}/algorithm/cristian'/>" method="post" id="de-${questionCristian.questionId}">
                         <div class="d-flex justify-content-between mb-3">
                             <h3 class="text-success mb-0">Đề số: <c:out value="${questionCristian.questionId}"></c:out></h3>
-                            <input autocomplete="off" class="btn btn-success" type="submit" value="Nộp bài">
-                        </div>
+                                <input autocomplete="off" class="btn btn-success" type="submit" value="Nộp bài">
+                            </div>
 
-                        <input autocomplete="off" type="hidden" name="time">
-                        <input autocomplete="off" type="hidden" name="questionId" value="${questionCristian.questionId}">
+                            <input autocomplete="off" type="hidden" name="time">
+                            <input autocomplete="off" type="hidden" name="questionId" value="${questionCristian.questionId}">
 
                         <div class="table-responsive">
                             <table class="table table-hover border border-danger table-bordered align-middle w-100">
@@ -141,7 +139,7 @@
                                 </tbody>
                             </table>                        
                         </div>
-                        
+
                         <div class="mt-4">
                             <p id="time-${questionCristian.questionId}" class="fs-4 text-success"></p>
                         </div>
@@ -159,9 +157,9 @@
 
                 <div class="d-flex justify-content-between mt-4 mb-2">
                     <h3 class="text-success mb-0">Đề số: <c:out value="${questionCristian.questionId}"></c:out></h3>
-                    
-                    <h3 class="text-danger mb-0">Điểm: <c:out value="${score}"></c:out></h3>
-                </div>
+
+                        <h3 class="text-danger mb-0">Điểm: <c:out value="${score}"></c:out></h3>
+                    </div>
 
                     <div class="table-responsive">
                         <table class="table table-hover border border-danger table-bordered align-middle w-100">
@@ -174,11 +172,11 @@
                             <tbody class="fw-bold align-middle text-black">
                                 <tr>
                                     <td class="text-center">${dateTimeAfterSynchronize}</td>
-                                    <td class="text-center">${questionCristian.dateTimeAfterSynchronize}</td>
-                                </tr>  
-                            </tbody>
-                        </table>                        
-                    </div>         
+                                <td class="text-center">${questionCristian.dateTimeAfterSynchronize}</td>
+                            </tr>  
+                        </tbody>
+                    </table>                        
+                </div>         
             </c:if>
             <!-- Cristian ketqua end -->
         </div>      
@@ -200,7 +198,7 @@
                 </div>
             </div>
         </div>
-                    
+
         <!-- Footer begin -->
         <jsp:include page="./includes/footer.jsp" />
         <!-- Footer end -->
@@ -235,7 +233,7 @@
                 // Update the count every 1 second
                 x = setInterval(function () {
                     let now = new Date().getTime();
-                    countSeconds += Math.round((now - preTime)/1000);
+                    countSeconds += Math.round((now - preTime) / 1000);
                     preTime = now;
 
                     // Time calculations for hours, minutes and seconds

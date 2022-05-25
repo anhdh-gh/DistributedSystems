@@ -28,19 +28,19 @@
             <p>Thực hiện với:</p>
 
             <c:if test="${isSolved == false}">
-                <ul id="de-bai">
+                <div id="de-bai">
                     <c:forEach var="questionSchlosser" items="${questionSchlossers}" varStatus="status">
-                        <li>
-                            <p onclick="showDeBai(${status.count}, ${questionSchlosser.id})" class="text-danger" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#de-${questionSchlosser.id}" aria-expanded="false" aria-controls="collapseExample">N = ${questionSchlosser.soNut}</p>
-                        </li>
+                        <div>
+                            <p onclick="showDeBai(${status.count}, ${questionSchlosser.id})" class="text-danger" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#de-${questionSchlosser.id}" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-arrows-to-dot"></i> N = ${questionSchlosser.soNut}</p>
+                        </div>
                     </c:forEach>
-                </ul>                
+                </div>                
             </c:if>
 
             <c:if test="${isSolved == true}">
-                <ul>
-                    <li>N = ${questionSchlosser.soNut}</li>
-                </ul>
+                <div>
+                    <div><i class="fa-solid fa-arrows-to-dot"></i> N = ${questionSchlosser.soNut}</div>
+                </div>
             </c:if>
             
             <p>Thời gian làm bài: ${requestScope.timeForTest} phút.</p>

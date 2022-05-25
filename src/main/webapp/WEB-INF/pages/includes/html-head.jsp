@@ -42,4 +42,8 @@
         margin-left: .1rem;
         margin-right: .1rem;
     }
+    
+    .active {
+        font-weight: bold;
+    }
 </style>

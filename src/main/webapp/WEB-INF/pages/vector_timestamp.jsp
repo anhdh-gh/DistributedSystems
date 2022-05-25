@@ -25,7 +25,7 @@
             <div class="d-flex justify-content-center">
                 <h4 id="vector-timestamp" class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Nhãn thời gian vector</h4>
             </div>
-            <p>Nhãn thời gian của mỗi tiến trình được đặt theo cấu trúc (P1,P2,P3,...,Pn), n là số lượng tiến trình. Các sự kiện trên mỗi tiến trình thể hiện như sau:</p>
+            <p>Nhãn thời gian của mỗi tiến trình được đặt theo cấu trúc (P1,...,P${isSolved == true ? fn:length(questionVectorTimestamp.res) : 'n'})${isSolved == true ? '' : ', n là số lượng tiến trình'}. Các sự kiện trên mỗi tiến trình thể hiện như sau:</p>
             <ul>
                 <li>eX,Y thể hiện sự kiện</li>
                 <li>X là số hiệu tiến trình</li>
@@ -38,15 +38,13 @@
                     <c:forEach var="questionVectorTimestamp" items="${questionVectorTimestamps}" varStatus="status">
                         <div>
                             <p onclick="showDeBai(${status.count}, ${questionVectorTimestamp.vector_id})" class="text-danger" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#de-${questionVectorTimestamp.vector_id}" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-arrows-to-dot"></i> Xem đề ${status.count}</p>
-                        
+
                             <div class="collapse" id="de-${questionVectorTimestamp.vector_id}">
-                                <div class="card card-body">
-                                    <ul style="list-style-type:disc;">
-                                        <c:forEach var="listMesi" items="${questionVectorTimestamp.listMes}">
-                                            <li>${listMesi}</li>
-                                            </c:forEach>
-                                    </ul>
-                                </div>
+                                <ul style="list-style-type:disc;">
+                                    <c:forEach var="listMesi" items="${questionVectorTimestamp.listMes}">
+                                        <li>${listMesi}</li>
+                                        </c:forEach>
+                                </ul>
                             </div>
                         </div>
                     </c:forEach>
@@ -82,31 +80,31 @@
                                 <thead style="background-color: #d30000" class="text-white align-middle">
                                     <tr class="text-center align-middle text-nowrap">
                                         <th style="background-color: #d30000" scope="col" class="position-sticky start-0">TT</th>
-                                        <c:forEach var="i" begin="0" end="${fn:length(questionVectorTimestamp.res[0]) - 1}">
+                                            <c:forEach var="i" begin="0" end="${fn:length(questionVectorTimestamp.res[0]) - 1}">
                                             <th scope="col">eX,${i}</th>
-                                        </c:forEach>
+                                            </c:forEach>
                                     </tr>
                                 </thead>
                                 <tbody class="fw-bold align-middle text-black">
-                                    <c:set var="isIcr"><%= java.lang.Math.round(java.lang.Math.random() * 2) % 2 %></c:set>
-                                    <input autocomplete="off" type="hidden" name="isIcr" value="${isIcr}">
-                                    <c:forEach var="icr" begin="0" end="${fn:length(questionVectorTimestamp.res) - 1}" step="1">
-                                        <c:set var="i" value="${isIcr == 0 ? icr : fn:length(questionVectorTimestamp.res)-1-icr}"/>
-                                        <tr>
-                                            <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">P${i+1}</th>
-                                                <c:forEach var="j" begin="0" end="${fn:length(questionVectorTimestamp.res[i]) - 1}" step="+1">
-                                                <td>
-                                                    <c:if test="${j == 0}">
-                                                        ${questionVectorTimestamp.res[i][j]}
-                                                    </c:if>
+                                    <c:set var="isIcr"><%= java.lang.Math.round(java.lang.Math.random() * 2) % 2%></c:set>
+                                <input autocomplete="off" type="hidden" name="isIcr" value="${isIcr}">
+                                <c:forEach var="icr" begin="0" end="${fn:length(questionVectorTimestamp.res) - 1}" step="1">
+                                    <c:set var="i" value="${isIcr == 0 ? icr : fn:length(questionVectorTimestamp.res)-1-icr}"/>
+                                    <tr>
+                                        <th style="background-color: #d30000" class="text-white text-center position-sticky start-0">P${i+1}</th>
+                                            <c:forEach var="j" begin="0" end="${fn:length(questionVectorTimestamp.res[i]) - 1}" step="+1">
+                                            <td>
+                                                <c:if test="${j == 0}">
+                                                    ${questionVectorTimestamp.res[i][j]}
+                                                </c:if>
 
-                                                    <c:if test="${j != 0}">
-                                                        <input autocomplete="off" style="min-width: 100px" class="form-control" type="text" name="${i}-${j}" value="e${i + 1},${j}">
-                                                    </c:if>
-                                                </td>
-                                            </c:forEach>                                       
-                                        </tr>
-                                    </c:forEach>
+                                                <c:if test="${j != 0}">
+                                                    <input autocomplete="off" style="min-width: 100px" class="form-control" type="text" name="${i}-${j}" value="e${i + 1},${j}">
+                                                </c:if>
+                                            </td>
+                                        </c:forEach>                                       
+                                    </tr>
+                                </c:forEach>
                                 </tbody>
                             </table>                        
                         </div>
@@ -129,11 +127,11 @@
                                 <tr class="text-center align-middle text-nowrap">
                                     <th style="background-color: #d30000" scope="col" class="position-sticky start-0">TT</th>
                                     <c:forEach var="i" begin="0" end="${fn:length(questionVectorTimestamp.res[0]) - 1}">
-                                        <th scope="col">eX,${i}</th>
+                                    <th scope="col">eX,${i}</th>
                                     </c:forEach>
-                                </tr>
-                            </thead>
-                            <tbody class="fw-bold align-middle text-black text-center">
+                            </tr>
+                        </thead>
+                        <tbody class="fw-bold align-middle text-black text-center">
                             <c:forEach var="icr" begin="0" end="${fn:length(questionVectorTimestamp.res) - 1}" step="1">
                                 <c:set var="i" value="${isIcr == 0 ? icr : fn:length(questionVectorTimestamp.res) - 1 - icr}"/>
                                 <tr>
@@ -169,9 +167,9 @@
                         <thead style="background-color: #d30000" class="text-white align-middle">
                             <tr class="text-center align-middle text-nowrap">
                                 <th style="background-color: #d30000" scope="col" class="position-sticky start-0">TT</th>
-                                <c:forEach var="i" begin="0" end="${fn:length(questionVectorTimestamp.res[0]) - 1}">
+                                    <c:forEach var="i" begin="0" end="${fn:length(questionVectorTimestamp.res[0]) - 1}">
                                     <th scope="col">eX,${i}</th>
-                                </c:forEach>
+                                    </c:forEach>
                             </tr>
                         </thead>
                         <tbody class="fw-bold align-middle text-black text-center">
@@ -243,7 +241,7 @@
                 // Update the count every 1 second
                 x = setInterval(function () {
                     let now = new Date().getTime();
-                    countSeconds += Math.round((now - preTime)/1000);
+                    countSeconds += Math.round((now - preTime) / 1000);
                     preTime = now;
 
                     // Time calculations for hours, minutes and seconds

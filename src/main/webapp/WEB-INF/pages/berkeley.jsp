@@ -28,13 +28,13 @@
 
             <c:if test="${isSolved == false}">
                 <p>Sử dụng giải thuật Berkeley tính giá trị cần điều trình (mili giây) và thời gian sau khi đồng bộ (ghi theo định dạng yyyy-mm-dd hh:mi:ss:ms) cho các tiến trình sau:</p>
-                <ul id="de-bai">
+                <div id="de-bai">
                     <c:forEach var="questionBerkeley" items="${questionBerkeleys}" varStatus="status">
-                        <li>
-                            <p onclick="showDeBai(${status.count}, ${questionBerkeley.questionId})" class="text-danger" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#de-${questionBerkeley.questionId}" aria-expanded="false" aria-controls="collapseExample">Xem đề ${status.count}</p>
-                        </li>
+                        <div>
+                            <p onclick="showDeBai(${status.count}, ${questionBerkeley.questionId})" class="text-danger" style="cursor: pointer" data-bs-toggle="collapse" data-bs-target="#de-${questionBerkeley.questionId}" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-arrows-to-dot"></i> Xem đề ${status.count}</p>
+                        </div>
                     </c:forEach>
-                </ul>                
+                </div>                
             </c:if>
 
             <c:if test="${isSolved == true}">
