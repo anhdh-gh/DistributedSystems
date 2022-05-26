@@ -122,7 +122,7 @@
                             <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
                                 <a href="#">Đồng bộ đồng hồ vật lý</a>
                                 <ul>
-                                    <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
+                                    <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
                                         <a href="#">Giải thuật Cristian</a>
                                         <ul>
                                             <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
@@ -137,7 +137,7 @@
                                         </ul>
                                     </li>
 
-                                    <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
+                                    <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
                                         <a href="#">Giải thuật Berkeley</a>
                                         <ul>
                                             <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/berkeley'/>">Dạng điền form</a></li>
@@ -145,7 +145,7 @@
                                         </ul>                                  
                                     </li>
 
-                                    <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
+                                    <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
                                         <a href="#">Giải thuật trung bình</a>
                                         <ul>
                                             <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/trung-binh'/>">Dạng điền form</a></li>
@@ -153,7 +153,7 @@
                                         </ul>                                  
                                     </li>
 
-                                    <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
+                                    <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
                                         <a href="#">Giải thuật tham chiếu quảng bá (RBS)</a>
                                         <ul>
                                             <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/rbs'/>">Dạng điền form</a></li>
@@ -174,7 +174,7 @@
                             <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
                                 <a href="#">Các giải thuật bầu chọn</a>
                                 <ul>
-                                    <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
+                                    <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
                                         <a href="#">Bầu chọn trong môi trường không dây</a>
                                         <ul>
                                             <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/bau-chon-khong-day'/>">Dạng 1</a></li>
