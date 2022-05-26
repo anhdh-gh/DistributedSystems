@@ -32,6 +32,7 @@
         <url-pattern>/service/berkeley</url-pattern>
         <url-pattern>/algorithm/dong-thuan-phan-tan</url-pattern>
         <url-pattern>/service/rbs</url-pattern>
+        <url-pattern>/algorithm/rbs</url-pattern>
         <url-pattern>/service/trung-binh</url-pattern>
         <url-pattern>/service/cristian-ntp</url-pattern>
     </filter-mapping>
@@ -51,6 +52,7 @@
         <url-pattern>/service/berkeley</url-pattern>
         <url-pattern>/algorithm/dong-thuan-phan-tan</url-pattern>
         <url-pattern>/service/rbs</url-pattern>
+        <url-pattern>/algorithm/rbs</url-pattern>
         <url-pattern>/service/trung-binh</url-pattern>
         <url-pattern>/service/cristian-ntp</url-pattern>
     </filter-mapping>

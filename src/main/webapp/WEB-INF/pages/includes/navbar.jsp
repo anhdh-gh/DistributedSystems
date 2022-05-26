@@ -23,8 +23,6 @@
                         <li class="dropdown-submenu">
                             <a class="dropdown-item dropdown-toggle" href="#">Cristian</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/cristian'/>">Dạng cơ bản</a></li>
-                                <li><hr class="dropdown-divider"></li>
                                 <li class="dropdown-submenu">
                                     <a class="dropdown-item dropdown-toggle" href="#">Dạng NTP</a>
                                     <ul class="dropdown-menu">
@@ -33,6 +31,8 @@
                                         <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/cristian-ntp'/>">Dạng gọi service</a></li>
                                     </ul>                                    
                                 </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/cristian'/>">Dạng cơ bản</a></li>
                             </ul>
                         </li>
                         <li><hr class="dropdown-divider"></li>   
@@ -60,6 +60,8 @@
                         <li class="dropdown-submenu">
                             <a class="dropdown-item dropdown-toggle" href="#">Rbs</a>
                             <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/algorithm/rbs'/>">Dạng điển form</a></li>
+                                <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/rbs'/>">Dạng gọi service</a></li>
                             </ul>
                         </li>

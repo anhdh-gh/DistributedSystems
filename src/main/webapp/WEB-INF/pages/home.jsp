@@ -156,6 +156,7 @@
                                     <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>
                                         <a href="#">Giải thuật tham chiếu quảng bá (RBS)</a>
                                         <ul>
+                                            <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/algorithm/rbs'/>">Dạng điền form</a></li>
                                             <li data-jstree='{"icon":"<c:url value='${request.contextPath}/assets/img/link-icon.png'/>"}'><a href="<c:url value='${request.contextPath}/service/rbs'/>">Dạng gọi service</a></li>
                                         </ul>                                  
                                     </li>
