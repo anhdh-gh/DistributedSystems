@@ -67,12 +67,8 @@
                                     <c:forEach var="i" begin="0" end="${fn:length(questionForRbs.pTimes) - 1}">
                                         <tr class="text-center">
                                             <td>${questionForRbs.pTimes[i]}</td>
-
                                             <td>${questionForRbs.qTimes[i]}</td>
-
-                                            <td>
-                                                <input autocomplete="off" style="min-width: 100px" class="form-control" type="text" name="diffPQ-${i}" class="text-danger" size="10">
-                                            </td>
+                                            <td><input autocomplete="off" style="min-width: 100px" class="form-control" type="text" name="diffPQ-${i}" class="text-danger" size="10"></td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>
