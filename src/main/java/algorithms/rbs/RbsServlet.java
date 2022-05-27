@@ -27,7 +27,6 @@ public class RbsServlet extends HttpServlet {
         try {
             QuestionForRbs questionForRbs = QuestionForRbs.getQuestionForRbsByQuestionId(Integer.parseInt(req.getParameter("questionId")));
             
-            
             String[] result = questionForRbs.getDiffPQ();
             String[] ans = new String[result.length];
 

@@ -35,6 +35,7 @@
         <url-pattern>/algorithm/rbs</url-pattern>
         <url-pattern>/service/trung-binh</url-pattern>
         <url-pattern>/service/cristian-ntp</url-pattern>
+        <url-pattern>/examination</url-pattern>
     </filter-mapping>
     <filter-mapping>
         <filter-name>AuthenticationFilter</filter-name>
@@ -55,6 +56,7 @@
         <url-pattern>/algorithm/rbs</url-pattern>
         <url-pattern>/service/trung-binh</url-pattern>
         <url-pattern>/service/cristian-ntp</url-pattern>
+        <url-pattern>/examination</url-pattern>
     </filter-mapping>
     <listener>
         <listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>

@@ -15,7 +15,7 @@ public class QuestionDongThuanPhanTan {
     private final String[][] result_2;
     private final String[] result_final;
 
-    public QuestionDongThuanPhanTan(int id, int soTienTrinh, String[][] deBai, String[] result_1, String[][] result_2, String[] result_final) {
+    private QuestionDongThuanPhanTan(int id, int soTienTrinh, String[][] deBai, String[] result_1, String[][] result_2, String[] result_final) {
         this.id = id;
         this.soTienTrinh = soTienTrinh;
         this.deBai = deBai;

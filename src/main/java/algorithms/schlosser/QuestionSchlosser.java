@@ -13,7 +13,7 @@ public class QuestionSchlosser {
     private final int so_lang_gieng;
     private final int[][] result;
 
-    public QuestionSchlosser(int id, int soNut, int so_lang_gieng, int[][] result) {
+    private QuestionSchlosser(int id, int soNut, int so_lang_gieng, int[][] result) {
         this.id = id;
         this.soNut = soNut;
         this.so_lang_gieng = so_lang_gieng;

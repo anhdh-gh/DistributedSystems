@@ -94,6 +94,10 @@
                     </ul>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="<c:url value='${request.contextPath}/examination'/>">Examination</a>
+                </li>
+
                 <li class="nav-item dropdown">
                     <span class="
                           nav-link
@@ -102,9 +106,6 @@
                         Tutorial
                     </span>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/tutorial'/>">Service tutorial</a></li>                    
-                        <li><hr class="dropdown-divider"></li>  
-
                         <li class="dropdown-submenu">
                             <a class="dropdown-item dropdown-toggle" href="#">Sv ptit</a>
                             <ul class="dropdown-menu">
@@ -116,7 +117,10 @@
 
                                 <li><a target="_blank" class="dropdown-item" href="<c:url value='https://drive.google.com/drive/folders/1b2DXnw92ytdGiRrhS-KQ7fCQe_5ZHpio'/>">Tài liệu</a></li>  
                             </ul>
-                        </li>                  
+                        </li>    
+                        <li><hr class="dropdown-divider"></li>  
+                        
+                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/tutorial'/>">Service tutorial</a></li>                    
                     </ul>
                 </li>  
 

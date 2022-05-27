@@ -24,7 +24,7 @@
             <div class="d-flex justify-content-center">
                 <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Schlosser</h4>
             </div>
-            <p>N nút mạng được thiết kế theo phương pháp Schlosser, định danh của các nút thể hiện trên các hàng và các cột tiêu đề, hãy điền giá trị của các cạnh đến mỗi nút láng giềng của mình.</p>
+            <p>Có ${isSolved == true ? questionSchlosser.soNut : 'N'} nút mạng được thiết kế theo phương pháp Schlosser, định danh của các nút thể hiện trên các hàng và các cột tiêu đề, hãy điền giá trị của các cạnh đến mỗi nút láng giềng của mình.</p>
             <p>Thực hiện với:</p>
 
             <c:if test="${isSolved == false}">
@@ -35,12 +35,6 @@
                         </div>
                     </c:forEach>
                 </div>                
-            </c:if>
-
-            <c:if test="${isSolved == true}">
-                <div>
-                    <div><i class="fa-solid fa-arrows-to-dot"></i> N = ${questionSchlosser.soNut}</div>
-                </div>
             </c:if>
             
             <p>Thời gian làm bài: ${requestScope.timeForTest} phút.</p>

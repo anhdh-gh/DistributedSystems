@@ -13,7 +13,7 @@ public class QuestionLamport {
     private final List<String> events;
     private final int[][] result;
 
-    public QuestionLamport(int id, int[][] deBai, List<String> events, int[][] result) {
+    private QuestionLamport(int id, int[][] deBai, List<String> events, int[][] result) {
         this.id = id;
         this.deBai = deBai;
         this.events = events;

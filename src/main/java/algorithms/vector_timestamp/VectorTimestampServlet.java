@@ -29,7 +29,7 @@ public class VectorTimestampServlet extends HttpServlet {
 
             String[][] res = questionVectorTimestamp.getRes();
             
-            double answerPoint = (double) 10 / (res.length * res[0].length);
+            double answerPoint = (double) 10 / (res.length * res[0].length - res.length);
             double score = 0;
             
             String[][] ans = new String[res.length][res[0].length];

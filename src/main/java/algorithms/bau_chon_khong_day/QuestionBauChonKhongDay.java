@@ -13,7 +13,7 @@ public class QuestionBauChonKhongDay {
     private final String[][] deBai;
     private final String[][] dapAn;
 
-    public QuestionBauChonKhongDay(int id, int so_tien_trinh, String[][] deBai, String[][] dapAn) {
+    private QuestionBauChonKhongDay(int id, int so_tien_trinh, String[][] deBai, String[][] dapAn) {
         this.id = id;
         this.so_tien_trinh = so_tien_trinh;
         this.deBai = deBai;
