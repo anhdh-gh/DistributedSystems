@@ -499,6 +499,9 @@ public class ExamServlet extends HttpServlet {
         
         // Thực hiện random tạo đề
         for (List<Float> struct : structs) {
+            // Xáo trộn đề hiện tại
+            Collections.shuffle(struct);
+            
             // Random mỗi cấu trúc đề 5 lần
             for(int i = 0 ; i < 5 ; i++) {
                 List<QuestionExam> exams = new ArrayList<>();
@@ -509,7 +512,7 @@ public class ExamServlet extends HttpServlet {
                 }       
                 // Kiểm tra xem exam có hợp lệ hay không
                 if(checkExam(exams) == true) 
-                    return exams;
+                     return exams;
             }
         }
         
