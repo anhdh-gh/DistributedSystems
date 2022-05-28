@@ -224,12 +224,14 @@
                     text += (hours < 10 ? "0" + hours : hours) + ":";
                     text += (minutes < 10 ? "0" + minutes : minutes) + ":";
                     text += (seconds < 10 ? "0" + seconds : seconds);
+                    
+                    <c:if test="${isSolved == false}">
+                        $('#time-' + id).text(text);
+                        $('input[name="time"]').val(text);
 
-                    $('#time-' + id).text(text);
-                    $('input[name="time"]').val(text);
-
-                    if (countSeconds === max)
-                        notify.show();
+                        if (countSeconds === max)
+                            notify.show();
+                    </c:if>
                 }, 1000);
             }
         </script>

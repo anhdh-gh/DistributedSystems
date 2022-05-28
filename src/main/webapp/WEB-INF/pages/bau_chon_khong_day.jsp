@@ -281,11 +281,13 @@
                     text += (minutes < 10 ? "0" + minutes : minutes) + ":";
                     text += (seconds < 10 ? "0" + seconds : seconds);
 
-                    $('#time-' + id).text(text);
-                    $('input[name="time"]').val(text);
+                    <c:if test="${isSolved == false}">
+                        $('#time-' + id).text(text);
+                        $('input[name="time"]').val(text);
 
-                    if (countSeconds === max)
-                        notify.show();
+                        if (countSeconds === max)
+                            notify.show();
+                    </c:if>
                 }, 1000);
             }
         </script>

@@ -11,17 +11,27 @@ import algorithms.schlosser.QuestionSchlosser;
 import algorithms.trungbinh.QuestionTrungBinh;
 import algorithms.vector_timestamp.QuestionVectorTimestamp;
 import java.io.IOException;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Random;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import util.ArrayUtil;
 import util.ServletUtil;
 
 @WebServlet(name = "ExamServlet", urlPatterns = {"/examination"})
 public class ExamServlet extends HttpServlet {
+    
+    private final Random random = new Random();
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,6 +47,10 @@ public class ExamServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
+            // Fomat điểm
+            DecimalFormat df = new DecimalFormat("#.##");
+            df.setRoundingMode(RoundingMode.DOWN);
+            
             // Lấy ra id của các đề
             String[] ids_str = req.getParameterValues("id");
             int[] ids = new int[ids_str.length];
@@ -50,7 +64,6 @@ public class ExamServlet extends HttpServlet {
 
             for (int id : ids) {
                 QuestionExam questionExam = QuestionExam.getQuestionExamByID(id);
-                System.out.println(questionExam);
                 questionExams.add(questionExam);
                 Enumeration nameAlgorithm = Enumeration.valueOf(questionExam.getNameAlgorithm());
 
@@ -77,7 +90,7 @@ public class ExamServlet extends HttpServlet {
                                 totalScore += score;
 
                                 req.setAttribute("questionVectorTimestamp_" + questionExam.getId() + "_isIcr", req.getParameter("questionVectorTimestamp_" + questionExam.getId() + "_isIcr"));
-                                req.setAttribute("questionVectorTimestamp_" + questionExam.getId() + "_score", (double) ((double) Math.round(score * 10) / 10));
+                                req.setAttribute("questionVectorTimestamp_" + questionExam.getId() + "_score", df.format(score));
                                 break;
                             }
                         }
@@ -105,7 +118,7 @@ public class ExamServlet extends HttpServlet {
                                 }
 
                                 totalScore += score;
-                                req.setAttribute("questionTrungBinh_" + questionExam.getId() + "_score", (double) ((double) Math.round(score * 10) / 10));
+                                req.setAttribute("questionTrungBinh_" + questionExam.getId() + "_score", df.format(score));
                                 break;
                             }
                         }
@@ -137,7 +150,7 @@ public class ExamServlet extends HttpServlet {
 
                                 double score = questionExam.getScore()*countCorrectValue/countValue;
                                 totalScore += score;
-                                req.setAttribute("questionSchlosser_" + questionExam.getId() + "_score", (double) ((double) Math.round(score * 10) / 10));
+                                req.setAttribute("questionSchlosser_" + questionExam.getId() + "_score", df.format(score));
                                 break;
                             }
                         }
@@ -164,7 +177,7 @@ public class ExamServlet extends HttpServlet {
                                 }
 
                                 totalScore += score;
-                                req.setAttribute("questionForRbs_" + questionExam.getId() + "_score", (double) ((double) Math.round(score * 10) / 10));
+                                req.setAttribute("questionForRbs_" + questionExam.getId() + "_score", df.format(score));
                                 break;
                             }
                         }
@@ -193,7 +206,7 @@ public class ExamServlet extends HttpServlet {
                                 }
 
                                 totalScore += score;
-                                req.setAttribute("questionLamport_" + questionExam.getId() + "_score", (double) ((double) Math.round(score * 10) / 10));
+                                req.setAttribute("questionLamport_" + questionExam.getId() + "_score", df.format(score));
                                 req.setAttribute("questionLamport_" + questionExam.getId() + "_debai_isIcr", req.getParameter("questionLamport_" + questionExam.getId() + "_debai_isIcr"));
                                 req.setAttribute("questionLamport_" + questionExam.getId() + "_bailam_isIcr", req.getParameter("questionLamport_" + questionExam.getId() + "_bailam_isIcr"));
 
@@ -249,7 +262,7 @@ public class ExamServlet extends HttpServlet {
                                 }
 
                                 totalScore += score;
-                                req.setAttribute("questionDongThuanPhanTan_" + questionExam.getId() + "_score", (double) ((double) Math.round(score * 10) / 10));
+                                req.setAttribute("questionDongThuanPhanTan_" + questionExam.getId() + "_score", df.format(score));
                                 break;
                             }
                         }
@@ -273,7 +286,7 @@ public class ExamServlet extends HttpServlet {
                                 }
 
                                 totalScore += score;
-                                req.setAttribute("questionCristian_" + questionExam.getId() + "_score", (double) ((double) Math.round(score * 10) / 10));
+                                req.setAttribute("questionCristian_" + questionExam.getId() + "_score", df.format(score));
 
                                 break;
                             }
@@ -320,7 +333,7 @@ public class ExamServlet extends HttpServlet {
                                 }
 
                                 totalScore += score;
-                                req.setAttribute("questionCristianNtp_" + questionExam.getId() + "_score", (double) ((double) Math.round(score * 10) / 10));
+                                req.setAttribute("questionCristianNtp_" + questionExam.getId() + "_score", df.format(score));
 
                                 break;
                             }
@@ -359,7 +372,7 @@ public class ExamServlet extends HttpServlet {
                                 }
 
                                 totalScore += score;
-                                req.setAttribute("questionBerkeley_" + questionExam.getId() + "_score", (double) ((double) Math.round(score * 10) / 10));
+                                req.setAttribute("questionBerkeley_" + questionExam.getId() + "_score", df.format(score));
                                 break;
                             }
                         }
@@ -394,7 +407,7 @@ public class ExamServlet extends HttpServlet {
 
                                 double score = questionExam.getScore() * countCorrectValue / countValue;
                                 totalScore += score;
-                                req.setAttribute("questionBauChonKhongDay_" + questionExam.getId() + "_score", (double) ((double) Math.round(score * 10) / 10));
+                                req.setAttribute("questionBauChonKhongDay_" + questionExam.getId() + "_score", df.format(score));
 
                                 break;
                             }
@@ -424,7 +437,7 @@ public class ExamServlet extends HttpServlet {
 
                                 double score = questionExam.getScore() * countCorrectValue / countValue;
                                 totalScore += score;
-                                req.setAttribute("questionBauChonKhongDay_" + questionExam.getId() + "_score", (double) ((double) Math.round(score * 10) / 10));
+                                req.setAttribute("questionBauChonKhongDay_" + questionExam.getId() + "_score", df.format(score));
                                 break;
                             }
                         }
@@ -434,7 +447,7 @@ public class ExamServlet extends HttpServlet {
                 }
             }
 
-            req.setAttribute("totalScore", (double) ((double) Math.round(totalScore * 10) / 10));
+            req.setAttribute("totalScore", (double) ((double) Math.round(totalScore * 100) / 100));
             req.setAttribute("questionExams", questionExams);
             req.setAttribute("isSolved", true);
             req.setAttribute("time", req.getParameter("time"));
@@ -445,9 +458,73 @@ public class ExamServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("questionExams", QuestionExam.getQuestionExams());
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {        
+        req.setAttribute("questionExams", createExam());
         req.setAttribute("isSolved", false);
         ServletUtil.forward("/WEB-INF/pages/examination.jsp", req, resp);
+    }
+    
+    // Tạo bài kiểm tra
+    private List<QuestionExam> createExam() {
+        // Nhóm các question có cùng điểm vào một nhóm
+        Map<Float, List<QuestionExam>> map = new HashMap<>();
+        for (QuestionExam questionExam : QuestionExam.getQuestionExams()) {
+            float key = questionExam.getScore();
+            if(map.containsKey(key))
+                map.get(key).add(questionExam);
+            else
+                map.put(key, new ArrayList<>(Arrays.asList(questionExam)));
+        }
+        
+        // Tổng hợp số lượng question và khác nameAlgorithm của các điểm
+        // Ví dụ [1, 2, 2, 3, 3, 3]: Hệ thống có tất cả 1 bài 1 điểm, 2 bài 2 điểm, 3 bài 3 điểm
+        List<Float> list = new ArrayList<>();
+        for (Map.Entry<Float, List<QuestionExam>> entry : map.entrySet()) {
+            List<String> nameAlgorithms = new ArrayList<>();
+            float score = entry.getKey();
+            List<QuestionExam> questions = entry.getValue();
+            for (QuestionExam question : questions)
+                if(!nameAlgorithms.contains(question.getNameAlgorithm())) {
+                    nameAlgorithms.add(question.getNameAlgorithm());
+                    list.add(score);
+                }
+        }
+        
+        // Tìm các cấu trúc đề
+        // Ví dụ [1, 2, 2, 2, 3]: Là 1 dạng đề có 1 câu 1 điểm, 3 câu 2 điểm, 1 câu 3 điểm
+        List<List<Float>> structs = ArrayUtil.findSubsetsWhoseSumIsS(list, 10);
+        
+        // Xáo trộn cấu trúc đề
+        Collections.shuffle(structs);
+        
+        // Thực hiện random tạo đề
+        for (List<Float> struct : structs) {
+            // Random mỗi cấu trúc đề 5 lần
+            for(int i = 0 ; i < 5 ; i++) {
+                List<QuestionExam> exams = new ArrayList<>();
+                // Lấy ngẫu nhiên quesion
+                for (Float score : struct) {
+                    List<QuestionExam> qes = map.get(score);
+                    exams.add(qes.get(random.nextInt(qes.size())));
+                }       
+                // Kiểm tra xem exam có hợp lệ hay không
+                if(checkExam(exams) == true) 
+                    return exams;
+            }
+        }
+        
+        return null;
+    }
+    
+    private boolean checkExam(List<QuestionExam> exams) {
+        for(int i = 0 ; i < exams.size() ; i++) {
+            if(exams.get(i) == null)
+                return false;
+            for(int j = i+1 ; j < exams.size() ; j++)
+                if(exams.get(i).getNameAlgorithm().equals(exams.get(j).getNameAlgorithm()))
+                    return false;
+        }
+        
+        return true;
     }
 }
