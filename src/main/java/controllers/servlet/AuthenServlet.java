@@ -11,7 +11,6 @@ import org.joda.time.LocalDateTime;
 import org.joda.time.Minutes;
 import util.ServletUtil;
 
-
 @WebServlet(name = "AuthenServlet", urlPatterns = {"/signin"})
 public class AuthenServlet extends HttpServlet {
     

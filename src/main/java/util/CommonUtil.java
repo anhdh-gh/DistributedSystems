@@ -6,8 +6,7 @@ import java.util.Objects;
 
 public class CommonUtil {
 
-    private CommonUtil() {
-    }
+    private CommonUtil() {}
 
     public static boolean contains(List<List<Float>> list, List<Float> lj) {
         List<Float> ljTempt = new ArrayList<>(lj);

@@ -11,8 +11,7 @@ public class DateUtil {
     private static final long TICKS_PER_MILLISECOND = 10000;
     private static final SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 
-    private DateUtil() {
-    }
+    private DateUtil() {}
 
     // Get tick theo utc
     public static long getUTCTicks(Date date) {
