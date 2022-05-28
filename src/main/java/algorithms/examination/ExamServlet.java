@@ -512,7 +512,7 @@ public class ExamServlet extends HttpServlet {
                 }       
                 // Kiểm tra xem exam có hợp lệ hay không
                 if(checkExam(exams) == true) 
-                     return exams;
+                    return exams;
             }
         }
         
