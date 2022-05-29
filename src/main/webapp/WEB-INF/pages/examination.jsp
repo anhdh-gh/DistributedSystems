@@ -33,7 +33,7 @@
                     <c:if test="${isSolved == false}">                
                         <div class="d-flex justify-content-between position-sticky top-0 bg-white py-2" style="z-index: 100">
                             <div class="d-flex">
-                                <p id="time" class="text-center fs-4 text-success fw-bold m-0"></p>
+                                <p id="time" class="text-center fs-4 text-success fw-bold m-0">00:00:00</p>
                             </div>
 
                             <div class="d-flex">

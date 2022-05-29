@@ -96,7 +96,7 @@
                         </div>
                             
                         <div class="mt-4">
-                            <p id="time-${questionBerkeley.questionId}" class="fs-4 text-success"></p>
+                            <p id="time-${questionBerkeley.questionId}" class="fs-4 text-success">Thời gian: 00:00:00</p>
                         </div>
                     </form>                    
                 </c:forEach>
@@ -190,8 +190,10 @@
                 clearInterval(x);
 
                 $("#de-bai .collapse.show").each(function () {
-                    if (this.id !== ('de-' + id))
+                    if (this.id !== ('de-' + id)) {
                         $(this).removeClass('show');
+                        $("#time-" + id).text('Thời gian: 00:00:00');
+                    }
                 });
 
                 $("form.collapse.show").each(function () {
