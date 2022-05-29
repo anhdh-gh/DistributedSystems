@@ -188,11 +188,11 @@
 
             function showDeBai(index, id) {
                 clearInterval(x);
+                $("#time-" + id).text('Thời gian: 00:00:00');
 
                 $("#de-bai .collapse.show").each(function () {
                     if (this.id !== ('de-' + id)) {
                         $(this).removeClass('show');
-                        $("#time-" + id).text('Thời gian: 00:00:00');
                     }
                 });
 
@@ -202,7 +202,7 @@
                         $(this).trigger("reset");
                     }
                 });
-
+                
                 let max = Math.round(((new Date().getTime() + ${requestScope.timeForTest} * 60 * 1000) - new Date().getTime()) / 1000);
 
                 let countSeconds = 0;
@@ -226,11 +226,21 @@
                     text += (seconds < 10 ? "0" + seconds : seconds);
 
                     <c:if test="${isSolved == false}">
+                        switch($(".collapse.show").length) {
+                            case 0: {
+                                text = "";
+                                break;
+                            }
+                            case 1: {                             
+                                break;
+                            }
+                        }
+                        
                         $('#time-' + id).text(text);
                         $('input[name="time"]').val(text);
 
                         if (countSeconds === max)
-                            notify.show();
+                            notify.show();                         
                     </c:if>
                 }, 1000);
             }
