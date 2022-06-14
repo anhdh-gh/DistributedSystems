@@ -18,13 +18,14 @@ public class Account {
     }
  
     private static final List<Account> accounts = new ArrayList<>(Arrays.asList(
-//        new Account(1, "Đỗ Hùng Anh", "Đỗ Hùng Anh"),
-//        new Account(2, "Nguyễn Văn Quân", "Nguyễn Văn Quân"),
-//        new Account(3, "Nguyễn Duy Thắng", "Nguyễn Duy Thắng"),
-//        new Account(4, "Phạm Hữu Thuần", "Phạm Hữu Thuần"),
-//        new Account(5, "Nguyễn Duy Thành", "Nguyễn Duy Thành"),
-//        new Account(6, "Trần Đỗ Minh", "Trần Đỗ Minh"),
-//        new Account(7, "Vũ Quang Vinh", "Vũ Quang Vinh")
+        new Account(1, "Đỗ Hùng Anh", "Đỗ Hùng Anh"),
+        new Account(2, "Nguyễn Văn Quân", "Nguyễn Văn Quân"),
+        new Account(3, "Nguyễn Duy Thắng", "Nguyễn Duy Thắng"),
+        new Account(4, "Phạm Hữu Thuần", "Phạm Hữu Thuần"),
+        new Account(5, "Nguyễn Duy Thành", "Nguyễn Duy Thành"),
+        new Account(6, "Trần Đỗ Minh", "Trần Đỗ Minh"),
+        new Account(7, "Vũ Quang Vinh", "Vũ Quang Vinh"),
+        new Account(8, "Nguyễn Duy Đức", "Nguyễn Duy Đức")
     ));
     
     public static Account authentication(String username, String password) {
