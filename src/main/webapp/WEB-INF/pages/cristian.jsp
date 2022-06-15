@@ -23,7 +23,7 @@
 
             <!-- Cristian de bai begin -->
             <div class="d-flex justify-content-center">
-                <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Cristian</h4>
+                <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block"><a href="" class="text-reset text-decoration-none">Cristian</a></h4>
             </div>
 
             <p>Máy khách thực hiện đồng bộ thời gian vật lý với máy chủ, thời gian gửi và nhận các thông điệp như sau:</p>

@@ -22,7 +22,7 @@
 
             <!-- Nhãn thời gian vector de bai begin -->
             <div class="d-flex justify-content-center">
-                <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Schlosser</h4>
+                <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block"><a href="" class="text-reset text-decoration-none">Schlosser</a></h4>
             </div>
             <p>Có ${isSolved == true ? questionSchlosser.soNut : 'N'} nút mạng được thiết kế theo phương pháp Schlosser, định danh của các nút thể hiện trên các hàng và các cột tiêu đề, hãy điền giá trị của các cạnh đến mỗi nút láng giềng của mình.</p>
             <p>Thực hiện với:</p>

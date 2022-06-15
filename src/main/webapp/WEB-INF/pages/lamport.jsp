@@ -23,7 +23,7 @@
 
             <!-- Nhãn thời gian lamport de bai begin -->
             <div class="d-flex justify-content-center">
-                <h4 id="lamport-timestamp" class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Nhãn thời gian lamport</h4>
+                <h4 id="lamport-timestamp" class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block"><a href="" class="text-reset text-decoration-none">Nhãn thời gian lamport</a></h4>
             </div>
             <p>Có ${isSolved == false ? 'n' : fn:length(questionLamport.deBai)} tiến trình P1, ..., P${isSolved == false ? 'n' : fn:length(questionLamport.deBai)}, mỗi tiến trình đều có bộ đếm thời gian riêng nhưng nhịp đếm không giống nhau. Mỗi tiến trình Pi có bộ đếm Ci để đánh dấu thời điểm xảy tra các sự kiện trong tiến trình, sự kiện ở đây có thể là nội tại trong tiến trình hoặc gửi thông điệp cho tiến trình khác. Các sự kiện trên mỗi tiến trình thể hiện như sau:</p>
             <ul>

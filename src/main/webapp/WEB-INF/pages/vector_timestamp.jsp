@@ -23,7 +23,7 @@
 
             <!-- Nhãn thời gian vector de bai begin -->
             <div class="d-flex justify-content-center">
-                <h4 id="vector-timestamp" class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Nhãn thời gian vector</h4>
+                <h4 id="vector-timestamp" class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block"><a href="" class="text-reset text-decoration-none">Nhãn thời gian vector</a></h4>
             </div>
             <p>Nhãn thời gian của mỗi tiến trình được đặt theo cấu trúc (P1,...,P${isSolved == true ? fn:length(questionVectorTimestamp.res) : 'n'})${isSolved == true ? '' : ', n là số lượng tiến trình'}. Các sự kiện trên mỗi tiến trình thể hiện như sau:</p>
             <ul>

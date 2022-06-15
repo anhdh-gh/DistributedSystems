@@ -24,7 +24,7 @@
             <c:choose>
                 <c:when test="${questionExams != null}">
                     <div class="d-flex justify-content-center">
-                        <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger">Examination</h4>
+                        <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger"><a href="" class="text-reset text-decoration-none">Examination</a></h4>
                     </div>
 
                     <p class="fs-5 text-success">Thời gian làm bài: ${requestScope.timeForTest} phút.</p>

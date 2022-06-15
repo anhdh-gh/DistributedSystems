@@ -22,7 +22,7 @@
             <!-- Navbar end -->  
 
             <div class="d-flex justify-content-center">
-                <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Trung bình</h4>
+                <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block"><a href="" class="text-reset text-decoration-none">Trung bình</a></h4>
             </div>
 
             <!-- Trung binh de bai begin -->

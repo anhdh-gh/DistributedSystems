@@ -56,7 +56,7 @@
             <!-- Header end --> 
 
             <div class="d-flex justify-content-center">
-                <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger">Welcome</h4>
+                <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger"><a href="" class="text-reset text-decoration-none">Welcome</a></h4>
             </div>
 
             <!-- Người dùng đang sử dụng begin-->

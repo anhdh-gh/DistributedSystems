@@ -23,7 +23,7 @@
 
             <!-- Đồng thuận phân tán de bai begin -->
             <div class="d-flex justify-content-center">
-                <h4 id="vector-timestamp" class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Đồng thuận phân tán</h4>
+                <h4 id="dong-thuan-phan-tan" class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block"><a href="" class="text-reset text-decoration-none">Đồng thuận phân tán</a></h4>
             </div>
             <p>Điền giá trị của các bước thực hiện giải thuật đồng thuật phân tán cho các tiến trình sau:</p>
 

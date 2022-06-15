@@ -23,7 +23,7 @@
 
             <!-- Berkeley de bai begin -->
             <div class="d-flex justify-content-center">
-                <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block">Berkeley</h4>
+                <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger d-inline-block"><a href="" class="text-reset text-decoration-none">Berkeley</a></h4>
             </div>
 
             <c:if test="${isSolved == false}">

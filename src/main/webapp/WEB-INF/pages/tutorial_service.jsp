@@ -22,7 +22,7 @@
 
             <!-- Tutorial service begin -->
             <div class="d-flex justify-content-center">
-                <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger">Service tutorial</h4>
+                <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger"><a href="" class="text-reset text-decoration-none">Service tutorial</a></h4>
             </div>
             
             <h5 class="text-danger mt-4">1. Hướng dẫn lấy file C# từ đường dẫn mô tả dịch vụ web:</h5>
