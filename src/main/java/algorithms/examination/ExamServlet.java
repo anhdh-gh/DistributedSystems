@@ -234,6 +234,7 @@ public class ExamServlet extends HttpServlet {
                                 String ans_result_1[] = new String[result_1.length];
                                 for (int i = 0; i < result_1.length; i++) {
                                     ans_result_1[i] = req.getParameter("questionDongThuanPhanTan_" + questionExam.getId() + "_result_1_" + i);
+                                    req.setAttribute("questionDongThuanPhanTan_" + questionExam.getId() + "_result_1_" + i, ans_result_1[i]);
                                     if (result_1[i].equals(ans_result_1[i])) {
                                         score += answerPoint;
                                     }
@@ -245,6 +246,7 @@ public class ExamServlet extends HttpServlet {
                                 for (int i = 0; i < result_2.length; i++) {
                                     for (int j = 0; j < result_2[i].length; j++) {
                                         ans_result_2[i][j] = req.getParameter("questionDongThuanPhanTan_" + questionExam.getId() + "_result_2_" + i + "_" + j);
+                                        req.setAttribute("questionDongThuanPhanTan_" + questionExam.getId() + "_result_2_" + i + "_" + j, ans_result_2[i][j]);
                                         if (result_2[i][j].equals(ans_result_2[i][j])) {
                                             score += answerPoint;
                                         }
@@ -256,6 +258,7 @@ public class ExamServlet extends HttpServlet {
                                 String ans_result_final[] = new String[result_final.length];
                                 for (int i = 0; i < result_final.length; i++) {
                                     ans_result_final[i] = req.getParameter("questionDongThuanPhanTan_" + questionExam.getId() + "_result_final_" + i);
+                                    req.setAttribute("questionDongThuanPhanTan_" + questionExam.getId() + "_result_final_" + i, ans_result_final[i]);
                                     if (result_final[i].equals(ans_result_final[i])) {
                                         score += answerPoint;
                                     }
