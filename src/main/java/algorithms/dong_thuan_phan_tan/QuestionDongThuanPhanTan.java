@@ -38,7 +38,7 @@ public class QuestionDongThuanPhanTan {
                 {"180,Nil,382,483", "180,Nil,382,483", "Nil,Nil,Nil,Nil", "Nil,Nil,Nil,Nil"},
                 {"180,Nil,382,483", "180,Nil,382,483", "180,Nil,382,483", "180,Nil,382,483"}
             },
-            new String[]{"180,Unknow,382,483", "180,Unknow,382,483", "180,Unknow,382,483", "180,Unknow,382,483"}
+            new String[]{"180,Unknown,382,483", "180,Unknown,382,483", "180,Unknown,382,483", "180,Unknown,382,483"}
         )
     ));
 
