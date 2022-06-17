@@ -484,13 +484,15 @@ public class ExamServlet extends HttpServlet {
         Map<Float, List<QuestionExam>> map = new HashMap<>();
         for (QuestionExam questionExam : QuestionExam.getQuestionExams()) {
             float key = questionExam.getScore();
-            if(map.containsKey(key))
+            if(map.containsKey(key)) {
                 map.get(key).add(questionExam);
-            else
+            }
+            else {
                 map.put(key, new ArrayList<>(Arrays.asList(questionExam)));
+            }
         }
         
-        // Tổng hợp số lượng question và khác nameAlgorithm của các điểm
+        // Tổng hợp số lượng question và khác nameAlgorithm của các điểm (Có thể cùng nameAlgorithm và khác dạng - type)
         // Ví dụ [1, 2, 2, 3, 3, 3]: Hệ thống có tất cả 1 bài 1 điểm, 2 bài 2 điểm, 3 bài 3 điểm
         List<Float> list = new ArrayList<>();
         for (Map.Entry<Float, List<QuestionExam>> entry : map.entrySet()) {
@@ -498,8 +500,8 @@ public class ExamServlet extends HttpServlet {
             float score = entry.getKey();
             List<QuestionExam> questions = entry.getValue();
             for (QuestionExam question : questions)
-                if(!nameAlgorithms.contains(question.getNameAlgorithm())) {
-                    nameAlgorithms.add(question.getNameAlgorithm());
+                if(!nameAlgorithms.contains(question.getNameAlgorithm() + " - " + question.getType())) {
+                    nameAlgorithms.add(question.getNameAlgorithm() + " - " + question.getType());
                     list.add(score);
                 }
         }
