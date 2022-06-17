@@ -124,19 +124,27 @@
                     </ul>
                 </li>  
 
-                <li class="nav-item dropdown ms-auto">
-                    <span class="
-                          nav-link text-danger fw-bold
-                          dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-                          >
-                        ${sessionScope.account.username}
-                    </span>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/signin'/>">
-                                <i class="fa-solid fa-right-from-bracket"></i> Sign out
-                            </a></li>
-                    </ul>
-                </li>  
+                <c:if test="${sessionScope.account != null}">
+                    <li class="nav-item dropdown ms-auto">
+                        <span class="
+                              nav-link text-danger fw-bold
+                              dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                              >
+                            ${sessionScope.account.username}
+                        </span>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/signin?back_to_home=true'/>">
+                                    <i class="fa-solid fa-right-from-bracket"></i> Sign out
+                                </a></li>
+                        </ul>
+                    </li>                      
+                </c:if>
+
+                <c:if test="${sessionScope.account == null}">
+                    <li class="nav-item ms-auto">
+                        <a class="nav-link" href="<c:url value='${request.contextPath}/signin'/>"><i class="fa-solid fa-user"></i> Sign in</a>
+                    </li>
+                </c:if>
             </ul>
         </div>
     </div>

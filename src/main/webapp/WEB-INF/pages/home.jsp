@@ -59,44 +59,46 @@
                 <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger"><a href="" class="text-reset text-decoration-none">Welcome</a></h4>
             </div>
 
-            <!-- Người dùng đang sử dụng begin-->
-            <h5 class="text-danger mt-4">1. User status:</h5>
-            <div class="row mt-3">
-                <c:forEach var="account" items="${accounts}" varStatus="status">
-                    <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
-                        <div class="user-link ps-3 pe-2 d-flex">
-                            <span class="user-img">
-                                <img class="rounded-circle" src="<c:url value='${request.contextPath}/assets/img/avata-icon.jpg'/>" width="30" alt="Avata">
-                                <span class="status ${account.value == 0 ? 'online' : account.value > 0 ? 'bg-warning' : 'bg-danger'}"></span>
-                            </span>     
+            <c:if test="${sessionScope.account != null}">
+                <!-- Người dùng đang sử dụng begin-->
+                <h5 class="text-danger mt-4">1. User status:</h5>
+                <div class="row mt-3">
+                    <c:forEach var="account" items="${accounts}" varStatus="status">
+                        <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+                            <div class="user-link ps-3 pe-2 d-flex">
+                                <span class="user-img">
+                                    <img class="rounded-circle" src="<c:url value='${request.contextPath}/assets/img/avata-icon.jpg'/>" width="30" alt="Avata">
+                                    <span class="status ${account.value == 0 ? 'online' : account.value > 0 ? 'bg-warning' : 'bg-danger'}"></span>
+                                </span>     
 
-                            <div class="d-inline d-flex flex-column justify-content-center ms-2" style="line-height: normal;">
-                                <span class="fw-bold" style="font-size: 14px">${account.key}</span>
-                                <span class="text-muted" style="font-size: 10px">
-                                    <c:choose>
-                                        <c:when test="${account.value == 0}">Online</c:when>
-                                        <c:when test="${account.value > 0}">Online ${account.value} mins ago</c:when>
-                                        <c:otherwise>Offline</c:otherwise>
-                                    </c:choose>
-                                </span>
-                            </div>
-                        </div>  
-                    </div>
-                </c:forEach>
-            </div>
-            <!-- Người dùng đang sử dụng end-->
+                                <div class="d-inline d-flex flex-column justify-content-center ms-2" style="line-height: normal;">
+                                    <span class="fw-bold" style="font-size: 14px">${account.key}</span>
+                                    <span class="text-muted" style="font-size: 10px">
+                                        <c:choose>
+                                            <c:when test="${account.value == 0}">Online</c:when>
+                                            <c:when test="${account.value > 0}">Online ${account.value} mins ago</c:when>
+                                            <c:otherwise>Offline</c:otherwise>
+                                        </c:choose>
+                                    </span>
+                                </div>
+                            </div>  
+                        </div>
+                    </c:forEach>
+                </div>
+                <!-- Người dùng đang sử dụng end-->
 
-            <!-- Chú ý begin -->
-            <h5 class="text-danger mt-4">2. Important notes:</h5>
-            <ul>
-                <li>Khi sử dụng xong hệ thống thì phải luôn <b>đăng xuất tài khoản</b>.</li>
-                <li>Tài khoản đang sử dụng thì sẽ không thể đăng nhập được ở bất kỳ trình duyệt nào khác.</li>
-                <li>Nếu lỡ quên đăng xuất tài khoản, đừng lo lắng. Hãy thử đăng nhập lại sau 30 -> 120 phút. Hoặc sử dụng một tài khoản khác chưa được đăng nhập.</li>
-            </ul>    
-            <!-- Chú ý end -->
+                <!-- Chú ý begin -->
+                <h5 class="text-danger mt-4">2. Important notes:</h5>
+                <ul>
+                    <li>Khi sử dụng xong hệ thống thì phải luôn <b>đăng xuất tài khoản</b>.</li>
+                    <li>Tài khoản đang sử dụng thì sẽ không thể đăng nhập được ở bất kỳ trình duyệt nào khác.</li>
+                    <li>Nếu lỡ quên đăng xuất tài khoản, đừng lo lắng. Hãy thử đăng nhập lại sau 30 -> 120 phút. Hoặc sử dụng một tài khoản khác chưa được đăng nhập.</li>
+                </ul>    
+                <!-- Chú ý end -->                
+            </c:if>
 
             <!-- Tree begin -->
-            <h5 class="text-danger mt-4">3. Các thuật toán:</h5>
+            <h5 class="text-danger mt-4">${sessionScope.account == null ? '1' : '3'}. Algorithms:</h5>
             <div id="tree" class="overflow-auto">
                 <ul>
                     <li data-jstree='{"opened":true, "icon":"<c:url value='${request.contextPath}/assets/img/tree.png'/>"}'>

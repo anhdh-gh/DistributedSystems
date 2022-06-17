@@ -49,6 +49,10 @@
                     </div>
                     <input type="hidden" name="url_return" value="${return_url != null && return_url != "" ? return_url : "/"}">
                     <button type="submit" class="btn btn-danger fw-bold mt-2" style="background-color: #d30000;  min-width: 100%">Sign in</button>
+                
+                    <div class="mt-3">
+                        <a class="text-decoration-none fw-bold text-danger" href="<c:url value='${request.contextPath}/'/>">Home</a>
+                    </div>
                 </form>     
                 <!-- Form login end -->
             </div>

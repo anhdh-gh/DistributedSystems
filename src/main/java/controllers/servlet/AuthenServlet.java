@@ -26,15 +26,21 @@ public class AuthenServlet extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String return_url = "";
-        String urlPath = ServletUtil.getUrlPath(req, resp);
-        int index = urlPath.indexOf("?return_url=");
-        
-        if(index >= 0) 
-            return_url = urlPath.substring(index).replace("?return_url=", "");
-  
-        req.setAttribute("return_url", return_url);
-        ServletUtil.forward("/WEB-INF/pages/signin.jsp", req, resp);
+        String bth = req.getParameter("back_to_home");
+        if(bth != null && bth.equals("true")) {
+            ServletUtil.sendRedirect("/", req, resp);
+        }
+        else {
+            String return_url = "";
+            String urlPath = ServletUtil.getUrlPath(req, resp);
+            int index = urlPath.indexOf("?return_url=");
+
+            if(index >= 0) 
+                return_url = urlPath.substring(index).replace("?return_url=", "");
+
+            req.setAttribute("return_url", return_url);
+            ServletUtil.forward("/WEB-INF/pages/signin.jsp", req, resp);            
+        }
     }
 
     @Override

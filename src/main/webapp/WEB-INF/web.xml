@@ -39,7 +39,6 @@
     </filter-mapping>
     <filter-mapping>
         <filter-name>AuthenticationFilter</filter-name>
-        <url-pattern>/</url-pattern>
         <url-pattern>/service/tutorial</url-pattern>
         <url-pattern>/algorithm/vector-timestamp</url-pattern>
         <url-pattern>/algorithm/lamport</url-pattern>
