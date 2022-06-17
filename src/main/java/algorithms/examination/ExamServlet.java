@@ -88,6 +88,7 @@ public class ExamServlet extends HttpServlet {
                                     }
                                 }
                                 totalScore += score;
+                                score = ((int) score + 1) - score <= 0.01 ? ((int) score + 1) : score;
 
                                 req.setAttribute("questionVectorTimestamp_" + questionExam.getId() + "_isIcr", req.getParameter("questionVectorTimestamp_" + questionExam.getId() + "_isIcr"));
                                 req.setAttribute("questionVectorTimestamp_" + questionExam.getId() + "_score", df.format(score));
@@ -118,6 +119,7 @@ public class ExamServlet extends HttpServlet {
                                 }
 
                                 totalScore += score;
+                                score = ((int) score + 1) - score <= 0.01 ? ((int) score + 1) : score;
                                 req.setAttribute("questionTrungBinh_" + questionExam.getId() + "_score", df.format(score));
                                 break;
                             }
@@ -150,6 +152,7 @@ public class ExamServlet extends HttpServlet {
 
                                 double score = questionExam.getScore()*countCorrectValue/countValue;
                                 totalScore += score;
+                                score = ((int) score + 1) - score <= 0.01 ? ((int) score + 1) : score;
                                 req.setAttribute("questionSchlosser_" + questionExam.getId() + "_score", df.format(score));
                                 break;
                             }
@@ -177,6 +180,7 @@ public class ExamServlet extends HttpServlet {
                                 }
 
                                 totalScore += score;
+                                score = ((int) score + 1) - score <= 0.01 ? ((int) score + 1) : score;
                                 req.setAttribute("questionForRbs_" + questionExam.getId() + "_score", df.format(score));
                                 break;
                             }
@@ -206,6 +210,7 @@ public class ExamServlet extends HttpServlet {
                                 }
 
                                 totalScore += score;
+                                score = ((int) score + 1) - score <= 0.01 ? ((int) score + 1) : score;
                                 req.setAttribute("questionLamport_" + questionExam.getId() + "_score", df.format(score));
                                 req.setAttribute("questionLamport_" + questionExam.getId() + "_debai_isIcr", req.getParameter("questionLamport_" + questionExam.getId() + "_debai_isIcr"));
                                 req.setAttribute("questionLamport_" + questionExam.getId() + "_bailam_isIcr", req.getParameter("questionLamport_" + questionExam.getId() + "_bailam_isIcr"));
@@ -265,6 +270,7 @@ public class ExamServlet extends HttpServlet {
                                 }
 
                                 totalScore += score;
+                                score = ((int) score + 1) - score <= 0.01 ? ((int) score + 1) : score;
                                 req.setAttribute("questionDongThuanPhanTan_" + questionExam.getId() + "_score", df.format(score));
                                 break;
                             }
@@ -289,6 +295,7 @@ public class ExamServlet extends HttpServlet {
                                 }
 
                                 totalScore += score;
+                                score = ((int) score + 1) - score <= 0.01 ? ((int) score + 1) : score;
                                 req.setAttribute("questionCristian_" + questionExam.getId() + "_score", df.format(score));
 
                                 break;
@@ -336,6 +343,7 @@ public class ExamServlet extends HttpServlet {
                                 }
 
                                 totalScore += score;
+                                score = ((int) score + 1) - score <= 0.01 ? ((int) score + 1) : score;
                                 req.setAttribute("questionCristianNtp_" + questionExam.getId() + "_score", df.format(score));
 
                                 break;
@@ -375,6 +383,7 @@ public class ExamServlet extends HttpServlet {
                                 }
 
                                 totalScore += score;
+                                score = ((int) score + 1) - score <= 0.01 ? ((int) score + 1) : score;
                                 req.setAttribute("questionBerkeley_" + questionExam.getId() + "_score", df.format(score));
                                 break;
                             }
@@ -410,6 +419,7 @@ public class ExamServlet extends HttpServlet {
 
                                 double score = questionExam.getScore() * countCorrectValue / countValue;
                                 totalScore += score;
+                                score = ((int) score + 1) - score <= 0.01 ? ((int) score + 1) : score;
                                 req.setAttribute("questionBauChonKhongDay_" + questionExam.getId() + "_score", df.format(score));
 
                                 break;
@@ -440,6 +450,7 @@ public class ExamServlet extends HttpServlet {
 
                                 double score = questionExam.getScore() * countCorrectValue / countValue;
                                 totalScore += score;
+                                score = ((int) score + 1) - score <= 0.01 ? ((int) score + 1) : score;
                                 req.setAttribute("questionBauChonKhongDay_" + questionExam.getId() + "_score", df.format(score));
                                 break;
                             }

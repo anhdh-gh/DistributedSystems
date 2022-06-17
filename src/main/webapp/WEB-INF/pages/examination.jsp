@@ -155,7 +155,8 @@
 
                                                     <!-- Đề bài -->
                                                     <p>Có ${questionSchlosser.soNut} nút mạng được thiết kế theo phương pháp Schlosser, định danh của các nút thể hiện trên các hàng và các cột tiêu đề, hãy điền giá trị của các cạnh đến mỗi nút láng giềng của mình.</p>
-
+                                                    <p class="text-danger"><c:out value="Số lượng láng giềng cho mỗi nút: ${questionSchlosser.so_lang_gieng}"></c:out></p>
+                                                    
                                                     <!-- Bài làm -->
                                                     <div class="table-responsive position-relative">
                                                         <table class="table table-hover border border-danger table-bordered align-middle w-100">
