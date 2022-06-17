@@ -20,19 +20,18 @@
 <script src="<c:url value='${request.contextPath}/assets/js/jstree.min.js'/>"></script>
 
 <!-- Messenger Plugin chat Code -->
-    <div id="fb-root"></div>
+<div id="fb-root"></div>
 
-    <!-- Your Plugin chat code -->
-    <div id="fb-customer-chat" class="fb-customerchat">
-    </div>
+<!-- Your Plugin chat code -->
+<div id="fb-customer-chat" class="fb-customerchat"></div>
 
-    <script>
-      var chatbox = document.getElementById('fb-customer-chat');
-      chatbox.setAttribute("page_id", "104997555249635");
-      chatbox.setAttribute("attribution", "biz_inbox");
-    </script>
+<script>
+  var chatbox = document.getElementById('fb-customer-chat');
+  chatbox.setAttribute("page_id", "104997555249635");
+  chatbox.setAttribute("attribution", "biz_inbox");
+</script>
 
-<!-- Messenger -->
+<!-- Your SDK code -->
 <script>
     window.fbAsyncInit = function() {
       FB.init({
