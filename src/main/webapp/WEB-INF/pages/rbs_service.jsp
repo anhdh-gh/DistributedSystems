@@ -100,7 +100,7 @@
         string format = "yyyy-MM-dd HH:mm:ss.fff";
         string[] q;
         string[] p;
-        ex.GetInputData("anonymous", "anonymous", 1, 1, out p, out q);
+        ex.GetInputData("Đỗ Hùng Anh", "Đỗ Hùng Anh", 1, 1, out p, out q);
         int length = q.Length;
         string[] diffPQ = new string[length];
         long[] dq = new long[length];
@@ -113,7 +113,7 @@
         {
             Console.WriteLine(diffPQ[i]);
         }
-        ex.Submit("anonymous", "anonymous", 475, 35196, diffPQ);
+        ex.Submit("Đỗ Hùng Anh", "Đỗ Hùng Anh", 475, 35196, diffPQ);
         Console.ReadKey();
     }</pre></code>                
                 </div>

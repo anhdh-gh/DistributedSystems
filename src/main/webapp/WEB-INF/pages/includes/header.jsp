@@ -9,13 +9,13 @@
         </div>
         <div class="fs-4 d-flex d-sm-block d-md-flex justify-content-center justify-content-sm-start">
             <div class="d-flex justify-content-between">
-                <a href="#"><i class="fa-brands fa-facebook text-primary"></i></a>
-                <a href="mailto:abc@def.com" class="ms-2 ms-sm-0 ms-md-2"><i class="far fa-envelope text-danger"></i></a>              
+                <a href="https://www.facebook.com/anhdh.fb" target="_blank"><i class="fa-brands fa-facebook text-primary"></i></a>
+                <a href="mailto:anhdh.cv@gmail.com" target="_blank" class="ms-2 ms-sm-0 ms-md-2"><i class="far fa-envelope text-danger"></i></a>              
             </div>
 
             <div class="ms-2 ms-sm-0 ms-md-2">
-                <a href="#"><i class="fab fa-github text-dark"></i></a>
-                <a href="#"><i class="fab fa-youtube text-danger"></i></a>               
+                <a href="https://github.com/anhdh-gh" target="_blank"><i class="fab fa-github text-dark"></i></a>
+                <a href="https://www.youtube.com/channel/UCuZUp0A9aLrfHSPr3eg05Ow"  target="_blank"><i class="fab fa-youtube text-danger"></i></a>               
             </div>
         </div>            
     </div>

@@ -110,7 +110,7 @@
 
         ExamForBerkeley exam = new ExamForBerkeley();
         string[] memberTimes;
-        string res = exam.getInputData("anonymous", "anonymous", 1, 5, out memberTimes);
+        string res = exam.getInputData("Đỗ Hùng Anh", "Đỗ Hùng Anh", 1, 5, out memberTimes);
 
         Console.WriteLine(res);
         long length = memberTimes.Length;
@@ -137,7 +137,7 @@
             Console.WriteLine(calibrateMs[i]);
         }
 
-        res = exam.submit("anonymous", "anonymous", 1, 5, calibrateMs, final.ToString(fomat));
+        res = exam.submit("Đỗ Hùng Anh", "Đỗ Hùng Anh", 1, 5, calibrateMs, final.ToString(fomat));
         Console.WriteLine(res);
 
         Console.ReadKey();

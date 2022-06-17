@@ -157,7 +157,7 @@
 
         long t4Tick = 0;
         byte[] ntpMessage = new byte[48];
-        string res = exam.getInputData("anonymous", "anonymous", 1, 6, ref t4Tick, ref ntpMessage);
+        string res = exam.getInputData("Đỗ Hùng Anh", "Đỗ Hùng Anh", 1, 6, ref t4Tick, ref ntpMessage);
 
         Console.WriteLine(res);
         for(int i = 0; i < ntpMessage.Length; i++)
@@ -179,7 +179,7 @@
         Console.WriteLine("Fianl: " + final.ToString(fomat));
         Console.WriteLine("Theta: " + theta);
 
-        res = exam.submit("anonymous", "anonymous", 1, 6, t1, t2, t3, t4, theta, final);
+        res = exam.submit("Đỗ Hùng Anh", "Đỗ Hùng Anh", 1, 6, t1, t2, t3, t4, theta, final);
         Console.WriteLine(res);
 
         Console.ReadKey();

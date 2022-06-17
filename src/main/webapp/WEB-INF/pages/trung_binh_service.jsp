@@ -102,7 +102,7 @@
         ExamForTrungBinh exam = new ExamForTrungBinh();
         string fomat = "yyyy-MM-dd HH:mm:ss.fff";
         string[] memberTimes;
-        string res = exam.GetInputData("anonymous", "anonymous", 1, 1, out memberTimes);
+        string res = exam.GetInputData("Đỗ Hùng Anh", "Đỗ Hùng Anh", 1, 1, out memberTimes);
 
         Console.WriteLine(res);
         long length = memberTimes.Length;
@@ -133,7 +133,7 @@
             Console.WriteLine(kq[i]);
         }
 
-        res = exam.Submit("anonymous", "anonymous", 1, 1, kq);
+        res = exam.Submit("Đỗ Hùng Anh", "Đỗ Hùng Anh", 1, 1, kq);
         Console.WriteLine(res);
 
         Console.ReadKey();
