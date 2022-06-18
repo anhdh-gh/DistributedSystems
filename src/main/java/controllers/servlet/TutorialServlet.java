@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import util.ServletUtil;
 
-@WebServlet(name = "TutorialServiceServlet", urlPatterns = {"/service/tutorial"})
-public class TutorialServiceServlet extends HttpServlet {
+@WebServlet(name = "TutorialServlet", urlPatterns = {"/tutorial"})
+public class TutorialServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,7 +23,7 @@ public class TutorialServiceServlet extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ServletUtil.forward("/WEB-INF/pages/tutorial_service.jsp", req, resp);
+        ServletUtil.forward("/WEB-INF/pages/tutorial.jsp", req, resp);
     }
 
     @Override

@@ -120,7 +120,7 @@
                         </li>    
                         <li><hr class="dropdown-divider"></li>  
                         
-                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/service/tutorial'/>">Service tutorial</a></li>                    
+                        <li><a class="dropdown-item" href="<c:url value='${request.contextPath}/tutorial'/>">Tutorial</a></li>                    
                     </ul>
                 </li>  
 

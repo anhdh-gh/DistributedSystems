@@ -1,9 +1,9 @@
-<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Tutorial service</title>
+        <title>Tutorial</title>
         <jsp:include page="./includes/html-head.jsp" />
     </head>
     <body>
@@ -22,10 +22,12 @@
 
             <!-- Tutorial service begin -->
             <div class="d-flex justify-content-center">
-                <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger"><a href="" class="text-reset text-decoration-none">Service tutorial</a></h4>
+                <h4 class="fw-bold my-4 pb-3 border-4 border-bottom border-danger"><a href="" class="text-reset text-decoration-none">Tutorial</a></h4>
             </div>
             
-            <h5 class="text-danger mt-4">1. Hướng dẫn lấy file C# từ đường dẫn mô tả dịch vụ web:</h5>
+            <h5 class="text-success mt-4 fw-bold">1. Service:</h5>
+            
+            <h6 class="text-danger mt-4">1.1. Hướng dẫn lấy file C# từ đường dẫn mô tả dịch vụ web:</h6>
             <ul>
                 <li>Gõ "cmd" vào ô tìm kiếm trên windows 10 và mở với quyền administrator</li>
                 <li>
@@ -42,7 +44,7 @@
                 </li>
             </ul>
 
-            <h5 class="text-danger mt-4">2. Hướng dẫn code:</h5>
+            <h6 class="text-danger mt-4">1.2. Hướng dẫn code:</h6>
             <ul>
                 <li>Cài visual studio 2019 (trong option chọn ".NET desktop development" và "ASP.NET and web development")</li>
                 <li>Vào visual studio 2019 và tạo một project "Console App (.NET Framework)"</li>
@@ -53,6 +55,16 @@
                 <li>Ra file program.cs và code theo yêu cầu đề bài, sử dụng các hàm của file sinh bởi wsdl</li>
             </ul>
             <!-- Tutorial service end -->
+            
+            
+            <h5 class="text-success mb-4 fw-bold">2. Algorithms</h5>
+            <iframe
+                src="<c:url value='${request.contextPath}/assets/file/algorithm_tutorial.pdf'/>#toolbar=0&navpanes=0&scrollbar=0"
+                frameBorder="0"
+                scrolling="auto"
+                height="700px"
+                width="100%"
+            ></iframe>
         </div>      
 
         <!-- Footer begin -->

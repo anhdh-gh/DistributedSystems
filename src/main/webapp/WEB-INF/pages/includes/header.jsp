@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="mt-3 pb-2 border-bottom border-3 border-danger d-flex">
-    <img class="d-none d-md-inline" Src="<c:url value='${request.contextPath}/assets/img/ptit-logo.png'/>" alt="Logo ptit"/>
+    <img class="d-none d-md-inline" src="<c:url value='${request.contextPath}/assets/img/ptit-logo.png'/>" alt="Logo ptit"/>
     <div class="flex-fill text-center text-sm-start d-sm-flex justify-content-between flex-md-column flex-lg-row">
         <div>
             <h5 class="fw-bold text-muted">HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG</h5>
