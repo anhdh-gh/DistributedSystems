@@ -57,7 +57,7 @@
             <!-- Tutorial service end -->
             
             
-            <h5 class="text-success mb-4 fw-bold">2. Algorithms</h5>
+            <h5 class="text-success mt-5 mb-4 fw-bold">2. Algorithms</h5>
             <iframe
                 src="<c:url value='${request.contextPath}/assets/file/algorithm_tutorial.pdf'/>#toolbar=0&navpanes=0&scrollbar=0"
                 frameBorder="0"
