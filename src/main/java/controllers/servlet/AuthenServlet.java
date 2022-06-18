@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Account;
+import model.Role;
 import org.joda.time.LocalDateTime;
 import org.joda.time.Minutes;
 import util.ServletUtil;
@@ -39,6 +40,10 @@ public class AuthenServlet extends HttpServlet {
                 return_url = urlPath.substring(index).replace("?return_url=", "");
 
             req.setAttribute("return_url", return_url);
+            
+            Account accountDefault = Account.getAccounts().stream().filter(account -> account.getRole() == Role.DefaultUser).findFirst().get();
+            req.setAttribute("username", accountDefault.getUsername());
+            req.setAttribute("password", accountDefault.getPassword());
             ServletUtil.forward("/WEB-INF/pages/signin.jsp", req, resp);            
         }
     }

@@ -20,7 +20,11 @@ public class Account {
     }
 
     private static final List<Account> accounts = new ArrayList<>(Arrays.asList(
-        new Account(1, "Đỗ Hùng Anh", "Đỗ Hùng Anh", Role.Admin)
+        // Default User
+        new Account(1, "User Tour", "User Tour", Role.DefaultUser),
+        // Admin
+        new Account(2, "Đỗ Hùng Anh", "Đỗ Hùng Anh", Role.Admin)
+        // User
     ));
     
     public static Account authentication(String username, String password) {
