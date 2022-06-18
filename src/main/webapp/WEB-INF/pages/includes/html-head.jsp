@@ -47,3 +47,6 @@
         font-weight: bold;
     }
 </style>
+
+<!-- Google search -->
+<meta name="google-site-verification" content="EnOWvNA1WN9Hb3CGWGIDRSFUXpkM_8N7TyG3wZ09Dik" />
